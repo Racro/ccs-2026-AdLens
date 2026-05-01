@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+crawler/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Caches
+ocr/cache/
+ocr/shared_downloads/
+search_platform/embeddings_cache/
+search_platform/.gradio/
+detection/__pycache__/
+detection/.claude/
+
+# Pipeline outputs & results
+detection/results/
+crawler/results/
+ocr/logs/
+*.log
+
+# Local Claude settings
+**/.claude/settings.local.json
+
+# Data files (large or auto-generated)
+ocr/ocr.json
+crawler/ads_*.json
+
+# BigQuery credentials / secrets
+*.json.key
+service_account*.json
+credentials*.json
+.env
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,15 @@
+# Primary (GPU)
+#--extra-index-url https://www.paddlepaddle.org.cn/packages/stable/cu123/
+#paddlepaddle-gpu==3.1.0
+paddleocr>=3.0.0
+
+# CPU-only sanity check (swap paddlepaddle-gpu for this when testing without GPU):
+paddlepaddle 
+
+
+# Shared with parent pipeline
+requests>=2.31.0
+Pillow>=9.0.0
+beautifulsoup4>=4.11.0
+urlextract>=1.8.0
+urllib3>=1.26.0
