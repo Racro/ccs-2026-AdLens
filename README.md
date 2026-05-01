@@ -30,7 +30,7 @@ Collect ad creatives and screenshots from `adstransparency.google.com` for a giv
 
 ```bash
 cd crawler
-node main.js AR16735076323512287233 200 --output ../sample_data/ads_raw.json
+python run.py <ad-csv-file> --workers 2
 ```
 
 See [`crawler/README.md`](crawler/README.md) for authenticated crawling and bulk URL input.
@@ -40,29 +40,35 @@ See [`crawler/README.md`](crawler/README.md) for authenticated crawling and bulk
 Extract text from the downloaded screenshots using PaddleOCR PP-OCRv5:
 
 ```bash
-python ocr/process.py \
-    --input-file sample_data/ads_raw.json \
-    --output-file sample_data/metadata.json
+cd ocr
+python process.py \
+    --images-dir ../crawler/results/screenshots/worker_0 \
+    --output-file ocr.json \
+    --device cpu
 ```
 
 See [`ocr/README.md`](ocr/README.md) for GPU/CPU options and batching flags.
 
 ### Step 3 — Translate
 
-Translate non-English OCR text to English using `translategemma:4b` via Ollama:
+Translate non-English OCR text to English using `translategemma:4b` via Ollama. Pass `--out` pointing back at `metadata.json` so the pipeline in Step 4 picks up the translations:
 
 ```bash
 ollama pull translategemma:4b
 
-python detection/translate_ocr.py
-# Reads  : sample_data/metadata.json
-# Writes : sample_data/cached_translations.json
-#          sample_data/metadata_with_translations.json
+python detection/translate_ocr.py \
+    --metadata sample_data/metadata.json \
+    --out      sample_data/metadata.json
+# Reads  : sample_data/metadata.json  (needs ocr_text per record)
+# Writes : sample_data/metadata.json  (adds translated_ocr_text in-place)
+#          sample_data/cached_translations.json  (dedup translation cache)
 ```
 
 ### Step 4 — Detect
 
-Classify ads with a two-model ensemble (qwen3.5:9b + gemma3:12b) and resolve disagreements with a judge (gemma4:26b):
+Classify ads with a two-model ensemble (qwen3.5:9b + gemma3:12b) and resolve disagreements with a judge (gemma4:26b).
+
+**Input:** `sample_data/metadata.json` — labeled records with fields `ad_id`, `violation_type`, `label`, `ocr_text` (and `translated_ocr_text` if Step 3 was run). Images are resolved as `sample_data/<violation_type>/<label>/<ad_id>.png`.
 
 ```bash
 ollama pull qwen3.5:9b
@@ -72,9 +78,9 @@ ollama pull gemma4:26b
 python detection/adlens_pipeline.py
 # Output: detection/results/pipeline_results/
 #   scareware_results.json
-#   misleading_results.json (deceptive_claim)
-#   ad_design_results.json  (misleading_design)
-#   classify_cache.json     (resumable)
+#   misleading_results.json   (deceptive_claim)
+#   ad_design_results.json    (misleading_design)
+#   classify_cache.json       (resumable)
 #   latency_calls.json
 ```
 
@@ -84,27 +90,49 @@ Run specific violations or cap records for a quick test:
 python detection/adlens_pipeline.py --violations scareware --limit 50
 ```
 
-For the `misleading_design` violation the detection uses `detect_misconfigured.py` as a pre-filter and `misleading_design.py` for VLM confirmation before the ensemble pipeline. The `llm_judge.py` step runs automatically via `adlens_pipeline.py` for all disagreements; it can also be run standalone against any existing results directory.
+## End-to-End Run (single script)
+
+`run_all.py` chains all four stages in one command and produces a single consolidated JSON. Works on a CSV of ads or a single image:
+
+```bash
+# Classify a single ad image
+python run_all.py --image path/to/ad.png
+
+# Crawl + classify from a CSV
+python run_all.py --csv ads.csv --workers 2 --device gpu:0
+```
+
+Each stage saves an intermediate file (`ads_after_ocr.json`, `ads_after_translate.json`). Use `--skip-crawl`, `--skip-ocr`, or `--skip-translate` to resume from any stage. Output is written to `run_all_output/ads_final.json` by default (override with `--out-dir`).
+
+The final JSON contains one record per ad with all fields merged: crawler metadata, per-variant OCR text and translation, per-violation classification (per-model, ensemble, judge), and a top-level `malicious` flag.
+
 
 ## Repository Layout
 
 ```
 .
+├── run_all.py        # End-to-end pipeline: crawl → OCR → translate → detect
 ├── crawler/          # Puppeteer crawler for Google Ad Transparency Center
 ├── detection/        # Ensemble VLM classification pipeline
 │   ├── adlens_pipeline.py    # main entry point (steps 3–4)
 │   ├── ensemble.py           # classifier prompts + standalone runner
 │   ├── misleading_design.py  # CTA/undisclosed-advertiser detection
-│   ├── detect_misconfigured.py
 │   ├── llm_judge.py          # disagreement judge (standalone or via pipeline)
-│   └── translate_ocr.py      # step 3 — OCR translation
+│   ├── translate_ocr.py      # step 3 — OCR translation
+│   └── detect_misconfigured.py  # standalone utility (not part of the pipeline)
 ├── ocr/              # PaddleOCR text extraction pipeline
-├── plots/            # Paper figure scripts
 ├── sample_data/      # Labeled ad dataset (images + metadata)
-├── scripts/          # Utility scripts (PDNS lookups)
+├── scripts/          # Utility and analysis scripts
+│   ├── f1_score_table2.py    # Table 2 reproduction (P/R/F1 per model × violation)
+│   ├── pdns/                 # Passive DNS lookups for ad landing domains
+│   └── plots/                # Paper figure scripts (bar chart, precision bins, dedup)
 ├── search_platform/  # Gradio semantic search UI
 ├── sql_queries/      # BigQuery SQL queries and Python client
-└── utils/            # Shared Python utilities
+├── utils/            # Shared Python utilities
+└── violations/       # Sample confirmed-violation ad images
+    ├── deceptive_claims/
+    ├── misleading_ad_design/
+    └── scareware/
 ```
 
 ## Violation Categories

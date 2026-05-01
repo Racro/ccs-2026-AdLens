@@ -1,9 +1,10 @@
 # Crawler
 
-Puppeteer-based crawler for the **Google Ad Transparency Center** (`adstransparency.google.com`). Given a list of advertiser IDs or ad URLs it fetches ad creatives, screenshots, and metadata, saving results as JSON.
+Puppeteer-based crawler for the **Google Ad Transparency Center** (`adstransparency.google.com`). `run.py` is the main entrypoint — it reads a CSV of ad URLs, splits them across parallel workers, and calls `main.js` internally for each chunk.
 
 ## Requirements
 
+- Python 3.12 + `pandas`
 - Node.js 18+
 - Google Chrome (path configurable via `BROWSER_EXECUTABLE_PATH`)
 - Optional: Xvfb for headless servers
@@ -15,35 +16,45 @@ npm install
 ## Usage
 
 ```bash
-# Crawl a single advertiser by ID
-node main.js AR16735076323512287233 50
+# Basic crawl — 2 parallel workers
+python run.py ads.csv --workers 2
 
-# Crawl from a URL list file
-node main.js --urls-file urls.txt --output results/ads.json
+# Cap to 100 rows and save to a specific file
+python run.py ads.csv --max 100 --output results/ads.json
 
-# Set up a persistent browser profile (one-time login)
-node main.js --setup-profile
+# Filter to a specific advertiser
+python run.py ads.csv --filter "advertiser_id == 'AR09188314108603138049'" --workers 4
 
-# Authenticated crawl using saved profile
-node main.js --force-auth AR16735076323512287233 100
+# Resume after a crash using previously saved progress files
+python run.py ads.csv --resume-from "results/progress" --workers 4
+
+# Set up a persistent browser profile (one-time authenticated login)
+python run.py --setup-profile
+
+# Retry ads that failed in a previous run
+python run.py ads.csv --retry-failures results/ads_previous.json
 ```
 
 ### Key Arguments
 
 | Argument | Description |
 |---|---|
-| `--urls-file FILE` | File with ad URLs to crawl (one per line) |
-| `--urls JSON` | JSON array of URLs passed directly |
-| `--output FILE` | Output JSON file (default: `results/ads_<timestamp>.json`) |
-| `--screenshots-dir DIR` | Override screenshot output directory |
-| `--progress-dir DIR` | Override progress checkpoint directory |
-| `--worker-id ID` | Worker identifier for parallel runs |
-| `--force-auth` | Use saved browser profile for authentication |
-| `--setup-profile` | Interactive one-time profile setup (opens visible browser) |
+| `csv_file` | CSV with `advertiser_id`, `creative_id`, and optionally `creative_page_url`. See `sql_queries/create_90k.csv` for an example generated via the BigQuery queries in `sql_queries/`. |
+| `--workers N` | Number of parallel crawl workers (default: 1) |
+| `--max N` | Maximum rows to process |
+| `--start N` | Start from row N (0-indexed) |
+| `--filter EXPR` | Pandas query string to filter the CSV |
+| `--output FILE` | Output JSON file (default: `ads_<timestamp>.json`) |
+| `--screenshots-dir DIR` | Screenshot output directory (default: `./results/screenshots`) |
+| `--progress-dir DIR` | Directory for per-worker progress checkpoints |
+| `--resume-from PATH` | Resume from a progress directory or glob pattern |
+| `--retry-failures FILE` | Re-crawl ads with `error`/`not_found` status from a previous run |
+| `--setup-profile` | Interactive one-time login to create a saved browser profile |
+| `--dry-run` | Preview URLs that would be crawled without running |
 
 ## Configuration
 
-All defaults live in `config.js` and can be overridden via environment variables:
+Defaults live in `config.js` and can be overridden via environment variables:
 
 | Variable | Default | Description |
 |---|---|---|
@@ -59,9 +70,9 @@ All defaults live in `config.js` and can be overridden via environment variables
 ## Output
 
 Results are written to `results/ads_<timestamp>.json`. Each record contains:
-- `ad_id` — unique creative ID
-- `advertiser_id` / `advertiser_name`
+- `creativeID` — unique creative ID
+- `advertiserID` / `advertiserName`
 - `screenshotPath` — path(s) to saved screenshot(s)
 - Ad metadata (topic, region, dates, etc.)
 
-Progress checkpoints in `results/progress/` allow resuming interrupted crawls.
+Per-worker progress checkpoints in `results/progress/` allow resuming interrupted crawls.

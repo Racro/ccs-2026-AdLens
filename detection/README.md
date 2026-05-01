@@ -7,9 +7,9 @@ Ensemble VLM classification pipeline for four ad violation categories. Two class
 | Script | Purpose |
 |---|---|
 | `adlens_pipeline.py` | Main entry point — runs classify + judge phases end-to-end |
-| `ensemble.py` | Scareware & deceptive-claim prompts; standalone ensemble runner |
+| `ensemble.py` | Scareware & deceptive-claim prompts; standalone runner with embedding-based ranking |
 | `misleading_design.py` | Misleading design detection (CTA-only / undisclosed advertiser) |
-| `detect_misconfigured.py` | Misconfigured ad detection (blank, QR-code, broken creatives) |
+| `detect_misconfigured.py` | Standalone utility for misconfigured ad detection (blank, QR-code, broken creatives) — not part of the pipeline |
 | `llm_judge.py` | LLM judge for classifier disagreements |
 | `translate_ocr.py` | NLLB-200 OCR translation cache builder |
 
@@ -73,3 +73,7 @@ All output is written to `results/pipeline_results/` (override with `--out-dir`)
 | `latency_calls.json` | Per-call timing log (wall/load/eval ms, token counts) |
 
 The pipeline is fully resumable — all intermediate results are cached to disk.
+
+## Note on `ensemble.py`
+
+`adlens_pipeline.py` imports only the prompt strings (`PROMPT_SCAREWARE`, `PROMPT_MISLEADING`) from `ensemble.py` and classifies all records directly. It does **not** use the embedding-based cosine-similarity ranking that `ensemble.py` implements as a standalone script. When run standalone, `ensemble.py` first ranks all ads by semantic similarity to reference statements, then runs the LLM classifiers on the top-N candidates — a two-stage approach used during the original large-scale measurement. `adlens_pipeline.py` skips the ranking step and classifies the full labeled dataset directly.

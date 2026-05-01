@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run from the project root (`Malvertising/`).
+Run from the project root (`AdLens/`).
 
 ### Local mode
 ```bash
@@ -136,4 +136,4 @@ python ocr/process.py --mode download --download-workers 10 --batch-size 32 --ma
 
 - **CUDA out of memory** — reduce `--batch-size`
 - **Stale cache results** — delete `./cache` or set `--cache-dir` to a new path
-- **Import errors** — run from the project root (`Malvertising/`), not from inside `ocr/`
+- **Import errors** — run from the project root (`AdLens/`), not from inside `ocr/`
