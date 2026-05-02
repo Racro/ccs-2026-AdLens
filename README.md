@@ -121,24 +121,6 @@ Each stage saves an intermediate file (`ads_after_ocr.json`, `ads_after_translat
 
 The final JSON contains one record per ad with all fields merged: crawler metadata, per-variant OCR text and translation, per-violation classification (per-model, ensemble, judge), and a top-level `malicious` flag.
 
-## App Crawler
-
-`crawler/app.js` is a crawler used for extracting app information for app analysis. It supports Google Play and Apple App Store URLs, reads a JSON list of URLs, and writes one JSON object per line (`.jsonl`).
-
-```bash
-node crawler/app.js <input_json_path> <output_jsonl_path>
-```
-
-Example:
-
-```bash
-node crawler/app.js ./results/app_links.json ./results/app_crawls.jsonl
-```
-
-- Input format: a JSON array of URLs (e.g., `["https://play.google.com/...", "https://apps.apple.com/..."]`)
-- Output format: JSONL with fields such as `appLink`, `reviews`, `overallRating`, `deleted`, and store-specific metadata
-
-
 ## Repository Layout
 
 ```

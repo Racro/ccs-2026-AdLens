@@ -1,0 +1,1337 @@
+[
+  {
+    "creativeID": "CR12496614450482118657",
+    "advertiserID": "AR03192903667376193537",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR12496614450482118657?region=anywhere",
+    "advertiserName": "Eleven Labs Inc.",
+    "adFormat": "text",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:10.041Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/4134617108384201549",
+    "isClickable": true,
+    "targetUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+    "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+    "iframeAnchorInfo": {
+      "count": 4,
+      "links": [
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=es",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=es"
+        },
+        {
+          "href": "https://elevenlabs.io/productions",
+          "id": "header",
+          "text": "Localize Content at Scale. Productions blends AI precision with expert review for perfect multilingu",
+          "innerText": "Localize Content at Scale. Productions blends AI precision with expert review for perfect multilingu",
+          "adUrl": "https://elevenlabs.io/productions"
+        },
+        {
+          "href": "https://elevenlabs.io/es/conversational-ai",
+          "id": "header",
+          "text": "Agentes de IA para cada flujo. Crea, prueba y despliega IA con control empresarial total.",
+          "innerText": "Agentes de IA para cada flujo. Crea, prueba y despliega IA con control empresarial total.",
+          "adUrl": "https://elevenlabs.io/es/conversational-ai"
+        }
+      ],
+      "source": "iframe"
+    },
+    "appLink": null,
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/4134617108384201549",
+      "https://tpc.googlesyndication.com/archive/simgad/8899232208930300502",
+      "https://tpc.googlesyndication.com/archive/simgad/11326058956697705736",
+      "https://tpc.googlesyndication.com/archive/simgad/16060636991097194192",
+      "https://tpc.googlesyndication.com/archive/simgad/17117628508469880668",
+      "https://tpc.googlesyndication.com/archive/simgad/13989087073951514328",
+      "https://tpc.googlesyndication.com/archive/simgad/11754447104141274716",
+      "https://tpc.googlesyndication.com/archive/simgad/10814897686613803277",
+      "https://tpc.googlesyndication.com/archive/simgad/9779431013987548471",
+      "https://tpc.googlesyndication.com/safeframe/1-0-45/html/container.html",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_video_ads/discover_video_ads_wide.html#t=2638916807114459079&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_video_ads/discover_video_ads_wide.html#t=4305788855772141573&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/gadgets/html5_ctd_ad/youtube_home.html#t=8733643750472567551&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_video_ads/discover_video_ads_wide.html#t=10646655491773518742&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/images/abg/icon.png",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_ads/heart_icon.png",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_ads/share_icon.png",
+      "https://tpc.googlesyndication.com/pagead/gadgets/discover_ads/more_icon.png",
+      "https://tpc.googlesyndication.com/simgad/15794938869071491545"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR06843662822874808321?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR15091785835646812161?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR09996722619811889153?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR17059323822961852417?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR08693702797167689729?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR18021783525358829569?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR02302816036522557441?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR08986286964487487489?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR16094093076384972801?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR12174745065834414081?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR02134008823763959809?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR03192903667376193537/creative/CR05526371261992665089?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR12496614450482118657-v0.png"
+    ]
+  },
+  {
+    "creativeID": "CR01547308225181777921",
+    "advertiserID": "AR11312552534603726849",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR01547308225181777921?region=anywhere",
+    "advertiserName": "\u5317\u4eac\u5c0f\u7c73\u79fb\u52a8\u8f6f\u4ef6\u6709\u9650\u516c\u53f8",
+    "adFormat": "video",
+    "iframeInfo": {},
+    "variations": [
+      {
+        "index": 1,
+        "type": "video",
+        "url": "https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&obfuscatedCustomerId=4701086699&creativeId=802107626762&uiFeatures=12&adGroupId=194352240363&assets=%3DH4sIAAAAAAAAAOMy5-Lk2Pr36ILbnAKMQObFtx-f_uUU4AEyv_Qe2A1kMgGZvRMm_W9jEuAAMj9CRJkB_IgOPDkAAAA&sig=ACiVB_zfeMoaPvfgn1ItXHYSytNXbfFLjg&htmlParentId=fletch-render-81269799001218784&responseCallback=fletchCallback81269799001218784&nonce=zUuSBXHnRoIEVqJJUCNE4g",
+        "creativeId": "802107626762"
+      },
+      {
+        "index": 2,
+        "type": "video",
+        "url": "https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&obfuscatedCustomerId=4701086699&creativeId=802107626762&uiFeatures=12&adGroupId=194352240363&assets=%3DH4sIAAAAAAAAAOMy5-Lk2Pr36ILbnAKMQObFtx-f_uUU4AEyv_Qe2A1kMgGZvRMm_W9jEuAAMj9CRJkB_IgOPDkAAAA&allowedVariations=46&sig=ACiVB_zfeMoaPvfgn1ItXHYSytNXbfFLjg&htmlParentId=fletch-render-15015564382453425347&responseCallback=fletchCallback15015564382453425347&nonce=zUuSBXHnRoIEVqJJUCNE4g",
+        "creativeId": "802107626762"
+      }
+    ],
+    "timestamp": "2026-05-02T22:21:20.317Z",
+    "status": "success",
+    "adText": [
+      {
+        "variant": 1,
+        "visibleText": "",
+        "hiddenData": [
+          "Be a shelter for your dog",
+          "Be a shelter for your dog. Shot on #Xiaomi17Ultra",
+          "Learn more",
+          "Xiaomi",
+          "https://www.mi.com/?utm_campaign\\x3dmktso_micom_os_sustain__P1P3boost\\x26utm_channel\\x3dsocial\\x26utm_source\\x3dYouTube\\x26utm_medium\\x3dpaid_social\\x26\\x26utm_type\\x3d1"
+        ],
+        "url": [
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "abgl",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          }
+        ]
+      }
+    ],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/15950225970519793682",
+    "videoThumbnailUrl": "https://i1.ytimg.com/vi/sN8kyNFxxU0/hqdefault.jpg",
+    "isClickable": true,
+    "targetUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+    "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+    "iframeAnchorInfo": {
+      "count": 9,
+      "links": [
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+        },
+        {
+          "href": "https://www.youtube.com/shorts/3yaP8eyt1JM",
+          "id": "",
+          "text": "Be a shelter for your dog \u2602\ufe0f",
+          "innerText": "Be a shelter for your dog \u2602\ufe0f",
+          "adUrl": "https://www.youtube.com/shorts/3yaP8eyt1JM"
+        },
+        {
+          "href": "https://www.youtube.com/channel/UCCspJ6mFfCwOV4qFjZWi2wg",
+          "id": "",
+          "text": "Xiaomi",
+          "innerText": "Xiaomi",
+          "adUrl": "https://www.youtube.com/channel/UCCspJ6mFfCwOV4qFjZWi2wg"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=12&adurl=https%3A%2F%2Fwww.mi.com%2Fth%2Fevent%2Fxiaomi-17-series%3Futm_campaign%3Dmktms_micom_th_th_firstsale_0307-0331_P1P3%26utm_channel%3Ddisplay%26utm_source%3Dgoogle%26utm_medium%3Dcross-network%26utm_content%3Dconversion-pmax%26utm_term%3Dall",
+          "id": "common_15click_anchor",
+          "text": "\u0e43\u0e0a\u0e48\u0e40\u0e02\u0e49\u0e32\u0e0a\u0e21\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c",
+          "innerText": "\u0e43\u0e0a\u0e48\u0e40\u0e02\u0e49\u0e32\u0e0a\u0e21\u0e40\u0e27\u0e47\u0e1a\u0e44\u0e0b\u0e15\u0e4c",
+          "adUrl": "https://www.mi.com/th/event/xiaomi-17-series?utm_campaign=mktms_micom_th_th_firstsale_0307-0331_P1P3&utm_channel=display&utm_source=google&utm_medium=cross-network&utm_content=conversion-pmax&utm_term=all"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&ctype=82&nb=0&adurl=https%3A%2F%2Fwww.mi.com%2Fth%2Fevent%2Fxiaomi-17-series%3Futm_campaign%3Dmktms_micom_th_th_firstsale_0307-0331_P1P3%26utm_channel%3Ddisplay%26utm_source%3Dgoogle%26utm_medium%3Dcross-network%26utm_content%3Dconversion-pmax%26utm_term%3Dall",
+          "id": "",
+          "text": "\u0e2a\u0e31\u0e21\u0e1c\u0e31\u0e2a\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e02\u0e31\u0e49\u0e19\u0e01\u0e27\u0e48\u0e32\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e16\u0e48\u0e32\u0e22\u0e20\u0e32\u0e1e\u0e1c\u0e48\u0e32\u0e19\u0e2a\u0e21\u0e32\u0e23\u0e4c\u0e17\u0e42\u0e1f\u0e19 \u0e14\u0e49\u0e27\u0e22\u0e40\u0e25\u0e19\u0e2a\u0e4c Leica \u0e43\u0e19 Xiaomi 17 Series",
+          "innerText": "\u0e2a\u0e31\u0e21\u0e1c\u0e31\u0e2a\u0e1b\u0e23\u0e30\u0e2a\u0e1a\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e02\u0e31\u0e49\u0e19\u0e01\u0e27\u0e48\u0e32\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e16\u0e48\u0e32\u0e22\u0e20\u0e32\u0e1e\u0e1c\u0e48\u0e32\u0e19\u0e2a\u0e21\u0e32\u0e23\u0e4c\u0e17\u0e42\u0e1f\u0e19 \u0e14\u0e49\u0e27\u0e22\u0e40\u0e25\u0e19\u0e2a\u0e4c Leica \u0e43\u0e19 Xiaomi 17 Series",
+          "adUrl": "https://www.mi.com/th/event/xiaomi-17-series?utm_campaign=mktms_micom_th_th_firstsale_0307-0331_P1P3&utm_channel=display&utm_source=google&utm_medium=cross-network&utm_content=conversion-pmax&utm_term=all"
+        },
+        {
+          "href": "https://adstransparency.google.com/https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FXIAOMI%2BStore%2BBig%2BC%2BExtra%2BRatchadaphisek%2C%2B%25E0%25B8%25AD%25E0%25B8%25B2%25E0%25B8%2584%25E0%25B8%25B2%25E0%25B8%25A3%2B%25E0%25B8%259A%25E0%25B8%25B4%25E0%25B9%258A%25E0%25B8%2581%25E0%25B8%258B%25E0%25B8%25B5%2B%25E0%25B9%2580%25E0%25B8%25AD%25E0%25B9%2587%25E0%25B8%2581%25E0%25B8%258B%25E0%25B9%258C%25E0%25B8%2595%25E0%25B8%25A3%25E0%25B9%2589%25E0%25B8%25B2%2C125%2B%25E0%25B8%2596%252E%2B%25E0%25B8%25A3%25E0%25B8%25B1%25E0%25B8%258A%25E0%25B8%2594%25E0%25B8%25B2%25E0%25B8%25A0%25E0%25B8%25B4%25E0%25B9%2580%25E0%25B8%25A9%25E0%25B8%2581%2C%2C%2C10400%2CTH%2F%4013.7690115%2C100.5719848%2C14z",
+          "id": "",
+          "text": "\u0e14\u0e39\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21",
+          "innerText": "\u0e14\u0e39\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21",
+          "adUrl": "https://adstransparency.google.com/https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FXIAOMI%2BStore%2BBig%2BC%2BExtra%2BRatchadaphisek%2C%2B%25E0%25B8%25AD%25E0%25B8%25B2%25E0%25B8%2584%25E0%25B8%25B2%25E0%25B8%25A3%2B%25E0%25B8%259A%25E0%25B8%25B4%25E0%25B9%258A%25E0%25B8%2581%25E0%25B8%258B%25E0%25B8%25B5%2B%25E0%25B9%2580%25E0%25B8%25AD%25E0%25B9%2587%25E0%25B8%2581%25E0%25B8%258B%25E0%25B9%258C%25E0%25B8%2595%25E0%25B8%25A3%25E0%25B9%2589%25E0%25B8%25B2%2C125%2B%25E0%25B8%2596%252E%2B%25E0%25B8%25A3%25E0%25B8%25B1%25E0%25B8%258A%25E0%25B8%2594%25E0%25B8%25B2%25E0%25B8%25A0%25E0%25B8%25B4%25E0%25B9%2580%25E0%25B8%25A9%25E0%25B8%2581%2C%2C%2C10400%2CTH%2F%4013.7690115%2C100.5719848%2C14z"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=th",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=th"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=12&adurl=https%3A%2F%2Fwww.mi.com%2Fmy%2Fevent%2Fxiaomi-17-series%2F%3Futm_campaign%3Dmktms_micom_my_my_opensale_0228-0331_P1P3%26utm_channel%3Ddisplay%26utm_source%3Dgoogle%26utm_medium%3Dcross-network%26utm_content%3Dconversion-pmax%26utm_term%3Dall",
+          "id": "common_15click_anchor",
+          "text": "YesVisit site",
+          "innerText": "YesVisit site",
+          "adUrl": "https://www.mi.com/my/event/xiaomi-17-series/?utm_campaign=mktms_micom_my_my_opensale_0228-0331_P1P3&utm_channel=display&utm_source=google&utm_medium=cross-network&utm_content=conversion-pmax&utm_term=all"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&ctype=82&nb=0&adurl=https%3A%2F%2Fwww.mi.com%2Fmy%2Fevent%2Fxiaomi-17-series%2F%3Futm_campaign%3Dmktms_micom_my_my_opensale_0228-0331_P1P3%26utm_channel%3Ddisplay%26utm_source%3Dgoogle%26utm_medium%3Dcross-network%26utm_content%3Dconversion-pmax%26utm_term%3Dall",
+          "id": "",
+          "text": "Xiaomi 17 Series | Co-engineered withLeica.",
+          "innerText": "Xiaomi 17 Series | Co-engineered withLeica.",
+          "adUrl": "https://www.mi.com/my/event/xiaomi-17-series/?utm_campaign=mktms_micom_my_my_opensale_0228-0331_P1P3&utm_channel=display&utm_source=google&utm_medium=cross-network&utm_content=conversion-pmax&utm_term=all"
+        }
+      ],
+      "source": "iframe"
+    },
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/15950225970519793682",
+      "https://tpc.googlesyndication.com/archive/simgad/6381235353135440806",
+      "https://tpc.googlesyndication.com/archive/simgad/693599562666215738",
+      "https://tpc.googlesyndication.com/archive/simgad/16152150928926113796",
+      "https://tpc.googlesyndication.com/archive/simgad/16088133178069930074",
+      "https://tpc.googlesyndication.com/archive/simgad/13292174832320114525",
+      "https://tpc.googlesyndication.com/archive/simgad/6472980212795053846",
+      "https://tpc.googlesyndication.com/safeframe/1-0-45/html/container.html",
+      "https://tpc.googlesyndication.com/pagead/gadgets/youtube_vertical_player_media/youtube_vertical_player_media_mobile.html#t=2354725380853966382&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://www.youtube.com/embed/3yaP8eyt1JM?rel=0&version=3&controls=0&autoplay=0&mute=0&origin=https%3A%2F%2Ftpc.googlesyndication.com&widget_referrer=https%3A%2F%2Ftpc.googlesyndication.com%2Fsafeframe%2F1-0-45%2Fhtml%2Fcontainer.html&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Ftpc.googlesyndication.com%2Fpagead%2Fgadgets%2Fyoutube_vertical_player_media%2Fyoutube_vertical_player_media_mobile.html%23t%3D2354725380853966382%26p%3Dhttps%253A%252F%252Ftpc.googlesyndication.com&aoriginsup=1&aorigins=https%3A%2F%2Ftpc.googlesyndication.com%2Chttps%3A%2F%2Fadstransparency.google.com&gporigin=https%3A%2F%2Ftpc.googlesyndication.com%2Fsafeframe%2F1-0-45%2Fhtml%2Fcontainer.html&vf=1",
+      "https://tpc.googlesyndication.com/pagead/images/abg/icon.png"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR11018653256887828481?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR03605063065701187585?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR15078226108497264641?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR10012943165100654593?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR08038114728498692097?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR13570223920769925121?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR10677044889742475265?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR12321353946282065921?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR12651242618986954753?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR14243512065061814273?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR15301557810819497985?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11312552534603726849/creative/CR13925963211355455489?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR01547308225181777921-v0.png",
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR01547308225181777921-v1.png"
+    ]
+  },
+  {
+    "creativeID": "CR03118835796715503617",
+    "advertiserID": "AR03903620458787897345",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR03903620458787897345/creative/CR03118835796715503617",
+    "advertiserName": "HP TRONIC Zl\u00edn, spol. s r.o.",
+    "status": "not_found",
+    "error": "An ad with this ID was not found in your region.",
+    "errorType": "region_restricted",
+    "isRegionError": true,
+    "errorScreenshot": "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR03118835796715503617_error.png",
+    "timestamp": "2026-05-02T22:21:23.372Z"
+  },
+  {
+    "creativeID": "CR10566713158502711297",
+    "advertiserID": "AR02739701501441081345",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR02739701501441081345/creative/CR10566713158502711297",
+    "advertiserName": "Euro-net Sp. z o.o.",
+    "status": "not_found",
+    "error": "An ad with this ID was not found in your region.",
+    "errorType": "region_restricted",
+    "isRegionError": true,
+    "errorScreenshot": "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR10566713158502711297_error.png",
+    "timestamp": "2026-05-02T22:21:26.874Z"
+  },
+  {
+    "creativeID": "CR14312436738155347969",
+    "advertiserID": "AR09656298383739977729",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14312436738155347969?region=anywhere",
+    "advertiserName": "devolo solutions GmbH",
+    "adFormat": "text",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:59.284Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/8462267846943824746",
+    "isClickable": true,
+    "targetUrl": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=9&adurl=https%3A%2F%2Fwww.devolo.de%2Fde%2Fprodukte%2Fdevolo-wifi-7-mesh-be6500-3-pack",
+    "adUrl": "https://www.devolo.de/de/produkte/devolo-wifi-7-mesh-be6500-3-pack",
+    "iframeAnchorInfo": {
+      "count": 5,
+      "links": [
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=9&adurl=https%3A%2F%2Fwww.devolo.de%2Fde%2Fprodukte%2Fdevolo-wifi-7-mesh-be6500-3-pack",
+          "id": "",
+          "text": "devolo WiFi7 MeshBE6500 3-\u2026",
+          "innerText": "devolo WiFi7 MeshBE6500 3-\u2026",
+          "adUrl": "https://www.devolo.de/de/produkte/devolo-wifi-7-mesh-be6500-3-pack"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=19&adurl=https%3A%2F%2Fwww.devolo.de%2Fde%2Fprodukte%2Fdevolo-wifi-7-mesh-be6500-3-pack",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://www.devolo.de/de/produkte/devolo-wifi-7-mesh-be6500-3-pack"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en-US",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en-US"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=9&adurl=https%3A%2F%2Fwww.devolo.de%2Fde%2Fprodukte%2Fmagic-1-lan-network-kit",
+          "id": "",
+          "text": "devoloMagic 1 LANNetwork Kit",
+          "innerText": "devoloMagic 1 LANNetwork Kit",
+          "adUrl": "https://www.devolo.de/de/produkte/magic-1-lan-network-kit"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=19&adurl=https%3A%2F%2Fwww.devolo.de%2Fde%2Fprodukte%2Fmagic-1-lan-network-kit",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://www.devolo.de/de/produkte/magic-1-lan-network-kit"
+        }
+      ],
+      "source": "iframe"
+    },
+    "appLink": null,
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/8462267846943824746",
+      "https://tpc.googlesyndication.com/archive/simgad/15675381077661594651",
+      "https://tpc.googlesyndication.com/archive/simgad/8565196898680998703",
+      "https://tpc.googlesyndication.com/archive/simgad/16089031195577696523",
+      "https://tpc.googlesyndication.com/archive/simgad/11688764089387958897",
+      "https://tpc.googlesyndication.com/archive/simgad/1569511783726280695",
+      "https://tpc.googlesyndication.com/archive/simgad/2725671822048578908",
+      "https://tpc.googlesyndication.com/archive/simgad/5427119395294786425",
+      "https://tpc.googlesyndication.com/archive/simgad/17982437000928615367",
+      "https://tpc.googlesyndication.com/archive/simgad/2280744112022217403",
+      "https://tpc.googlesyndication.com/archive/simgad/6149168599960916045",
+      "https://tpc.googlesyndication.com/archive/simgad/1839261256753144263",
+      "https://tpc.googlesyndication.com/archive/simgad/600229900491148481",
+      "https://tpc.googlesyndication.com/archive/simgad/9055636149013352491",
+      "https://tpc.googlesyndication.com/archive/simgad/6366592845465224356",
+      "https://tpc.googlesyndication.com/archive/simgad/5922909696132670497",
+      "https://tpc.googlesyndication.com/archive/simgad/13628970757749732818",
+      "https://tpc.googlesyndication.com/archive/simgad/14131568644376181087",
+      "https://tpc.googlesyndication.com/archive/simgad/1593391986779562331",
+      "https://tpc.googlesyndication.com/archive/simgad/9883324051939938529",
+      "https://tpc.googlesyndication.com/archive/simgad/13767639809202704989",
+      "https://tpc.googlesyndication.com/archive/simgad/11480032899655113900",
+      "https://tpc.googlesyndication.com/archive/simgad/18309444231429448074",
+      "https://tpc.googlesyndication.com/archive/simgad/4355146276448837387",
+      "https://tpc.googlesyndication.com/archive/simgad/3838150897309472841",
+      "https://tpc.googlesyndication.com/archive/simgad/14942730858101873465",
+      "https://tpc.googlesyndication.com/archive/simgad/14525894128015174498",
+      "https://tpc.googlesyndication.com/archive/simgad/5220372474040183367",
+      "https://tpc.googlesyndication.com/archive/simgad/8512584849280705961",
+      "https://tpc.googlesyndication.com/archive/simgad/14258469151517419027",
+      "https://tpc.googlesyndication.com/archive/simgad/4255917112033211638"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR13768871174731726849?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR10957459396078075905?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR09672488597969698817?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR04617815881651585025?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR05065120911460401153?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR06416744783049392129?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR03220686350525136897?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR13516207250959499265?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR04341921811215155201?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14414492866279636993?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR10176455250118967297?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR11296499888176496641?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR13673782016137494529?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR17505380030899814401?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR06178539755009998849?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14105475020213977089?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07903706166511796225?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR10590697080517296129?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07594536690920718337?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR05507678189930938369?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR15110943863688134657?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR18179966140078358529?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR00813140946693652481?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14319436229177769985?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14858742284555386881?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07490345775071756289?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR00910824858240155649?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07419459160917409793?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR11922284560303259649?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR12980741239941890049?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR02750151998685839361?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR14184780689391484929?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07779083670328967169?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR12017432516999774209?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR02933416079952707585?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR01620307628238307329?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR02616141940944535553?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR07487837651609845761?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR02204193580132597761?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR09656298383739977729/creative/CR01844763778768437249?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_0/CR14312436738155347969-v0.png"
+    ]
+  },
+  {
+    "creativeID": "CR05178075940005085185",
+    "advertiserID": "AR00637010041601261569",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR05178075940005085185?region=anywhere",
+    "advertiserName": "55 SAS",
+    "adFormat": "image",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:09.529Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://s0.2mdn.net//8701942/17f5774a-9744-451c-a405-98b18d02f460.png",
+    "isClickable": false,
+    "targetUrl": null,
+    "adUrl": null,
+    "iframeAnchorInfo": {},
+    "appLink": null,
+    "tpc_list": [
+      "https://s0.2mdn.net/simgad/13122263739846426607",
+      "https://s0.2mdn.net/simgad/3266660323610042253",
+      "https://s0.2mdn.net/simgad/339520663503924304",
+      "https://s0.2mdn.net/simgad/12457121696700258145",
+      "https://s0.2mdn.net/simgad/5053758340093607427",
+      "https://s0.2mdn.net/simgad/7484644179677139246",
+      "https://s0.2mdn.net/simgad/8534668312057877541",
+      "https://s0.2mdn.net/simgad/5479942430334988340"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR13571332365929676801?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR17148879319922114561?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR18436345863396655105?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR03052612486252462081?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR08350904483563175937?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR13493401180776169473?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR12052706696854765569?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR14629293449292021761?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR08419859255787520001?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR11023986575477309441?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR09077587111523123201?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR17417127721506439169?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR10141282148024320001?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR04478005616605921281?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR03381379107341205505?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR03083578581981331457?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR11793300842658922497?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR14356411980586156033?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR11275386885511315457?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR05178075940005085185?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR06861837810211487745?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR18322654436939268097?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR00057180248231378945?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR12271786862590296065?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR11341170116445339649?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR13391152371829047297?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR05639331513217581057?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR08044623150140358657?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR10915410626868150273?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR10892329678777876481?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR00293670905714835457?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR16043884702536302593?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR13086525665967079425?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR15231364988502278145?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR02340514742596009985?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR16138981050905788417?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR09684791720767651841?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR18007443832148328449?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR12202726124932825089?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR00637010041601261569/creative/CR15453726921568813057?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR05178075940005085185-v0.png"
+    ]
+  },
+  {
+    "creativeID": "CR14002555878541099009",
+    "advertiserID": "AR11921104148671496193",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR14002555878541099009?region=anywhere",
+    "advertiserName": "PC Componentes y Multimedia SL",
+    "adFormat": "text",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:12.361Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/4958600599543049132",
+    "isClickable": false,
+    "targetUrl": null,
+    "adUrl": null,
+    "iframeAnchorInfo": {},
+    "appLink": null,
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/4958600599543049132",
+      "https://tpc.googlesyndication.com/archive/simgad/5259163366743894127",
+      "https://tpc.googlesyndication.com/archive/simgad/5024485397777446669",
+      "https://tpc.googlesyndication.com/archive/simgad/17106714603230622438",
+      "https://tpc.googlesyndication.com/archive/simgad/499500951251033946",
+      "https://tpc.googlesyndication.com/archive/simgad/15351374321891072446",
+      "https://tpc.googlesyndication.com/archive/simgad/13534668833280853955",
+      "https://tpc.googlesyndication.com/archive/simgad/10987474195990117872",
+      "https://tpc.googlesyndication.com/archive/simgad/17360238584917561045",
+      "https://tpc.googlesyndication.com/archive/simgad/4456556634747790477",
+      "https://tpc.googlesyndication.com/archive/simgad/8301461307158375627",
+      "https://tpc.googlesyndication.com/archive/simgad/16333934428674284306",
+      "https://tpc.googlesyndication.com/archive/simgad/12714664821629433360"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR15353154945163460609?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR01817581239989698561?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR08655547956977467393?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR07419987158426976257?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR04959412076859621377?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR18127295272500330497?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR15887906746069417985?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR01631533427209535489?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR17443311079093436417?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR13533623652582424577?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR05949729005857931265?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11921104148671496193/creative/CR15415782096689430529?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR14002555878541099009-v0.png"
+    ]
+  },
+  {
+    "creativeID": "CR01944733300111179777",
+    "advertiserID": "AR10127002515636486145",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR10127002515636486145/creative/CR01944733300111179777?region=anywhere",
+    "advertiserName": "ACME 805 Builders",
+    "adFormat": "text",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:15.454Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/16466444789683068115",
+    "isClickable": false,
+    "targetUrl": null,
+    "adUrl": null,
+    "iframeAnchorInfo": {},
+    "appLink": null,
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/16466444789683068115",
+      "https://tpc.googlesyndication.com/archive/simgad/9913807963964078229"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR10127002515636486145/creative/CR05244984246212231169?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10127002515636486145/creative/CR01944733300111179777?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR01944733300111179777-v0.png"
+    ]
+  },
+  {
+    "creativeID": "CR06131594413844987905",
+    "advertiserID": "AR10942234166510485505",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR06131594413844987905?region=anywhere",
+    "advertiserName": "BlueVision Interactive Limited",
+    "adFormat": "video",
+    "iframeInfo": {
+      "count": 1,
+      "sources": [
+        {
+          "src": "https://adstransparency.google.com/adframe",
+          "width": "380",
+          "height": "320"
+        }
+      ]
+    },
+    "variations": [
+      {
+        "index": 1,
+        "type": "video",
+        "url": "https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&obfuscatedCustomerId=5224218195&creativeId=802246330235&uiFeatures=12&versionId=1&assets=%3DH4sIAAAAAAAAAOPi5uLk-HR36qN_nAI8AGAzIqMNAAAA&sig=ACiVB_zTh95Ic-SJyTInsSXTyW4rmzrd-w&htmlParentId=fletch-render-3601349972693889413&responseCallback=fletchCallback3601349972693889413&nonce=HQ06PzkjqS1yXrhFqwEa-A",
+        "creativeId": "802246330235"
+      },
+      {
+        "index": 2,
+        "type": "video",
+        "url": "https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&obfuscatedCustomerId=5224218195&creativeId=802246330235&uiFeatures=12&versionId=1&assets=%3DH4sIAAAAAAAAAOPi5uLkmLDs-7d_nAI8AGSP3w8NAAAA&sig=ACiVB_zMtSP0aQtB82CciK12Q-H-reDHDg&htmlParentId=fletch-render-14820632838109094113&responseCallback=fletchCallback14820632838109094113&nonce=HQ06PzkjqS1yXrhFqwEa-A",
+        "creativeId": "802246330235"
+      },
+      {
+        "index": 3,
+        "type": "video",
+        "url": "https://displayads-formats.googleusercontent.com/ads/preview/content.js?client=ads-integrity-transparency&obfuscatedCustomerId=5224218195&creativeId=802246330235&uiFeatures=12&versionId=1&assets=%3DH4sIAAAAAAAAAOPi5uLk-H136qN_nAI8AEsobbwNAAAA&sig=ACiVB_wjW7ka7F_MUe-B4DXD9E1vZLqyfA&htmlParentId=fletch-render-11359981324139891889&responseCallback=fletchCallback11359981324139891889&nonce=HQ06PzkjqS1yXrhFqwEa-A",
+        "creativeId": "802246330235"
+      }
+    ],
+    "timestamp": "2026-05-02T22:21:20.081Z",
+    "status": "success",
+    "adText": [
+      {
+        "variant": 0,
+        "visibleText": "Quick Cleaner\nQuick Cleaner\nInstall\nInstall\nQuick Cleaner\nInstall",
+        "hiddenData": null,
+        "url": [
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=16&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "abgl",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          }
+        ]
+      },
+      {
+        "variant": 1,
+        "visibleText": "Quick Cleaner\nQuick Cleaner\nInstall\nInstall\nQuick Cleaner\nInstall\ngo",
+        "hiddenData": null,
+        "url": [
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=16&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "abgl",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          }
+        ]
+      },
+      {
+        "variant": 2,
+        "visibleText": "Quick Cleaner\nQuick Cleaner\nFast Clean is a free, lightweight tool designed to help your Android device clean up\nInstall\nQuick Cleaner\nInstall\ngo",
+        "hiddenData": null,
+        "url": [
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=7&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Fast Clean is a free, lightweight tool designed tohelp your Android device clean up",
+            "innerText": "Fast Clean is a free, lightweight tool designed tohelp your Android device clean up",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=7&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Fast Clean is a free, lightweight tool designed to help your Android device clean up",
+            "innerText": "Fast Clean is a free, lightweight tool designed to help your Android device clean up",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Quick Cleaner",
+            "innerText": "Quick Cleaner",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+            "id": "",
+            "text": "Install",
+            "innerText": "Install",
+            "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          },
+          {
+            "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+            "id": "abgl",
+            "text": "",
+            "innerText": "",
+            "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+          }
+        ]
+      }
+    ],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/15704081190260915658",
+    "videoThumbnailUrl": "https://i1.ytimg.com/vi/szHZ6OCxGG4/hqdefault.jpg",
+    "isClickable": true,
+    "targetUrl": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+    "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover",
+    "iframeAnchorInfo": {
+      "count": 53,
+      "links": [
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "War Inc",
+          "innerText": "War Inc",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=16&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "War Inc: Rising",
+          "innerText": "War Inc: Rising",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.i89trillion.strategy.rising",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.i89trillion.strategy.rising"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "Quick Cleaner",
+          "innerText": "Quick Cleaner",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=7&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "Fast Clean is a free, lightweight tool designed to help your Android device clean up",
+          "innerText": "Fast Clean is a free, lightweight tool designed to help your Android device clean up",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "Quick Cleaner",
+          "innerText": "Quick Cleaner",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "DESARROLLADORyixiaoqing",
+          "innerText": "DESARROLLADORyixiaoqing",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=7&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "buscar musica con audio",
+          "innerText": "buscar musica con audio",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=65&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "DESCARGASDownloads",
+          "innerText": "DESCARGASDownloads",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=64&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "CATEGOR\u00cdACategory",
+          "innerText": "CATEGOR\u00cdACategory",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "Instalar",
+          "innerText": "Instalar",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "Reconocer Canci\u00f3n-Song Finder",
+          "innerText": "Reconocer Canci\u00f3n-Song Finder",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.light.music.recognition",
+          "id": "",
+          "text": "Instalar",
+          "innerText": "Instalar",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.light.music.recognition"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=es",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=es"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=16&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.incleaner.quicktool.filesover",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover"
+        },
+        {
+          "href": "https://www.google.com/?sa=X&ved=2ahUKEwjRi5zu0ZuUAxURSKsCHR6jEZwQ3ooFegQIABAB",
+          "id": "",
+          "text": "a.fdYsqf{color:#681da8}.nNzjpf-FzV1B-ezkdbf-ZEImld{position:relative}.nNzjpf-FzV1B-ezkdbf-PLx83e{dis",
+          "innerText": "a.fdYsqf{color:#681da8}.nNzjpf-FzV1B-ezkdbf-ZEImld{position:relative}.nNzjpf-FzV1B-ezkdbf-PLx83e{dis",
+          "adUrl": "https://www.google.com/?sa=X&ved=2ahUKEwjRi5zu0ZuUAxURSKsCHR6jEZwQ3ooFegQIABAB"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=ur",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=ur"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=9&adurl=https%3A%2F%2Fwww.proudstitch.com%2Fproducts%2Fproudstitch-personalized-mama-sweatshirt-with-photo-custom-embroidered-hoodie-mama-and-kids-portrait%3Fvariant%3D112298e6-424e-49df-b8cb-e51b8c3724db",
+          "id": "",
+          "text": "ProudstitchPersonaliz\u2026Mama\u2026",
+          "innerText": "ProudstitchPersonaliz\u2026Mama\u2026",
+          "adUrl": "https://www.proudstitch.com/products/proudstitch-personalized-mama-sweatshirt-with-photo-custom-embroidered-hoodie-mama-and-kids-portrait?variant=112298e6-424e-49df-b8cb-e51b8c3724db"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&nb=19&adurl=https%3A%2F%2Fwww.proudstitch.com%2Fproducts%2Fproudstitch-personalized-mama-sweatshirt-with-photo-custom-embroidered-hoodie-mama-and-kids-portrait%3Fvariant%3D112298e6-424e-49df-b8cb-e51b8c3724db",
+          "id": "",
+          "text": "ProudStitch",
+          "innerText": "ProudStitch",
+          "adUrl": "https://www.proudstitch.com/products/proudstitch-personalized-mama-sweatshirt-with-photo-custom-embroidered-hoodie-mama-and-kids-portrait?variant=112298e6-424e-49df-b8cb-e51b8c3724db"
+        },
+        {
+          "href": "https://support.google.com/adsense/troubleshooter/1631343?hl=en-US",
+          "id": "abgl",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://support.google.com/adsense/troubleshooter/1631343?hl=en-US"
+        },
+        {
+          "href": "https://www.google.com/?sa=X&ved=2ahUKEwif9p3u0ZuUAxW4TKsCHR9WD0sQ3ooFegQIABAB",
+          "id": "",
+          "text": "a.fdYsqf{color:#681da8}.nNzjpf-FzV1B-ezkdbf-ZEImld{position:relative}.nNzjpf-FzV1B-ezkdbf-PLx83e{dis",
+          "innerText": "a.fdYsqf{color:#681da8}.nNzjpf-FzV1B-ezkdbf-ZEImld{position:relative}.nNzjpf-FzV1B-ezkdbf-PLx83e{dis",
+          "adUrl": "https://www.google.com/?sa=X&ved=2ahUKEwif9p3u0ZuUAxW4TKsCHR9WD0sQ3ooFegQIABAB"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "DEVELOPERSnap Brain Games",
+          "innerText": "DEVELOPERSnap Brain Games",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=7&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "This is a game that combines elements ofmeat pigeons with fast-paced shooting",
+          "innerText": "This is a game that combines elements ofmeat pigeons with fast-paced shooting",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=65&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "DOWNLOADSDownloads",
+          "innerText": "DOWNLOADSDownloads",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=64&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "CATEGORYCategory",
+          "innerText": "CATEGORYCategory",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "Cell Survivor",
+          "innerText": "Cell Survivor",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Ddefense.roguelike.cell.shoot.survivor",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=defense.roguelike.cell.shoot.survivor"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=19&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=20&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "Solitaire",
+          "innerText": "Solitaire",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=16&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=26&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=8&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=69&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "",
+          "innerText": "",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=70&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "Solitaire - CardGame",
+          "innerText": "Solitaire - CardGame",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        },
+        {
+          "href": "https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5w5Q5BfkV_L3FpCUpgOo0qKgD97avuJG_ZHMuaUDwI23ARABIIjJgx1gye7thsijoBmIAQGgAbOkitQDyAEJqAMByANAqgRhT9Cb8XlvI9rmDHvtDOztiYG03MpbRGP3EgsUDxPAwsIT1UNsJRaVe70al7Iq7y1yNtj4DB8p8TGjMD3MskAVls917cFmLJoAeIGyeU8mKMCoZA-0-aa3n56SZy8NtPB-YYgGAaAGLoAHtdv1K6gHgcYbqAemvhvYBwDSCAUIgAEQAQ&num=1&cid=CAASEuRoMfoJsHkc87HBzkJy9UE8xQ&sig=AOD64_0VVhsN3gbJxkywA3rOj9rzgkuhCg&client=ca-mongoogle&preview&rf=1&nb=56&adurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.penny.solitaire.card.game.free",
+          "id": "",
+          "text": "Install",
+          "innerText": "Install",
+          "adUrl": "https://play.google.com/store/apps/details?id=com.penny.solitaire.card.game.free"
+        }
+      ],
+      "source": "iframe"
+    },
+    "appLink": "https://play.google.com/store/apps/details?id=com.incleaner.quicktool.filesover",
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/15704081190260915658",
+      "https://tpc.googlesyndication.com/archive/simgad/13792312680238979086",
+      "https://tpc.googlesyndication.com/safeframe/1-0-45/html/container.html",
+      "https://tpc.googlesyndication.com/pagead/gadgets/html5_ctd_ad/uac_youtube_video_v2.html#t=9740223842804302136&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/gadgets/html5_ctd_ad/youtube_home.html#t=17980874297962677713&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/sadbundle/$csp%3Der-p$/4953014092054861780/google/index.html#t=1209901064878565343&p=https%3A%2F%2Ftpc.googlesyndication.com",
+      "https://tpc.googlesyndication.com/pagead/images/abg/icon.png",
+      "https://tpc.googlesyndication.com/simgad/5117083629273450131"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR10650452238952038401?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR12029403930883522561?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR11969150865480089601?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR15599356549472976897?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR00747672768790659073?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR15326418181040373761?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR04264220973747666945?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR12364657344158629889?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR06015864080512843777?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR12979473915351924737?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR02379645854622416897?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR10942234166510485505/creative/CR01726848724421836801?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR06131594413844987905-v0.png",
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR06131594413844987905-v1.png",
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR06131594413844987905-v2.png"
+    ]
+  },
+  {
+    "creativeID": "CR16521497710235222017",
+    "advertiserID": "AR11095686029372293121",
+    "creativeURL": "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR16521497710235222017?region=anywhere",
+    "advertiserName": "Blue Prism Limited",
+    "adFormat": "text",
+    "iframeInfo": {},
+    "variations": [],
+    "timestamp": "2026-05-02T22:21:52.939Z",
+    "status": "success",
+    "adText": [],
+    "imageUrl": "https://tpc.googlesyndication.com/archive/simgad/12526619574221772605",
+    "isClickable": false,
+    "targetUrl": null,
+    "adUrl": null,
+    "iframeAnchorInfo": {},
+    "appLink": null,
+    "tpc_list": [
+      "https://tpc.googlesyndication.com/archive/simgad/12526619574221772605",
+      "https://tpc.googlesyndication.com/archive/simgad/15375798001133424414",
+      "https://tpc.googlesyndication.com/archive/simgad/4949415549652083925",
+      "https://tpc.googlesyndication.com/archive/simgad/4268472872983226508",
+      "https://tpc.googlesyndication.com/archive/simgad/13170090036578518477",
+      "https://tpc.googlesyndication.com/archive/simgad/15860761600146167807",
+      "https://tpc.googlesyndication.com/archive/simgad/9147258266323406189",
+      "https://tpc.googlesyndication.com/archive/simgad/6837365518087663645",
+      "https://tpc.googlesyndication.com/archive/simgad/1812351562796651084",
+      "https://tpc.googlesyndication.com/archive/simgad/5694861349057767132",
+      "https://tpc.googlesyndication.com/archive/simgad/9267617955899142572",
+      "https://tpc.googlesyndication.com/archive/simgad/7918267441555103191",
+      "https://tpc.googlesyndication.com/archive/simgad/2888511293372415379"
+    ],
+    "creative_grid": [
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR12157414151240548353?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR18235234054121193473?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR12623888006638469121?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR09605914955614257153?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR11419940366409793537?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR17815746728624652289?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR03816058247559774209?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR07075819514759217153?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR08065415782604996609?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR09167094066763005953?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR05149993150311301121?region=anywhere",
+      "https://adstransparency.google.com/advertiser/AR11095686029372293121/creative/CR03294914724113678337?region=anywhere"
+    ],
+    "screenshotPath": [
+      "/home/ritik/work/pes/google_adtransparency/ccs-2026-AdLens/crawler/results/screenshots/worker_1/CR16521497710235222017-v0.png"
+    ]
+  }
+]

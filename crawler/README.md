@@ -78,3 +78,26 @@ Results are written to `results/ads_<timestamp>.json`. Each record contains:
 - Ad metadata (topic, region, dates, etc.)
 
 Per-worker progress checkpoints in `results/progress/` allow resuming interrupted crawls.
+
+## Reference Crawl Results
+
+`results/` contains a reference crawl output with screenshots stored under `results/screenshots/worker_0/` and `results/screenshots/worker_1/`. `sample_run.json` holds the crawl metadata for 10 ads across 2 workers, sourced from `../sql_queries/create_90k.csv`.
+
+## App Crawler
+
+`app.js` scrapes app store pages for apps advertised via Google Ads. It supports Google Play and Apple App Store URLs, reads a JSON array of URLs, and writes one JSON object per line (`.jsonl`).
+
+```bash
+node app.js <input_json_path> <output_jsonl_path>
+```
+
+Example:
+
+```bash
+node app.js ./results/app_links.json ./results/app_crawls.jsonl
+```
+
+- Input format: a JSON array of app store URLs (e.g., `["https://play.google.com/...", "https://apps.apple.com/..."]`)
+- Output format: JSONL with fields `appLink`, `reviews`, `overallRating`, `deleted`, and store-specific metadata
+
+**Extracting app links:** To build the input array, extract the `appLink` field from the main crawler's output JSON (e.g., `sample_run.json`). Only records where `appLink` is non-null are app store ads.
