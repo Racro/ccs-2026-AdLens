@@ -39,3 +39,5 @@ Open `http://localhost:7860` in your browser after launch.
 ## Embedding Cache
 
 Embeddings are cached per model under `embeddings_cache/` so subsequent launches skip recomputation. Delete the cache directory to force a rebuild.
+
+Pre-built embedding caches for all three models over the provided sample data are included in `embeddings_cache/` for reference, so the UI is usable immediately without needing to recompute embeddings.
