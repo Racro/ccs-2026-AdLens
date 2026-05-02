@@ -16,9 +16,7 @@ BigQuery SQL queries and Python client for querying the Google Ad Transparency p
 | `advertiser_violations.sql` | Query advertisers ranked by violation count |
 | `format_violations.sql` | Violation breakdown by ad format |
 | `create_90k.sql` | Build the 90k-ad labeled sample table |
-| `diag_category_counts.sql` | Diagnostic category distribution query |
 | `create_90k.csv` | Sample output from `create_90k.sql` |
-| `diag_category_counts.csv` | Sample output from `diag_category_counts.sql` |
 
 ## Daily Pipeline (bq_client.py)
 

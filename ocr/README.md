@@ -2,21 +2,10 @@
 
 A modular, high-performance pipeline that ingests ad images (via URL download or local disk), checks them against a fast binary cache, and extracts text/URLs using **PaddleOCR PP-OCRv5** (server models).
 
-> **Legacy engine:** The original LightOnOCR-based pipeline is preserved in [`lightocr_legacy/`](lightocr_legacy/README.md).
-
-## Why PaddleOCR
-
-| | PaddleOCR (primary) | LightOnOCR (legacy) |
-|---|---|---|
-| Model | PP-OCRv5 server | `lightonai/LightOnOCR-2-1B` |
-| Scene text accuracy | +13% over PP-OCRv4 | Baseline |
-| Language support | 80+ via `--lang` | English only |
-| GPU batching | Per-image (`rec_batch_num=16`) | Native transformer batching |
-
 ## Requirements
 
-- Python 3.x
-- CUDA-capable GPU (recommended)
+- Python 3.12
+- CUDA-capable GPU (recommended) — runs fine on CPU
 - `paddlepaddle-gpu`, `paddleocr>=3.0.0`
 - `Pillow`, `beautifulsoup4`, `requests`, `urlextract`
 
@@ -49,42 +38,29 @@ pip install -r requirements.txt
 
 Run from the project root (`AdLens/`).
 
-### Local mode
+### From a JSON file
 ```bash
-python ocr/process.py --mode local \
+python ocr/process.py \
     --input-file results/ads.json \
     --output-file results/results_with_ocr.json
 ```
 
-### Download mode
-```bash
-python ocr/process.py --mode download \
-    --input-file dataset.json \
-    --download-workers 5
-```
-
 ### Quick test (specific files or directory)
 ```bash
-python ocr/process.py --mode local --images ./test1.png ./test2.jpg
-python ocr/process.py --mode local --images-dir ./my_scans
+python ocr/process.py --images ./test1.png ./test2.jpg
+python ocr/process.py --images-dir ./my_scans
 ```
 
 ## Command-line Arguments
 
 | Argument | Default | Description |
 |---|---|---|
-| `--mode` | `download` | `download` (URL threads) or `local` (disk) |
-| `--input-file` | None | JSON file with image URLs or local paths |
+| `--input-file` | None | JSON file of ad records (needs `screenshotPath` list per record) |
 | `--images` | None | One or more local image paths |
 | `--images-dir` | None | Directory of images to process recursively |
 | `--output-file` | `./results/results_with_ocr.json` | Path for grouped OCR results |
 | `--cache-dir` | `./cache` | Persistent binary image cache directory |
-| `--url-field` | `imageUrl` | JSON key for image URL (download mode) |
-| `--download-dir` | `./shared_downloads` | Directory for downloaded images |
-| `--batch-size` | `8` | Images per OCR batch (controls GPU memory) |
-| `--max-queue-size` | `50` | Max queued images waiting for OCR |
-| `--download-workers` | `3` | Parallel download threads |
-| `--max-retries` | `5` | Max download retry attempts |
+| `--batch-size` | `8` | Images per OCR batch (controls memory) |
 | `--lang` | `en` | OCR language (`en`, `ch`, `fr`, …) |
 | `--device` | `gpu:0` | Inference device (`gpu:0`, `cpu`) |
 
@@ -116,9 +92,7 @@ Results are grouped by parent Ad ID:
 | Code | Meaning |
 |---|---|
 | `completed` | Successfully OCR'd |
-| `completed_from_cache` | Returned from binary cache (no GPU used) |
-| `error_no_url` | Missing URL field in input (download mode) |
-| `error_download_failed` | Failed after max retries |
+| `completed_from_cache` | Returned from binary cache (no recompute) |
 | `error_image_load` | Corrupted or unreadable image |
 | `error_file_not_found` | Local path does not exist |
 
@@ -126,10 +100,10 @@ Results are grouped by parent Ad ID:
 
 ```bash
 # Low memory
-python ocr/process.py --mode download --input-file data.json --max-queue-size 20 --batch-size 4
+python ocr/process.py --input-file data.json --batch-size 4
 
 # High throughput
-python ocr/process.py --mode download --download-workers 10 --batch-size 32 --max-queue-size 200
+python ocr/process.py --input-file data.json --batch-size 32
 ```
 
 ## Troubleshooting

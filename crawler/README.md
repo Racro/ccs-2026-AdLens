@@ -1,10 +1,11 @@
 # Crawler
 
-Puppeteer-based crawler for the **Google Ad Transparency Center** (`adstransparency.google.com`). `run.py` is the main entrypoint — it reads a CSV of ad URLs, splits them across parallel workers, and calls `main.js` internally for each chunk.
+Puppeteer-based crawler for the **Google Ad Transparency Center** (`adstransparency.google.com`). `run.py` is the main entrypoint — it reads a CSV of ad creatives, splits them across parallel workers, and calls `main.js` internally for each chunk.
 
 ## Requirements
 
-- Python 3.12 + `pandas`
+- Python 3.12
+- `pandas`
 - Node.js 18+
 - Google Chrome (path configurable via `BROWSER_EXECUTABLE_PATH`)
 - Optional: Xvfb for headless servers
@@ -73,6 +74,7 @@ Results are written to `results/ads_<timestamp>.json`. Each record contains:
 - `creativeID` — unique creative ID
 - `advertiserID` / `advertiserName`
 - `screenshotPath` — path(s) to saved screenshot(s)
+- Screenshots are stored in `results/screenshots/worker_<id>/`
 - Ad metadata (topic, region, dates, etc.)
 
 Per-worker progress checkpoints in `results/progress/` allow resuming interrupted crawls.

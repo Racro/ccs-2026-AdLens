@@ -17,7 +17,7 @@ Violations handled:
 Pipeline
 --------
   1. Load all ads from sample_data/metadata.json
-  2. Translate non-English OCR texts via NLLB-200; read/append cache only
+  2. Translate non-English OCR texts via translategemma:4b (Ollama); read/append cache only
   3. For each embedding model:
      a. Embed reference statements (scareware + misleading separately)
      b. Compute / load-from-cache ad embeddings
@@ -38,7 +38,7 @@ Usage
                       [--top-n 100]
                       [--start 1]
                       [--llm-models Qwen/Qwen3-VL-8B-Instruct zai-org/GLM-4.1V-9B-Thinking]
-                      [--translate-model facebook/nllb-200-distilled-1.3B]
+                      [--translate-model translategemma:4b]
                       [--device cuda]
 """
 

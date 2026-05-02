@@ -1,17 +1,17 @@
 # Detection
 
-Ensemble VLM classification pipeline for four ad violation categories. Two classifier models independently label each ad; a larger judge model resolves disagreements via majority-vote ensemble.
+Ensemble VLM classification pipeline for three ad violation categories. Two classifier models independently label each ad; a larger judge model resolves disagreements via majority-vote ensemble.
 
 ## Scripts
 
 | Script | Purpose |
 |---|---|
 | `adlens_pipeline.py` | Main entry point — runs classify + judge phases end-to-end |
-| `ensemble.py` | Scareware & deceptive-claim prompts; standalone runner with embedding-based ranking |
+| `ensemble.py` | Scareware & deceptive-claim prompts; standalone runner with embedding-based ranking — evaluates all three tested models, of which 2 are selected |
 | `misleading_design.py` | Misleading design detection (CTA-only / undisclosed advertiser) |
 | `detect_misconfigured.py` | Standalone utility for misconfigured ad detection (blank, QR-code, broken creatives) — not part of the pipeline |
-| `llm_judge.py` | LLM judge for classifier disagreements |
-| `translate_ocr.py` | NLLB-200 OCR translation cache builder |
+| `llm_judge.py` | LLM judge for classifier disagreements — evaluates three candidate judge models |
+| `translate_ocr.py` | OCR translation cache builder using `translategemma:4b` via Ollama |
 
 ## Requirements
 
@@ -25,7 +25,7 @@ ollama pull gemma3:12b
 ollama pull gemma4:26b    # judge model
 ```
 
-- `sample_data/metadata.json` and images in `sample_data/<violation>/<label>/<ad_id>.png`
+- `sample_data/metadata.json` and images in `sample_data/images/<ad_id>.png`
 
 ## Usage
 

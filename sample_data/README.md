@@ -7,29 +7,32 @@ Labeled ad dataset used by the detection pipeline and search platform.
 ```
 sample_data/
 ├── metadata.json               # Per-ad records (ad_id, violation_type, label, ocr_text, …)
-├── cached_translations.json    # NLLB-200 OCR translations keyed by ad_id
-└── images/                     # Ad screenshots organised by violation and label
-    ├── scareware/
-    │   ├── positive/           # Ground-truth scareware ads
-    │   └── negative/
-    ├── deceptive_claim/
-    │   ├── positive/
-    │   └── negative/
-    └── misleading_design/
-        ├── positive/
-        └── negative/
+├── cached_translations.json    # OCR translations (translategemma:4b) keyed by ad_id
+└── images/                     # Flat directory of ad screenshots (<ad_id>.png)
 ```
+
+Images are stored flat — all screenshots sit directly in `images/` with filenames matching `ad_id` (e.g. `CR00102789777257922561-v0.png`).
 
 ## metadata.json Schema
 
-Each record in `metadata.json` has at minimum:
+Each record in `metadata.json` has the following fields:
 
 | Field | Description |
 |---|---|
-| `ad_id` | Unique creative identifier |
+| `ad_id` | Unique creative+version identifier (e.g. `CR00102789777257922561-v0`) |
+| `crid` | Creative ID without version suffix |
 | `violation_type` | `scareware` / `deceptive_claim` / `misleading_design` |
-| `label` | Ground-truth label (`positive` / `negative`) |
+| `label` | Ground-truth label (`tp` = true positive, `tn` = true negative) |
+| `category` | Ad software category (`mobile`, `computer`, `software`) |
+| `advertiserID` | Google Ads advertiser ID |
+| `advertiserName` | Advertiser display name |
+| `creativeURL` | URL on `adstransparency.google.com` |
+| `adFormat` | Ad format (e.g. `video`, `image`) |
+| `targetUrl` | Full ad click URL (with tracking params) |
+| `adUrl` | Final landing URL |
+| `timestamp` | Crawl timestamp (ISO 8601) |
+| `adText` | Ad text extracted by the crawler |
 | `ocr_text` | Raw OCR output from PaddleOCR |
-| `translated_ocr_text` | English translation (if source was non-English) |
+| `translated_ocr_text` | English translation of `ocr_text` (if source was non-English) |
 
-Images are resolved as `sample_data/<violation_type>/<label>/<ad_id>.png`.
+Images are resolved as `sample_data/images/<ad_id>.png`.

@@ -72,7 +72,7 @@ python detection/translate_ocr.py \
 
 Classify ads with a two-model ensemble (qwen3.5:9b + gemma3:12b) and resolve disagreements with a judge (gemma4:26b).
 
-**Input:** `sample_data/metadata.json` — labeled records with fields `ad_id`, `violation_type`, `label`, `ocr_text` (and `translated_ocr_text` if Step 3 was run). Images are resolved as `sample_data/<violation_type>/<label>/<ad_id>.png`.
+**Input:** `sample_data/metadata.json` — labeled records with fields `ad_id`, `violation_type`, `label`, `ocr_text` (and `translated_ocr_text` if Step 3 was run). Images are resolved as `sample_data/images/<ad_id>.png`.
 
 ```bash
 ollama pull qwen3.5:9b
@@ -128,9 +128,9 @@ The final JSON contains one record per ad with all fields merged: crawler metada
 ├── crawler/          # Puppeteer crawler for Google Ad Transparency Center
 ├── detection/        # Ensemble VLM classification pipeline
 │   ├── adlens_pipeline.py    # main entry point (steps 3–4)
-│   ├── ensemble.py           # classifier prompts + standalone runner
+│   ├── ensemble.py           # classifier prompts + standalone runner; evaluates all three tested models, selects 2
 │   ├── misleading_design.py  # CTA/undisclosed-advertiser detection
-│   ├── llm_judge.py          # disagreement judge (standalone or via pipeline)
+│   ├── llm_judge.py          # disagreement judge; evaluates three candidate judge models
 │   ├── translate_ocr.py      # step 3 — OCR translation
 │   └── detect_misconfigured.py  # standalone utility (not part of the pipeline)
 ├── ocr/              # PaddleOCR text extraction pipeline
@@ -155,4 +155,4 @@ The final JSON contains one record per ad with all fields merged: crawler metada
 | `scareware` | Assertive threat / panic-inducing claims |
 | `deceptive_claim` | False device-state, fake recovery, financial bait |
 | `misleading_design` | CTA-only ads with no identifiable advertiser |
-| `misconfigured` | Blank, QR-code, or otherwise broken ad creatives |
+| `misconfigured` | Blank, QR-code, or otherwise broken ad creatives — additional analysis only, not part of the main classification pipeline |
