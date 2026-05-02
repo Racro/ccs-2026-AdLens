@@ -175,7 +175,7 @@ def parse_judge(raw: str, violation: str) -> dict:
 
 
 # ── Stage 1: Crawl ────────────────────────────────────────────────────────────
-def stage_crawl(csv_file: Path, out_dir: Path, workers: int) -> list[dict]:
+def stage_crawl(csv_file: Path, out_dir: Path, workers: int, limit: Optional[int] = None) -> list[dict]:
     log.info("=== Stage 1: Crawl ===")
     screenshots_dir = out_dir / "screenshots"
     crawl_out       = out_dir / "ads_crawled.json"
@@ -187,6 +187,8 @@ def stage_crawl(csv_file: Path, out_dir: Path, workers: int) -> list[dict]:
         "--output",         str(crawl_out),
         "--screenshots-dir", str(screenshots_dir),
     ]
+    if limit is not None:
+        cmd += ["--max", str(limit)]
     log.info("Running: %s", " ".join(str(c) for c in cmd))
     result = subprocess.run(cmd, cwd=ROOT)
     if result.returncode != 0:
@@ -449,6 +451,9 @@ def main() -> None:
     parser.add_argument("--translate-model",   default="translategemma:4b",
                         help="Translation model (default: %(default)s)")
 
+    parser.add_argument("--limit", type=int, default=None, metavar="N",
+                        help="Cap the number of ads processed (applied after crawl/load)")
+
     # Skip flags for resuming after partial runs
     parser.add_argument("--skip-crawl",     action="store_true",
                         help="Skip Stage 1 — load ads_crawled.json from --out-dir")
@@ -481,7 +486,11 @@ def main() -> None:
         records = load_json(p)
         log.info("Loaded %d records (crawl skipped)", len(records))
     else:
-        records = stage_crawl(args.csv, out_dir, args.workers)
+        records = stage_crawl(args.csv, out_dir, args.workers, args.limit)
+
+    if args.limit is not None:
+        records = records[: args.limit]
+        log.info("--limit %d applied: processing %d record(s)", args.limit, len(records))
 
     # ── Stage 2 ──────────────────────────────────────────────────────────────
     if args.skip_ocr:

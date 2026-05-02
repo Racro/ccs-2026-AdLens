@@ -96,7 +96,16 @@ python detection/adlens_pipeline.py --violations scareware --limit 50
 
 ## End-to-End Run (single script)
 
-`run_all.py` chains all four stages in one command and produces a single consolidated JSON. Works on a CSV of ads or a single image:
+`run_all.py` chains all four stages in one command and produces a single consolidated JSON. Works on a CSV of ads or a single image.
+
+**Before running**, install the parent dependencies and the OCR-specific dependencies (CPU by default):
+
+```bash
+pip install -r requirements.txt
+pip install -r ocr/requirements.txt
+```
+
+> **GPU note:** `ocr/requirements.txt` installs `paddlepaddle` (CPU) by default. For GPU inference, open `ocr/requirements.txt`, comment out `paddlepaddle`, and uncomment the `paddlepaddle-gpu` lines before running the command above. **Do not have both `paddlepaddle` and `paddlepaddle-gpu` installed at the same time — it causes crashes.**
 
 ```bash
 # Classify a single ad image
