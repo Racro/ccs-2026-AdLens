@@ -72,7 +72,7 @@ Images follow the Google Ad Transparency Center creative ID scheme:
 <creative_id>-v<version>.png
 ```
 
-For example, `CR00173184909714653185-v1.png` is version 1 of creative `CR00173184909714653185`.
+For example, `CR00173184909714653185-v1.png` is creative 1 of ad ID `CR00173184909714653185`.
 
 ## violations/
 
