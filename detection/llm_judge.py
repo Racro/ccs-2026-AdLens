@@ -2,9 +2,9 @@
 llm_judge.py — LLM judge for model disagreement cases
 ======================================================
 Supports three violation types:
-  scareware   — Qwen/Gemma disagree on SCAREWARE vs SAFE
-  misleading  — Qwen/Gemma disagree on MISLEADING vs SAFE
-  ad_design   — any two of Gemma/GLM/Qwen disagree on Undisclosed Advertiser vs SAFE
+  scareware        — Qwen/Gemma disagree on SCAREWARE vs SAFE
+  deceptive_claim  — Qwen/Gemma disagree on MISLEADING vs SAFE
+  misleading_design — any two of Gemma/Qwen disagree on Undisclosed Advertiser vs SAFE
 
 For all types the judge receives the ad image + OCR text + per-model reasons.
 
@@ -16,22 +16,22 @@ Two inference backends are supported:
 
 Available judge models (Ollama):
   qwen3.5:27b            — default; strong reasoning, supports vision
-  gemma4:27b             — Google Gemma 4, multimodal
+  gemma4:26b             — Google Gemma 4, multimodal
   mistral-small3.2:24b   — Mistral Small 3.2, 24B
 
 Prerequisites (Ollama backend):
   ollama serve
-  ollama pull qwen3.5:27b   # or whichever judge model you want
-  ollama pull gemma4:27b
+  ollama pull qwen3.5:27b
+  ollama pull gemma4:26b
   ollama pull mistral-small3.2:24b
 
 Usage:
-  python llm_judge.py [--violation scareware|misleading|ad_design]
+  python llm_judge.py [--violation scareware|deceptive_claim|misleading_design]
                       [--judge-model qwen3.5:27b]              # Ollama (default)
-                      [--judge-model gemma4:27b]               # Gemma4 via Ollama
+                      [--judge-model gemma4:26b]               # Gemma4 via Ollama
                       [--judge-model mistral-small3.2:24b]     # Mistral Small via Ollama
                       [--judge-model zai-org/GLM-4.6V-Flash]  # GLM (HF)
-                      [--input-dir results]
+                      [--results-dir results]
                       [--output results/judge_results.json]
                       [--ollama-url http://localhost:11434]
 """
@@ -56,7 +56,7 @@ RESULTS_DIR  = SCRIPT_DIR / "results"
 OLLAMA_URL   = "http://localhost:11434"
 
 QWEN35_JUDGE_MODEL  = "qwen3.5:27b"
-GEMMA4_JUDGE_MODEL  = "gemma4:27b"
+GEMMA4_JUDGE_MODEL  = "gemma4:26b"
 MISTRAL_JUDGE_MODEL = "mistral-small3.2:24b"
 JUDGE_MODEL         = QWEN35_JUDGE_MODEL  # default
 
@@ -168,14 +168,17 @@ def build_ensemble_collated(input_dir: Path, violation: str) -> Path:
 # ── Input file collection ─────────────────────────────────────────────────────
 
 def collect_input_files(input_dir: Path, violation: str) -> list[Path]:
-    pattern = f"{violation}_*ensemble*_classified.json"
-    files = sorted(input_dir.glob(pattern))
+    # Primary: violation-prefixed naming (legacy)
+    files = sorted(input_dir.glob(f"{violation}_*ensemble*_classified.json"))
+    if not files:
+        # Fallback: embedding-model-prefixed naming produced by ensemble.py
+        files = sorted(input_dir.glob("*ensemble*_classified.json"))
     if not files:
         print(f"No ensemble files found — building from individual model files...")
         build_ensemble_collated(input_dir, violation)
-        files = sorted(input_dir.glob(pattern))
+        files = sorted(input_dir.glob(f"{violation}_*ensemble*_classified.json"))
     if not files:
-        sys.exit(f"No files matching '{pattern}' in {input_dir}")
+        sys.exit(f"No ensemble classified files found in {input_dir}")
     return files
 
 
@@ -669,7 +672,7 @@ def main() -> None:
                         help="Which violation type to process (default: scareware)")
     parser.add_argument("--judge-model",          default=JUDGE_MODEL,
                         help="Ollama model tag to use as judge (default: %(default)s). "
-                             "Options: qwen3.5:27b, gemma4:27b, mistral-small3.2:24b")
+                             "Options: qwen3.5:27b, gemma4:26b, mistral-small3.2:24b")
     parser.add_argument("--results-dir",          default=str(RESULTS_DIR),
                         help="Base results directory; violation files are read from "
                              "<results-dir>/<violation>/ (default: detection/results/)")

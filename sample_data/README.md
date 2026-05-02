@@ -1,12 +1,12 @@
 # Sample Data
 
-Labeled ad dataset used by the detection pipeline and search platform.
+Ad dataset used by the detection pipeline and search platform.
 
 ## Structure
 
 ```
 sample_data/
-├── metadata.json               # Per-ad records (ad_id, violation_type, label, ocr_text, …)
+├── metadata.json               # Per-ad records (ad_id, ocr_text, translated_ocr_text, …)
 ├── cached_translations.json    # OCR translations (translategemma:4b) keyed by ad_id
 └── images/                     # Flat directory of ad screenshots (<ad_id>.png)
 ```
@@ -21,8 +21,6 @@ Each record in `metadata.json` has the following fields:
 |---|---|
 | `ad_id` | Unique creative+version identifier (e.g. `CR00102789777257922561-v0`) |
 | `crid` | Creative ID without version suffix |
-| `violation_type` | `scareware` / `deceptive_claim` / `misleading_design` |
-| `label` | Ground-truth label (`tp` = true positive, `tn` = true negative) |
 | `category` | Ad software category (`mobile`, `computer`, `software`) |
 | `advertiserID` | Google Ads advertiser ID |
 | `advertiserName` | Advertiser display name |

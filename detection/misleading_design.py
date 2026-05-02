@@ -3,8 +3,8 @@ misleading_design.py — CTA/button-only ad detection via OCR keyword matching +
 
 Pipeline:
   Stage 1 — Short-text OCR filter
-              Load all ads from 3 metadata files (computer / mobile / software).
-              Apply cached translations. Keep only ads with translated OCR <= 5 words.
+              Load all ads from sample_data/metadata.json.
+              Keep only ads with translated OCR between 1 and 8 words (inclusive).
 
   Stage 2 — Lemmatization + fuzzy keyword matching
               Lemmatize each short-text OCR string (spaCy en_core_web_sm).
@@ -20,27 +20,32 @@ Pipeline:
               information (brand name, product description, or service context).
 
 Usage:
-  # Full run — all keyword-matched ads through VLM
-  python detect_ad_design.py
+  # Full run via Ollama (recommended)
+  python misleading_design.py --ollama --vlm-model gemma3:12b
 
   # Dry-run — OCR filtering + scoring only, no VLM
-  python detect_ad_design.py --no-vlm
+  python misleading_design.py --no-vlm
 
   # Calibrate on known_bad/ad_design images
-  python detect_ad_design.py --mode known_bad
+  python misleading_design.py --mode known_bad
 
-  # Use Ollama backend (model prefix: ollama:<model-name>)
-  python detect_ad_design.py --vlm-model ollama:llava
-  python detect_ad_design.py --vlm-model ollama:llava --ollama-url http://localhost:11434
+  # Custom Ollama URL or model
+  python misleading_design.py --ollama --vlm-model qwen --ollama-url http://localhost:11434
+
+  # Cap records for a quick test
+  python misleading_design.py --ollama --vlm-model gemma3:12b --limit 20
 
 Options:
   --mode            full | known_bad               (default: full)
+  --ollama          Use Ollama backend instead of HuggingFace
+  --vlm-model       Model tag (Ollama) or HF model ID (default: Qwen/Qwen3.5-9B)
+                    Ollama aliases: qwen=qwen3.5:9b, gemma3=gemma3:12b
   --translations    Path to cached_translations.json
   --fuzzy-thresh    rapidfuzz partial_ratio cutoff  (default: 82)
   --no-vlm          Skip Stage 3 entirely
   --hf-token        HuggingFace token for gated models
   --device          cuda | cpu                      (default: cuda if available)
-  --out-dir         Output directory                (default: ./ad_design_results)
+  --out-dir         Output directory                (default: results/misleading_design/)
   --limit           Cap images processed (test runs)
   --ollama-url      Ollama server base URL          (default: http://localhost:11434)
 """
@@ -340,29 +345,25 @@ def load_candidates_from_metadata(
     short_count = matched_count = 0
 
     for item in items:
-        crid  = item["creativeID"]
-        paths = item.get("screenshotPath") or []
-        ocr_per_path = [item.get("ocr_text") or ""] * len(paths)
+        ad_id      = item["ad_id"]
+        raw_ocr    = item.get("ocr_text") or ""
+        translated = item.get("translated_ocr_text") or translations.get(raw_ocr) or raw_ocr
 
-        for i, sp in enumerate(paths):
-            raw_ocr    = ocr_per_path[i] if i < len(ocr_per_path) else ""
-            translated = (translations.get(raw_ocr) or raw_ocr) if translations else raw_ocr
+        wc = _word_count(translated)
+        if wc < min_words or wc > max_words:
+            continue
+        short_count += 1
 
-            wc = _word_count(translated)
-            if wc < min_words or wc > max_words:
-                continue
-            short_count += 1
+        m = match_keywords(translated, fuzzy_thresh)
+        if not m["matched_keywords"]:
+            continue
+        matched_count += 1
 
-            m = match_keywords(translated, fuzzy_thresh)
-            if not m["matched_keywords"]:
-                continue
-            matched_count += 1
-
-            local = resolve_image_path(sp, image_dir)
-            if local is None:
-                continue
-            ad_id = f"{crid}-v{i}"
-            candidates.append(AdCandidate(
+        img_path = (image_dir or IMAGE_DIR) / f"{ad_id}.png"
+        local = img_path if img_path.exists() else None
+        if local is None:
+            continue
+        candidates.append(AdCandidate(
                 ad_id            = ad_id,
                 image_path       = local,
                 dataset_category = item.get("category", "ads"),
@@ -395,22 +396,17 @@ def load_single_crid(crid: str, translations: dict[str, str]) -> list[AdCandidat
     with open(METADATA_FILE, encoding="utf-8") as f:
         items = json.load(f)
     for item in items:
-        if item["creativeID"] != bare:
+        if item["ad_id"] != crid and item.get("crid") != bare:
             continue
-        paths = item.get("screenshotPath") or []
-        if v_idx >= len(paths):
-            log.error("Variant v%d not found for %s (only %d variants)", v_idx, bare, len(paths))
-            return []
-        sp = paths[v_idx]
-        raw_ocr = item.get("ocr_text") or ""
-        translated = (translations.get(raw_ocr) or raw_ocr) if translations else raw_ocr
-        local = resolve_image_path(sp)
-        if local is None:
-            log.error("Image not found for %s: %s", crid, sp)
+        raw_ocr    = item.get("ocr_text") or ""
+        translated = item.get("translated_ocr_text") or translations.get(raw_ocr) or raw_ocr
+        img_path   = IMAGE_DIR / f"{item['ad_id']}.png"
+        if not img_path.exists():
+            log.error("Image not found for %s: %s", crid, img_path)
             return []
         return [AdCandidate(
-            ad_id            = crid,
-            image_path       = local,
+            ad_id            = item["ad_id"],
+            image_path       = img_path,
             dataset_category = item.get("category", "ads"),
             translated_ocr   = translated,
             matched_keywords = [],
@@ -1012,8 +1008,6 @@ def parse_args():
 
 def main():
     args = parse_args()
-    # Results go into out_dir/ocr_wl_{max_words}/
-    args.out_dir = args.out_dir / f"ocr_wl_{args.max_words}"
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     results = run_pipeline(args)

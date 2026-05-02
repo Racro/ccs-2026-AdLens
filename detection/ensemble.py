@@ -1,26 +1,27 @@
 """
-ensemble.py — Ensemble Scareware & Misleading ad detection
-===========================================================
-Extends detect_scareware_misleading.py with ensemble LLM ranking: multiple VL
-models classify each candidate independently, and their predictions are combined
-via majority vote to produce a final ensemble label.
+ensemble.py — Ensemble Scareware & Deceptive-claim ad detection
+===============================================================
+Multiple VLM models classify each candidate independently; predictions are
+combined via majority vote to produce a final ensemble label.
 
 Current ensemble models (expand via --llm-models):
   • Qwen/Qwen3.5-9B                 (Qwen3.5, thinking=False)
   • zai-org/GLM-4.6V-Flash          (GLM-4.6V, thinking=False)
   • google/gemma-3-12b-it           (Gemma3 12B)
 
+Models are loaded, run, and unloaded one at a time to avoid GPU OOM.
+
 Violations handled:
-  scareware  (category 1) — assertive threat / panic-inducing claims
-  misleading (category 2) — false device-state, fake recovery, financial bait
+  scareware       — assertive threat / panic-inducing claims
+  deceptive_claim — false device-state, fake recovery, financial bait
 
 Pipeline
 --------
   1. Load all ads from sample_data/metadata.json
   2. Translate non-English OCR texts via translategemma:4b (Ollama); read/append cache only
   3. For each embedding model:
-     a. Embed reference statements (scareware + misleading separately)
-     b. Compute / load-from-cache ad embeddings
+     a. Embed reference statements (scareware + deceptive_claim separately)
+     b. Compute / load-from-cache ad embeddings (map_location=device — no CPU round-trip)
      c. Rank all ads by max cosine-sim to any reference
      d. Save ranked JSON to results/
   4. Run top-N through each LLM in --llm-models; majority-vote ensemble
@@ -28,18 +29,20 @@ Pipeline
 
 Usage
 -----
-  python ensemble_scareware_misleading.py
-                      [--categories mobile computer software]
-                      [--violations scareware misleading]
-                      [--model bge-m3 | bge-large]
-                      [--skip-translate]
-                      [--only-calibrate]
-                      [--organize]
-                      [--top-n 100]
-                      [--start 1]
-                      [--llm-models Qwen/Qwen3-VL-8B-Instruct zai-org/GLM-4.1V-9B-Thinking]
-                      [--translate-model translategemma:4b]
-                      [--device cuda]
+  # Full run on GPU (recommended)
+  python ensemble.py --device cuda --skip-translate
+
+  # Specific violations only
+  python ensemble.py --violations scareware --device cuda --skip-translate
+
+  # Limit candidates for a quick test
+  python ensemble.py --top-n 10 --device cuda --skip-translate
+
+  # Single model instead of full ensemble
+  python ensemble.py --llm-models Qwen/Qwen3.5-9B --device cuda --skip-translate
+
+  # Ranking only, skip LLM classification
+  python ensemble.py --skip-llm --device cuda --skip-translate
 """
 
 from __future__ import annotations
@@ -413,29 +416,16 @@ def load_all_metadata() -> list[dict]:
 
     records: list[dict] = []
     for item in items:
-        crid = item["creativeID"]
-        cat  = item.get("category", "ads")
-
+        ad_id = item["ad_id"]
+        crid  = item.get("crid", ad_id)
+        cat   = item.get("category", "ads")
         records.append({
-            "id":       f"{crid}-v0",
+            "id":       ad_id,
             "crid":     crid,
             "variant":  0,
-            "ocr_text": item.get("ocr_text") or "",
+            "ocr_text": item.get("translated_ocr_text") or item.get("ocr_text") or "",
             "category": cat,
         })
-
-        # variations: index is 1-based; index=1 matches v0, skip to avoid duplicates
-        for var in item.get("variations", []):
-            if var["index"] == 1:
-                continue
-            img_variant = var["index"] - 1
-            records.append({
-                "id":       f"{crid}-v{img_variant}",
-                "crid":     crid,
-                "variant":  img_variant,
-                "ocr_text": var.get("ocr_text") or "",
-                "category": cat,
-            })
 
     log.info(f"Loaded {len(records):,} total ad records")
     return records
@@ -611,7 +601,8 @@ def load_or_compute_ad_embeddings(
     texts  = [r["embed_text"] for r in records]
 
     if cache_path.exists():
-        saved = torch.load(cache_path, weights_only=False)
+        device = next(model.parameters()).device
+        saved = torch.load(cache_path, weights_only=False, map_location=device)
         if saved["ids"] == ids:
             log.info(f"Loaded ad embeddings from cache: {cache_path.name}")
             return saved["embeddings"]
@@ -664,7 +655,8 @@ def load_or_compute_sentence_embeddings(
     ids = [r["id"] for r in records]
 
     if cache_path.exists():
-        saved = torch.load(cache_path, weights_only=False)
+        device = next(model.parameters()).device
+        saved = torch.load(cache_path, weights_only=False, map_location=device)
         if saved["ids"] == ids:
             log.info(f"Loaded sentence embeddings from cache: {cache_path.name}")
             return saved["flat_embeddings"], saved["offsets"]
@@ -1033,6 +1025,19 @@ _llm_tokenizer_obj = None
 # Per-model singleton cache so each ensemble model is loaded once
 # key: model_name → (model, processor)
 _llm_model_cache: dict[str, tuple] = {}
+
+
+def _unload_llm(model_name: str) -> None:
+    """Free a model from GPU memory and clear all cached references to it."""
+    global _llm_model_obj, _llm_tokenizer_obj
+    if model_name in _llm_model_cache:
+        m, _ = _llm_model_cache.pop(model_name)
+        del m
+    _llm_model_obj = None
+    _llm_tokenizer_obj = None
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    log.info(f"Unloaded {model_name} from GPU.")
 
 
 def _is_vl_model(model_name: str) -> bool:
@@ -1719,12 +1724,7 @@ def classify_top_n_ensemble(
             }
 
         # Free model from GPU memory before loading next one
-        if llm_model in _llm_model_cache:
-            m, _ = _llm_model_cache.pop(llm_model)
-            del m
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-            log.info(f"Unloaded {llm_model} from GPU.")
+        _unload_llm(llm_model)
 
     # ── Majority vote ─────────────────────────────────────────────────────────
     ensemble_results = []

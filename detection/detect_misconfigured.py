@@ -245,34 +245,23 @@ def run_filter(
 
     cat_count = 0
     for item in items:
-        crid  = item["creativeID"]
-        paths = item.get("screenshotPath") or []
+        ad_id      = item["ad_id"]
+        raw_ocr    = item.get("ocr_text") or ""
+        translated = item.get("translated_ocr_text") or translations.get(raw_ocr) or raw_ocr
 
-        # v0 OCR is on the item itself; v1+ are in variations (1-based index)
-        var_ocr = {v["index"] - 1: v.get("ocr_text") or ""
-                   for v in (item.get("variations") or [])}
-        ocr_per_path = [
-            var_ocr.get(i, item.get("ocr_text") or "")
-            for i in range(len(paths))
-        ]
+        if len(translated.strip()) >= max_chars:
+            continue
 
-        for i, sp in enumerate(paths):
-            raw_ocr    = ocr_per_path[i] if i < len(ocr_per_path) else ""
-            translated = (translations.get(raw_ocr) or raw_ocr) if translations else raw_ocr
-
-            if len(translated.strip()) >= max_chars:
-                continue
-
-            local = resolve_image_path(sp, image_dir)
-            if local is None:
-                continue
-            candidates.append(AdCandidate(
-                ad_id            = f"{crid}-v{i}",
-                image_path       = local,
-                dataset_category = item.get("category", "ads"),
-                original_ocr     = translated,
-            ))
-            cat_count += 1
+        img_path = (image_dir or IMAGE_DIR) / f"{ad_id}.png"
+        if not img_path.exists():
+            continue
+        candidates.append(AdCandidate(
+            ad_id            = ad_id,
+            image_path       = img_path,
+            dataset_category = item.get("category", "ads"),
+            original_ocr     = translated,
+        ))
+        cat_count += 1
 
         if limit and len(candidates) >= limit:
             log.info("--limit reached (%d)", limit)

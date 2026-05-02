@@ -93,6 +93,7 @@ JUDGE_MODEL  = "gemma4:26b"
 QWEN_KEY     = "qwen3_5_9b"
 GEMMA_KEY    = "gemma3_12b"
 
+
 CLASSIFIER_MODELS = [
     (QWEN_MODEL,  QWEN_KEY),
     (GEMMA_MODEL, GEMMA_KEY),
@@ -109,13 +110,13 @@ CLASSIFY_PROMPTS = {
 
 POSITIVE_LABELS = {
     "scareware":         "SCAREWARE",
-    "deceptive_claim":   "DECEPTIVE_CLAIM",
+    "deceptive_claim":   "MISLEADING",
     "misleading_design": "Undisclosed Advertiser",
 }
 
 VALID_LABELS = {
     "scareware":         {"SCAREWARE", "SAFE"},
-    "deceptive_claim":   {"DECEPTIVE_CLAIM", "SAFE"},
+    "deceptive_claim":   {"MISLEADING", "SAFE"},
     "misleading_design": {"Undisclosed Advertiser", "SAFE"},
 }
 
@@ -147,11 +148,8 @@ def image_to_b64(path: Path) -> Optional[str]:
 
 
 def resolve_image(record: dict) -> Optional[Path]:
-    """Return Path to the labeled image: sample_data/<violation>/<label>/<ad_id>.png"""
-    ad_id     = record["ad_id"]
-    violation = record["violation_type"]
-    label     = record["label"]
-    path      = SAMPLE_DATA_DIR / violation / label / f"{ad_id}.png"
+    """Return Path to the labeled image from sample_data/images/<ad_id>.png"""
+    path = SAMPLE_DATA_DIR / "images" / f"{record['ad_id']}.png"
     return path if path.exists() else None
 
 
@@ -365,18 +363,16 @@ def run_classify_phase(
     """
     Classify all records for the requested violations with both models.
     Updates `cache` in-place and saves periodically.
-    Records are pre-filtered (e.g. per-label limit) before being passed in.
     """
     if classifier_models is None:
         classifier_models = CLASSIFIER_MODELS
     pending_count = 0
     for violation in violations:
-        viol_records = [r for r in records if r["violation_type"] == violation]
-        log.info("Violation=%s: %d records", violation, len(viol_records))
+        log.info("Violation=%s: %d records", violation, len(records))
 
         for model_name, model_key in classifier_models:
             newly_classified = 0
-            for idx, rec in enumerate(viol_records, 1):
+            for idx, rec in enumerate(records, 1):
                 cache_key = f"{rec['ad_id']}:{violation}:{model_key}"
                 if cache_key in cache:
                     continue
@@ -389,7 +385,7 @@ def run_classify_phase(
                     save_json(cache, cache_path)
 
                 if idx % 50 == 0 or idx == 1:
-                    log.info("[%s/%s] %d/%d", violation, model_key, idx, len(viol_records))
+                    log.info("[%s/%s] %d/%d", violation, model_key, idx, len(records))
 
             log.info("[%s/%s] done. %d new classifications.", violation, model_key, newly_classified)
 
@@ -410,8 +406,6 @@ def build_ensemble_records(
     positive_label = POSITIVE_LABELS[violation]
     out = []
     for rec in records:
-        if rec["violation_type"] != violation:
-            continue
         ad_id = rec["ad_id"]
         per_model: dict[str, dict] = {}
         for _, model_key in classifier_models:
@@ -593,13 +587,6 @@ def print_summary(records: list[dict], violation: str) -> None:
         for lbl, cnt in sorted(judge_counts.items()):
             print(f"  Judge {lbl:<24}: {cnt}")
 
-    # tp/tn breakdown (ground truth vs ensemble)
-    if records[0].get("label"):
-        print(f"\n  Ground-truth confusion (ensemble vs label):")
-        print(f"  {'label':<8}  {'ensemble':<30}  count")
-        confusion = Counter((r["label"], r["ensemble_label"]) for r in records)
-        for (gt, pred), cnt in sorted(confusion.items()):
-            print(f"  {gt:<8}  {pred:<30}  {cnt}")
     print(f"{'='*64}")
 
 
@@ -621,7 +608,7 @@ def main() -> None:
     parser.add_argument("--out-dir",        type=Path, default=DEFAULT_OUT_DIR,
                         help="Output directory (default: %(default)s)")
     parser.add_argument("--limit",          type=int, default=None,
-                        help="Cap records per label per violation (e.g. 50 → 300 total for 3 violations × 2 labels)")
+                        help="Cap total number of records to process")
     parser.add_argument("--skip-classify",  action="store_true",
                         help="Skip Phase 1 — use existing cache only")
     parser.add_argument("--skip-judge",     action="store_true",
@@ -654,18 +641,10 @@ def main() -> None:
     records: list[dict] = load_json(METADATA_FILE)
     log.info("Loaded %d records from %s", len(records), METADATA_FILE)
 
-    # ── Per-label limit ────────────────────────────────────────────────────────
+    # ── Total record cap ───────────────────────────────────────────────────────
     if args.limit:
-        from collections import defaultdict
-        counts: dict = defaultdict(int)
-        limited = []
-        for r in records:
-            key = (r["violation_type"], r.get("label", ""))
-            if counts[key] < args.limit:
-                counts[key] += 1
-                limited.append(r)
-        log.info("Limited to %d per label per violation → %d records total", args.limit, len(limited))
-        records = limited
+        records = records[: args.limit]
+        log.info("--limit %d applied: %d records", args.limit, len(records))
 
     # ── Load classify cache ────────────────────────────────────────────────────
     cache_path = args.out_dir / "classify_cache.json"
