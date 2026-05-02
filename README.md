@@ -1,5 +1,9 @@
 # AdLens — CCS 2026 Cycle B
 
+![AdLens Architecture](malvertising.drawio.png)
+
+**Figure 1:** A high-level diagram illustrating AdLens architecture: Ad Collection and Ad analysis pipeline. We collect software ads and classify them as malicious/benign through this automated pipeline. Translated text embeddings step takes both ad text and taxonomy as input and outputs their embeddings to the LLM ensemble step for semantic ranking, followed by multi-VLM voting and Judge verification.
+
 A measurement and detection system for malvertising and deceptive ad practices on the **Google Ad Transparency Center**. AdLens crawls ad creatives at scale, extracts text via OCR, and classifies ads into violation categories using an ensemble of vision-language models.
 
 ## Requirements

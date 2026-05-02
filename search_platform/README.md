@@ -1,5 +1,9 @@
 # Search Platform
 
+<video src="search_platform.mp4" controls width="100%"></video>
+
+**Demo:** A demonstration of the search platform over the complete crawled dataset.
+
 Gradio web UI for semantic similarity search over the ad corpus. Queries are embedded with a SentenceTransformer model and ranked against pre-computed ad OCR embeddings.
 
 ## Requirements
