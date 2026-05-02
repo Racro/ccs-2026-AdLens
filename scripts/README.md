@@ -54,14 +54,14 @@ Python scripts that generate the paper figures. See [`plots/README.md`](plots/RE
 
 ## pdns/
 
-Passive DNS (pDNS) lookup tooling for ad landing domains.
+Protective DNS (PDNS) lookup tooling for ad landing domains.
 
 | File | Description |
 |---|---|
-| `query_pdns.sh` | Shell script that queries a pDNS API for each domain in the input list |
+| `query_pdns.sh` | Shell script that queries PDNS providers (Cloudflare, Quad9, Cisco, CIRA) for each domain in the input list |
 | `all_ad_link_domains.txt` | Deduplicated list of ad landing domains to look up |
 | `reformat-links.ipynb` | Deduplicates ad landing domains across categories from `unique_domains_all.json` into `all_ad_link_domains.txt` |
-| `analyze-pdns-results.ipynb` | Cross-references pDNS results from multiple resolvers (Cloudflare, Quad9, Cisco, CIRA) to identify ad domains flagged as malicious |
+| `analyze-pdns-results.ipynb` | Cross-references PDNS results from multiple resolvers to identify ad domains flagged as malicious |
 
 ### Usage
 
