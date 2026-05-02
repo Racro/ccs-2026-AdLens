@@ -390,7 +390,7 @@ VIOLATION_PROMPTS = {
 
 VALID_LABELS = {
     "scareware":       {"SCAREWARE", "SAFE"},
-    "deceptive_claim": {"DECEPTIVE_CLAIM", "SAFE"},
+    "deceptive_claim": {"MISLEADING", "SAFE"},
 }
 
 

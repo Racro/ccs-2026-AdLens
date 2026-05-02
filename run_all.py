@@ -56,13 +56,13 @@ ALL_VIOLATIONS = ["scareware", "deceptive_claim", "misleading_design"]
 
 POSITIVE_LABELS = {
     "scareware":         "SCAREWARE",
-    "deceptive_claim":   "DECEPTIVE_CLAIM",
+    "deceptive_claim":   "MISLEADING",
     "misleading_design": "Undisclosed Advertiser",
 }
 
 VALID_LABELS = {
     "scareware":         {"SCAREWARE", "SAFE"},
-    "deceptive_claim":   {"DECEPTIVE_CLAIM", "SAFE"},
+    "deceptive_claim":   {"MISLEADING", "SAFE"},
     "misleading_design": {"Undisclosed Advertiser", "SAFE"},
 }
 
@@ -157,14 +157,14 @@ def parse_classify(raw: str, valid_labels: set) -> dict:
     return {"label": "ERROR", "reason": raw[:300]}
 
 
-def parse_judge(raw: str, violation: str) -> dict:
+def parse_judge(raw: str) -> dict:
     match = re.search(r"\{.*\}", raw.strip(), re.DOTALL)
     if match:
         try:
             parsed = json.loads(match.group(0))
             raw_label = parsed.get("judge_label", "ERROR")
-            # Normalise to uppercase for scareware/deceptive_claim; keep casing for misleading_design
-            if raw_label.upper() in {"SCAREWARE", "DECEPTIVE_CLAIM", "SAFE", "ERROR"}:
+            # Normalise known all-caps labels; preserve casing for misleading_design ("Undisclosed Advertiser")
+            if raw_label.upper() in {"SCAREWARE", "MISLEADING", "SAFE", "ERROR"}:
                 label = raw_label.upper()
             else:
                 label = raw_label
@@ -365,7 +365,7 @@ def stage_detect(
             "then output your JSON.",
         ])
         raw, _ = ollama_chat(judge_model, JUDGE_PROMPTS[violation], user_msg, ollama_url, image_b64=img_b64)
-        result = parse_judge(raw, violation)
+        result = parse_judge(raw)
         cache[ck] = result
         save_json(cache, cache_path)
         return result

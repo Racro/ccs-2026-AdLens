@@ -273,7 +273,7 @@ def parse_judge_response(raw: str) -> dict:
             parsed = json.loads(match.group(0))
             raw_label = parsed.get("judge_label", "ERROR")
             label = (raw_label.upper()
-                     if raw_label.upper() in {"SCAREWARE", "DECEPTIVE_CLAIM", "SAFE", "ERROR"}
+                     if raw_label.upper() in {"SCAREWARE", "MISLEADING", "SAFE", "ERROR"}
                      else raw_label)
             return {"judge_label": label, "judge_reason": parsed.get("judge_reason", "")}
         except json.JSONDecodeError:
