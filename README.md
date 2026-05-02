@@ -142,17 +142,5 @@ The final JSON contains one record per ad with all fields merged: crawler metada
 ├── search_platform/  # Gradio semantic search UI
 ├── sql_queries/      # BigQuery SQL queries and Python client
 ├── utils/            # Shared Python utilities
-└── violations/       # Sample confirmed-violation ad images
-    ├── deceptive_claims/
-    ├── misleading_ad_design/
-    └── scareware/
+└── datasets/         # Golden evaluation sets and confirmed-violation examples
 ```
-
-## Violation Categories
-
-| Category | Description |
-|---|---|
-| `scareware` | Assertive threat / panic-inducing claims |
-| `deceptive_claim` | False device-state, fake recovery, financial bait |
-| `misleading_design` | CTA-only ads with no identifiable advertiser |
-| `misconfigured` | Blank, QR-code, or otherwise broken ad creatives — additional analysis only, not part of the main classification pipeline |
