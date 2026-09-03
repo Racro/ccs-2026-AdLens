@@ -8,7 +8,7 @@ A measurement and detection system for malvertising and deceptive ad practices o
 
 > **Erratum — Table 2, section (c):** The Deceptive Claims and Scareware columns were inadvertently transposed in the submission manuscript. The corrected table with full explanation is in [`scripts/README.md`](scripts/README.md#f1_score_table2py).
 
-## Requirements
+## Requirements:
 
 - **Python 3.12** (most stable tested version)
 - **Node.js 18+** (crawler only)
