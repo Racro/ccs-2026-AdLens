@@ -98,7 +98,7 @@ python detection/adlens_pipeline.py --violations scareware --limit 50
 
 ## End-to-End Run (single script)
 
-`run_all.py` chains all four stages in one command and produces a single consolidated JSON. Works on a CSV of ads or a single image.
+`run_all.py` chains all four stages into a single command and produces a consolidated JSON. Works on a CSV of ads or a single image.
 
 **Before running**, install the parent dependencies and the OCR-specific dependencies (CPU by default):
 
