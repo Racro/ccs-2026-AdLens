@@ -2,13 +2,13 @@
 
 ![AdLens Architecture](malvertising.drawio.png)
 
-**Figure 1:** A high-level diagram illustrating AdLens architecture: Ad Collection and Ad analysis pipeline. We collect software ads and classify them as malicious/benign through this automated pipeline. Translated text embeddings step takes both ad text and taxonomy as input and outputs their embeddings to the LLM ensemble step for semantic ranking, followed by multi-VLM voting and Judge verification.
+**Figure 1:** A high-level diagram illustrating AdLens architecture: Ad Collection and Ad analysis pipeline. We collect software ads and classify them as malicious/benign through this automated pipeline. The translated text embeddings step takes both ad text and taxonomy as input and outputs their embeddings to the LLM ensemble step for semantic ranking, followed by multi-VLM voting and Judge verification.
 
 A measurement and detection system for malvertising and deceptive ad practices on the **Google Ad Transparency Center**. AdLens crawls ad creatives at scale, extracts text via OCR, and classifies ads into violation categories using an ensemble of vision-language models.
 
 > **Erratum — Table 2, section (c):** The Deceptive Claims and Scareware columns were inadvertently transposed in the submission manuscript. The corrected table with full explanation is in [`scripts/README.md`](scripts/README.md#f1_score_table2py).
 
-## Requirements
+## Requirements :
 
 - **Python 3.12** (most stable tested version)
 - **Node.js 18+** (crawler only)
@@ -98,7 +98,7 @@ python detection/adlens_pipeline.py --violations scareware --limit 50
 
 ## End-to-End Run (single script)
 
-`run_all.py` chains all four stages in one command and produces a single consolidated JSON. Works on a CSV of ads or a single image.
+`run_all.py` chains all four stages into a single command and produces a consolidated JSON. Works on a CSV of ads or a single image.
 
 **Before running**, install the parent dependencies and the OCR-specific dependencies (CPU by default):
 
