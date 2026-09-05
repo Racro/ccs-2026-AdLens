@@ -8,6 +8,19 @@ A measurement and detection system for malvertising and deceptive ad practices o
 
 > **Erratum — Table 2, section (c):** The Deceptive Claims and Scareware columns were inadvertently transposed in the submission manuscript. The corrected table with full explanation is in [`scripts/README.md`](scripts/README.md#f1_score_table2py).
 
+## 📄 Paper Artifacts
+
+Supplementary figures, tables, and analyses referenced from the paper's appendix are collected in **[`ARTIFACTS.md`](ARTIFACTS.md)**:
+
+| | Artifact | Cited from |
+| --- | --- | --- |
+| A | [Google Ads policy violations](ARTIFACTS.md#a-google-ads-policy-violations) (full table) | Background, Deceptive Ad Categories |
+| B | [Pipeline latency analysis](ARTIFACTS.md#b-pipeline-latency-analysis) | Methods |
+| C | [Misleading ad design examples](ARTIFACTS.md#c-misleading-ad-design-examples) | Results |
+| D | [Ads on PDNS-flagged domains](ARTIFACTS.md#d-ads-hosted-by-pdns-flagged-domains) | Landing Page / PDNS |
+| E | [Misconfigured ads](ARTIFACTS.md#e-misconfigured-ads) | Appendix |
+| F | [Semantic similarity search tool](ARTIFACTS.md#f-semantic-similarity-search-tool) | Methods |
+
 ## Requirements
 
 - **Python 3.12** (most stable tested version)
