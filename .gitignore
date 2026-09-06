@@ -39,6 +39,9 @@ service_account*.json
 credentials*.json
 .env
 
+# Local scratch / working notes
+diff.md
+
 # OS
 .DS_Store
 Thumbs.db
