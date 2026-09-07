@@ -12,6 +12,11 @@ This page hosts the extended figures, tables, and analyses referenced from the p
 - [D. Ads Hosted by PDNS-Flagged Domains](#d-ads-hosted-by-pdns-flagged-domains)
 - [E. Misconfigured Ads](#e-misconfigured-ads)
 - [F. Semantic Similarity Search Tool](#f-semantic-similarity-search-tool)
+- [G. Example Deceptive Ads](#g-example-deceptive-ads)
+- [H. Crawled Dataset Overview](#h-crawled-dataset-overview)
+- [I. Top Violating Advertisers](#i-top-violating-advertisers)
+- [J. Deceptive Ad Taxonomy](#j-deceptive-ad-taxonomy)
+- [K. Pipeline Architecture](#k-pipeline-architecture)
 
 ---
 
@@ -117,6 +122,22 @@ Notes on the examples above:
 
 A sample of ads available on the Google Ad Transparency Center linking to malicious domains detected by **multiple** Protective DNS providers.
 
+Landing-page hostnames were extracted from ad HTML and OCR text, then queried against four Protective DNS providers (Cloudflare, Cisco Umbrella, Quad9, CIRA). Only domains flagged by two or more providers are listed. CIRA verdicts are annotated MW (malware) or PH (phishing).
+
+| Domain | Linking Ads | Tranco Rank | Blocking PDNS |
+| --- | ---: | ---: | --- |
+| `spolecz[...].convertri.com` | ~3K | 59K | CIRA (MW), CF, Quad9 |
+| `dropland.net` | 0 | 950K | CIRA (PH), CF |
+| `keysoft.store` | 18 | 1.6M | CIRA (PH), CF |
+| `licenzegenius.it` | 9 | 1.6M | CIRA (PH), CF |
+| `nerdused.com` | 62 | 1.6M | CIRA (PH), CF |
+| `eu.yourfavouritedocs.com` | ~900 | 1.6M | CIRA (MW), CF |
+| `pyproxy.com` | 1 | 2.6M | CIRA (MW), Quad9 |
+| `gopdfmanuals.com` | ~300 | 3.2M | CIRA (MW), CF |
+| `kajoyefoqumanalytics.click` | 1 | 3.2M | CIRA (MW), CF |
+| `pdfscraper.com` | 42 | 3.2M | CIRA (MW), CF |
+| `pl.getniy.shop` | 0 | 3.2M | CIRA (PH), CF |
+
 ![Ads linking to PDNS-flagged domains](paper-artifacts/pdns_images.png)
 
 Two of these ads — **(a)** and **(c)** — were taken down by Google after we reported them for linking to malicious domains. Takedown reports for **(b)** and **(d)** were still being processed at the time of submission.
@@ -140,6 +161,125 @@ The web-based semantic similarity search interface, which retrieves similar ads 
 ![Semantic similarity search web UI](paper-artifacts/webui.png)
 
 The tool lets researchers and policymakers explore the ad corpus without re-running the full pipeline. See [`search_platform/`](search_platform/) for the implementation and instructions to render the search tool locally over the sample images in [`sample_data/`](sample_data/).
+
+---
+
+## G. Example Deceptive Ads
+
+Representative creatives identified by AdLens across all three violation categories. Every one of these was live and reachable through the public Google Ads Transparency Center at the time of the crawl.
+
+![Example deceptive software ads](paper-artifacts/example_ads.jpg)
+
+- **(a–d) Scareware** — fake virus, hack, and storage warnings, typically imitating an operating-system dialog.
+- **(e, f, g, k) Misleading Ad Design** — low-information call-to-action buttons carrying no advertiser identity.
+- **(h, i, j) Deceptive Claims** — plausible but false capabilities, such as locating a person from a phone number or recovering photos deleted years earlier.
+
+---
+
+## H. Crawled Dataset Overview
+
+188,834 ad creatives collected across the Software, Mobile App Utilities, and Computer & Consumer Electronics categories (112,761 remain after exact OCR-text deduplication). The software category is covered near-exhaustively; mobile and computer are sampled from much larger populations (~303K and ~6.5M ad IDs respectively).
+
+| Metric | Computer | Mobile | Software | Total |
+| --- | ---: | ---: | ---: | ---: |
+| Total creatives | 54,211 | 61,191 | 73,432 | **188,834** |
+| Dedup. creatives | 35,467 | 36,217 | 41,077 | **112,761** |
+| Ad type — Image | 16,527 | 16,558 | 41,077 | 74,162 |
+| Ad type — Text | 7,800 | 9,423 | 0 | 17,223 |
+| Ad type — Video | 11,140 | 10,236 | 0 | 21,376 |
+
+---
+
+## I. Top Violating Advertisers
+
+Top three advertisers per violation category, ranked by violating ad count. Two of the three most prolific scareware advertisers each exceed a billion total ad impressions.
+
+### Scareware
+
+| Advertiser | Loc. | Violating Ads | Violating Impr. | Total Impr. | Regions | Days |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| WELLRESION LIMITED | HK | 90 | 10.96M | 1.22B | 8 | 617 |
+| FEMOB TECHNOLOGY LIMITED | HK | 17 | 153.00K | 44.32M | 7 | 265 |
+| Tripsoft Global Ltd. | VG | 10 | 174.50K | 5.96B | 4 | 340 |
+
+### Deceptive Claims
+
+| Advertiser | Loc. | Violating Ads | Violating Impr. | Total Impr. | Regions | Days |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| GeoZilla Inc | US | 771 | 2.68M | 204.83M | 8 | 462 |
+| Family Locator, LLC | US | 660 | 1.67M | 60.61M | 7 | 468 |
+| APPLYFT LTD | CY | 351 | 428.50K | 35.20M | 6 | 202 |
+
+### Misleading Ad Design
+
+| Advertiser | Loc. | Violating Ads | Violating Impr. | Total Impr. | Regions | Days |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| ZODIAC TECHNOLOGIES DMCC | AE | 169 | 8.47M | 2.30B | 1 | 397 |
+| Antelaria Limited | CY | 17 | 5.00K | 392.97M | 1 | 165 |
+| Mobitrans FZ LLC | AE | 12 | 1.50K | 598.20M | 1 | 91 |
+
+---
+
+## J. Deceptive Ad Taxonomy
+
+Reference statements per theme, derived from manual annotation of ~5,000 ads plus the Google ad policies in [§ A](#a-google-ads-policy-violations). For scareware and deceptive claims these statements seed the semantic-similarity ranking stage: an ad is prioritised for classification when its translated text sits close to one of them in embedding space.
+
+### Scareware
+
+| Theme | Reference Statements |
+| --- | --- |
+| **Account Deactivation / Suspension** | Last warning: Your account will be suspended or restricted. |
+| | Your account will be permanently disabled because it does not comply with our rules. |
+| | Your account has been flagged for unusual login attempts. Verify immediately or lose access. |
+| | Action required: Your account will be deleted within 24 hours unless you confirm your identity. |
+| **Storage & Device Performance** | Your device storage is full. |
+| | Your phone is running slow because of junk files. |
+| | Your software/pdf version is outdated. |
+| | Your battery is draining fast because of background apps. |
+| **Virus / Malware Infection** | Your phone is infected with viruses. |
+| | Your device is severely compromised because you visited adult websites. |
+| | Your browser is damaged by Trojan horses downloaded while visiting illegal websites. |
+| | Warning: 13 viruses have been detected on your device. Clean now. |
+| | Your phone has been compromised by spyware. Your camera and microphone may be recording. |
+| **Hacker / Data Breach** | Your device has been hacked and your personal information is at risk. |
+| | Someone is monitoring your browsing activity right now. |
+| | Your passwords have been exposed in a data breach. Change them immediately. |
+| **Legal / Law Enforcement** | Your IP address has been flagged for illegal activity. |
+| | Law enforcement has been notified about suspicious activity from your device. |
+| **Privacy Exposure** | Your personal photos are visible to everyone on the internet. |
+| | Your location is being tracked. Disable tracking immediately. |
+| | Your browsing history is publicly accessible. Hide it now. |
+
+### Deceptive Claims
+
+| Theme | Reference Statements |
+| --- | --- |
+| **Photo / Data Recovery Bait** | You deleted 100 photos 3 years ago. Recover them. |
+| | Photos deleted 4 years ago were found in memory. Recover them now. |
+| | We found 347 recoverable files on your device. Restore them. |
+| **People Tracking / Surveillance** | Track anyone's location by entering their phone number. |
+| | Find out who is calling you from unknown numbers. |
+| | Monitor your partner's private messages and location. |
+| | Track spirits or spells around you. |
+| **Social Curiosity Bait** | Install this app to find out who secretly hates you. |
+| | Install this app to find out who has a secret crush on you. |
+| | Find out what your friends really think about you. |
+
+### Misleading Ad Design
+
+| Theme | Reference Statements |
+| --- | --- |
+| **Call to Action Baits** | Access Now, Continue, Click here, etc. |
+
+---
+
+## K. Pipeline Architecture
+
+The end-to-end system: crawl the Ads Transparency Center, extract text from each creative, translate it, rank it against the violation categories in [§ J](#j-deceptive-ad-taxonomy), then classify the top of that ranking with a multi-VLM ensemble and a judge for disagreements.
+
+![AdLens pipeline architecture](malvertising.drawio.png)
+
+The lower boxes show how the violation taxonomy is derived (Google policies + manual analysis) and where the semantic-similarity rank and multi-VLM vote sit relative to the VLM judge.
 
 ---
 
