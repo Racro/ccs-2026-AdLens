@@ -1,14 +1,19 @@
-# AdLens — CCS 2026 Cycle B
+# AdLens: Efficient Detection of Deceptive Software Ads (ACM CCS 2026)
+
+> Code and artifacts for [AdLens](https://racro.github.io/papers/adlens.pdf) (ACM Computers and Communications Security 2026).
 
 ![AdLens Architecture](malvertising.drawio.png)
 
-**Figure 1:** A high-level diagram illustrating AdLens architecture: Ad Collection and Ad analysis pipeline. We collect software ads and classify them as malicious/benign through this automated pipeline. Translated text embeddings step takes both ad text and taxonomy as input and outputs their embeddings to the LLM ensemble step for semantic ranking, followed by multi-VLM voting and Judge verification.
+**Figure 1:** A high-level diagram illustrating AdLens architecture, including the ad collection and analysis pipelines.
 
-A measurement and detection system for malvertising and deceptive ad practices on the **Google Ad Transparency Center**. AdLens crawls ad creatives at scale, extracts text via OCR, and classifies ads into violation categories using an ensemble of vision-language models.
+ℹ️ AdLens is a measurement and detection system for malvertising and deceptive ad practices on the **Google Ad Transparency Center**. AdLens crawls ad creatives at scale, extracts text via OCR, and classifies ads into violation categories using an ensemble of vision-language models.
+
+## 📄 Paper
+ [AdLens: Efficient Detection of Deceptive Software Ads](https://racro.github.io/papers/adlens.pdf)
 
 > **Erratum — Table 2, section (c):** The Deceptive Claims and Scareware columns were inadvertently transposed in the submission manuscript. The corrected table with full explanation is in [`scripts/README.md`](scripts/README.md#f1_score_table2py).
 
-## 📄 Paper Artifacts
+## ⚙️ Paper Artifacts
 
 Supplementary figures, tables, and analyses referenced from the paper's appendix are collected in **[`ARTIFACTS.md`](ARTIFACTS.md)**:
 
