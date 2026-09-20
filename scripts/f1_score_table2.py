@@ -1,5 +1,5 @@
 """
-f1_score.py — Self-contained reproduction of Table 1 (combined results).
+f1_score_table2.py — Self-contained reproduction of Table 2 (P/R/F1 per model × violation type).
 
 All data is defined inline as (y_true, y_pred) label arrays derived from
 the confusion-matrix counts of each model × violation-type × evaluation split.
@@ -126,21 +126,24 @@ VTYPES = ("misleading", "scareware", "ad_design")
 COL_LABELS = ("Deceptive Claims", "Scareware", "Misleading Design")
 
 def print_header(title):
-    print(f"\n{'='*108}")
+    print(f"\n{'='*122}")
     print(f"  {title}")
-    print(f"  {'Model':<28}  " + "  ".join(f"{c:<28}" for c in COL_LABELS) + "  Macro F1")
-    print(f"  {'':28}  " + "  ".join(f"{'P':>6} {'R':>6} {'F1':>6}   " for _ in COL_LABELS))
-    print(f"  {'-'*104}")
+    print(f"  {'Model':<28}  " + "  ".join(f"{c:<28}" for c in COL_LABELS) + "  Macro-averaged")
+    print(f"  {'':28}  " + "  ".join(f"{'P':>6} {'R':>6} {'F1':>6}   " for _ in COL_LABELS) + "  P      R      F1")
+    print(f"  {'-'*118}")
 
 
 def print_row(name, data):
-    parts, f1s = [], []
+    parts, ps, rs, f1s = [], [], [], []
     for vtype in VTYPES:
         p, r, f = prf(*data[vtype][name])
         parts.append(f"{p:.3f}  {r:.3f}  {f:.3f}")
+        ps.append(p)
+        rs.append(r)
         f1s.append(f)
-    mf1 = sum(f1s) / len(f1s)
-    print(f"  {name:<28}  " + "    ".join(parts) + f"    {mf1:.3f}")
+    n = len(VTYPES)
+    macro = f"{sum(ps)/n:.3f}  {sum(rs)/n:.3f}  {sum(f1s)/n:.3f}"
+    print(f"  {name:<28}  " + "    ".join(parts) + f"    {macro}")
 
 
 def section(title, data, models):

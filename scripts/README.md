@@ -4,7 +4,7 @@ Utility and analysis scripts for the AdLens paper.
 
 ## f1_score_table2.py
 
-Self-contained script that reproduces Table 2 — Precision, Recall, and F1 for every model across all three violation types. All data is defined inline as confusion-matrix counts; no external files are required.
+Self-contained script that reproduces Table 2 — Precision, Recall, and F1 for every model across all three violation types, plus macro-averaged Precision, Recall, and F1. All data is defined inline as confusion-matrix counts; no external files are required.
 
 ```bash
 python scripts/f1_score_table2.py
@@ -17,10 +17,6 @@ Outputs three sections:
 | (a) Ensemble Classifiers | Golden set (1283 items), per-model results |
 | (b) Judge Models | Golden set, disagreement cases only |
 | (c) Golden Test Dataset | Held-out test set (seed-42, max 50/folder) |
-
-> **Erratum — Table 2, section (c):** In the submission manuscript, the per-class scores for **Deceptive Claims** and **Scareware** in section (c) (Golden Test Dataset) were inadvertently transposed when copying results from the script output into the paper. The values in `f1_score_table2.py` are correct. This will be corrected in the final version. This error affects only the column-level P/R/F1 breakdown for those two classes in the temporal-robustness evaluation; the **Macro F1 scores are unaffected** because they are the unweighted average of all three F1 values, which remains the same regardless of column order. Importantly, the transposition does not alter the core finding: performance does not degrade on the held-out test set but in fact improves relative to the golden set evaluation, confirming the temporal robustness of the pipeline.
-
-Corrected Table 2 is reproduced below. Where values differ from the manuscript: ~~published~~ → **corrected**.
 
 *DC = Deceptive Claims · SW = Scareware · MD = Misleading Design*
 
@@ -40,13 +36,15 @@ Corrected Table 2 is reproduced below. Where values differ from the manuscript: 
 | Qwen3.5:27b | 0.628 | 0.964 | 0.761 | 0.939 | 1.000 | 0.969 | 0.861 | 0.946 | 0.902 | 0.877 |
 | Mistral-small3.2:24b | 0.800 | 0.714 | 0.755 | 0.968 | 0.968 | 0.968 | 0.897 | 0.848 | 0.872 | 0.865 |
 
-#### (c) Full Pipeline — Test Set
+#### (c) Full Pipeline — Test Set (look-forward)
 
-| Model | DC P | DC R | DC F1 | SW P | SW R | SW F1 | MD P | MD R | MD F1 | Macro F1 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Qwen3.5:9b | ~~1.000~~ **0.978** | ~~0.958~~ **0.880** | ~~0.979~~ **0.926** | ~~0.978~~ **1.000** | ~~0.880~~ **0.958** | ~~0.926~~ **0.979** | 1.000 | 1.000 | 1.000 | 0.968 |
-| Gemma3:12b | ~~0.978~~ **0.873** | ~~0.938~~ **0.960** | ~~0.957~~ **0.914** | ~~0.873~~ **0.978** | ~~0.960~~ **0.938** | ~~0.914~~ **0.957** | 1.000 | 1.000 | 1.000 | 0.957 |
-| Gemma4:26b (judge) | ~~0.980~~ **1.000** | 1.000 | ~~0.990~~ **1.000** | ~~1.000~~ **0.980** | 1.000 | ~~1.000~~ **0.990** | 1.000 | 1.000 | 1.000 | **0.997** |
+| Model | DC P | DC R | DC F1 | SW P | SW R | SW F1 | MD P | MD R | MD F1 | Macro P | Macro R | Macro F1 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen3.5:9b | 0.978 | 0.880 | 0.926 | 1.000 | 0.958 | 0.979 | 1.000 | 1.000 | 1.000 | 0.993 | 0.946 | 0.968 |
+| Gemma3:12b | 0.873 | 0.960 | 0.914 | 0.978 | 0.938 | 0.957 | 1.000 | 1.000 | 1.000 | 0.950 | 0.966 | 0.957 |
+| Gemma4:26b (judge) | 1.000 | 1.000 | 1.000 | 0.980 | 1.000 | 0.990 | 1.000 | 1.000 | 1.000 | **0.993** | **1.000** | **0.997** |
+
+Overall (macro-averaged over the three violation types) look-forward performance of the full pipeline: **precision 0.993, recall 1.000, F1 0.997**. Misleading Design has only 3 positive test ads, so its perfect scores should be read with that in mind.
 
 ## plots/
 
