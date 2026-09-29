@@ -1,0 +1,15 @@
+.git
+node_modules
+crawler/node_modules
+__pycache__
+*.pyc
+detection/results/
+crawler/results/
+ocr/logs/
+ocr/cache/
+ocr/shared_downloads/
+search_platform/embeddings_cache/
+search_platform/.gradio/
+run_all_output/
+*.log
+.DS_Store

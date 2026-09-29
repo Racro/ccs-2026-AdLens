@@ -139,11 +139,72 @@ Each stage saves an intermediate file (`ads_after_ocr.json`, `ads_after_translat
 
 The final JSON contains one record per ad with all fields merged: crawler metadata, per-variant OCR text and translation, per-violation classification (per-model, ensemble, judge), and a top-level `malicious` flag.
 
+## Docker
+
+Prebuilt CPU and GPU images are published at [`racro/adlens`](https://hub.docker.com/r/racro/adlens) on Docker Hub. They bundle Python 3.12, Chrome/Puppeteer (crawler), Node.js, Ollama, and all Python dependencies — no local `pip install` / `npm install` needed.
+
+| Tag | Also tagged | Size | Use |
+| --- | --- | --- | --- |
+| `cpu_v1` | `latest` | ~5.8 GB | CPU-only OCR/inference |
+| `gpu_v1` | `gpu` | ~9.4 GB | CUDA GPU OCR/inference (needs `--gpus`) |
+
+```bash
+docker pull racro/adlens:cpu_v1   # or racro/adlens:gpu_v1
+```
+
+The entrypoint forwards its arguments straight to `run_all.py` (see [Step 4 — Detect](#step-4--detect) / [End-to-End Run](#end-to-end-run-single-script) above), so it takes the same flags:
+
+```bash
+docker run --rm racro/adlens:cpu_v1 --help
+```
+
+Classify a single local image, mounting data in/out:
+
+```bash
+docker run --rm \
+    -v "$PWD/sample_data:/app/sample_data:ro" \
+    -v "$PWD/run_all_output:/app/run_all_output" \
+    racro/adlens:cpu_v1 \
+    --image sample_data/images/<ad_id>.png
+```
+
+Crawl + classify from a CSV:
+
+```bash
+docker run --rm \
+    -v "$PWD:/app/host" \
+    racro/adlens:cpu_v1 \
+    --csv host/ads.csv --workers 2 --out-dir host/run_all_output
+```
+
+GPU variant (requires the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)):
+
+```bash
+docker run --rm --gpus all racro/adlens:gpu_v1 --csv host/ads.csv --device gpu:0
+```
+
+**Ollama:** the container expects an Ollama server reachable at `$OLLAMA_URL` (default `http://host.docker.internal:11434` — Ollama running on your host, with the models from [Step 3](#step-3--translate)/[Step 4](#step-4--detect) already pulled). On Linux, `host.docker.internal` needs `docker run --add-host=host.docker.internal:host-gateway ...`. To use the Ollama binary bundled in the image instead, pass `-e OLLAMA_URL=http://localhost:11434`.
+
+### Building the image yourself
+
+[`Dockerfile`](Dockerfile) and [`docker-entrypoint.sh`](docker-entrypoint.sh) reproduce the published images from source:
+
+```bash
+docker build --build-arg DEVICE=cpu -t adlens:cpu .
+docker build --build-arg DEVICE=gpu -t adlens:gpu .
+```
+
+The image is amd64-only (Chrome has no arm64 build); on Apple Silicon / arm64 hosts, Docker Desktop builds and runs it via emulation automatically.
+
+> These were reconstructed from the published images' layer history — the original build files were never committed to this repo — so they reproduce the same contents but aren't guaranteed byte-identical to `racro/adlens:cpu_v1`/`:gpu_v1`.
+
 ## Repository Layout
 
 ```
 .
 ├── run_all.py        # End-to-end pipeline: crawl → OCR → translate → detect
+├── Dockerfile         # Builds the racro/adlens image (see Docker section above)
+├── docker-entrypoint.sh
 ├── crawler/          # Puppeteer crawler for Google Ad Transparency Center
 ├── detection/        # Ensemble VLM classification pipeline
 │   ├── adlens_pipeline.py    # main entry point (steps 3–4)
