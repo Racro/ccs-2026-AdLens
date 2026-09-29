@@ -14,7 +14,7 @@ This page hosts the extended figures, tables, and analyses referenced from the p
 - [F. Semantic Similarity Search Tool](#f-semantic-similarity-search-tool)
 - [G. Example Deceptive Ads](#g-example-deceptive-ads)
 - [H. Crawled Dataset Overview](#h-crawled-dataset-overview)
-- [I. Top Violating Advertisers](#i-top-violating-advertisers)
+- [I. Top Violating Advertisers (Table 4)](#i-top-violating-advertisers-table-4)
 - [J. Deceptive Ad Taxonomy](#j-deceptive-ad-taxonomy)
 - [K. Pipeline Architecture](#k-pipeline-architecture)
 
@@ -190,9 +190,11 @@ Representative creatives identified by AdLens across all three violation categor
 
 ---
 
-## I. Top Violating Advertisers
+## I. Top Violating Advertisers (Table 4)
 
 Top three advertisers per violation category, ranked by violating ad count. Two of the three most prolific scareware advertisers each exceed a billion total ad impressions.
+
+> **Table 4: Top #3 advertisers per violation category ranked based on violating ads.** "Days" refer to the number of days for which at least one ad of the advertiser was active. EEA countries are counted as a single region in the "Regions" column. Abbr.: Viol. – Violating, Impr. – Impressions.
 
 ### Scareware
 
