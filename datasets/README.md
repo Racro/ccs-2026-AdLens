@@ -17,7 +17,7 @@ datasets/
 │   │   ├── tp/             # True positives (239)
 │   │   └── tn/             # True negatives (195)
 │   └── metadata.json       # Per-ad records with OCR text, crawl metadata, and ground-truth labels
-├── golden_test_data/        # Held-out test set (301 images)
+├── golden_test_data/        # Held-out look-forward test set (301 images + metadata.json)
 │   ├── scareware/
 │   │   ├── tp/             # True positives (48)
 │   │   └── tn/             # True negatives (67)
@@ -27,11 +27,30 @@ datasets/
 │   └── ad_design/
 │       ├── tp/             # True positives (3)
 │       └── tn/             # True negatives (67)
+│   └── metadata.json       # Same schema as golden_main_data/metadata.json
 └── violations/              # Sample confirmed-violation ad images used as paper examples (600 total)
     ├── deceptive_claims/    # 200 images
     ├── misleading_ad_design/ # 200 images
     └── scareware/           # 200 images
 ```
+
+## golden_test_data
+
+Held-out set for Table 2(c): 301 ad images (299 distinct creatives; two appear under two violation types) in `<violation>/<tp|tn>/<ad_id>.png`, with the same folder layout as `golden_main_data/`, and a `metadata.json` carrying `ad_id`, `violation_type`, `label`, `ocr_text` (PaddleOCR PP-OCRv5, regenerated with `ocr/process.py`) and `translated_ocr_text` (`translategemma:4b`), plus crawl fields where available.
+
+Reproduce Table 2(c) (classifiers + judge on this set):
+
+```bash
+python detection/adlens_pipeline.py \
+    --metadata datasets/golden_test_data/metadata.json \
+    --images-dir datasets/golden_test_data \
+    --out-dir detection/results/test_set_results
+python scripts/eval_pipeline_results.py \
+    --metadata datasets/golden_test_data/metadata.json \
+    --results-dir detection/results/test_set_results
+```
+
+The paper's Table 2(c) evaluates the classifiers on a seed-42 sample (at most 50 ads per folder) and the judge on the full set, as described in `scripts/f1_score_table2.py`; the command above scores every ad.
 
 ## metadata.json Schema
 

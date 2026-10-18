@@ -34,3 +34,9 @@ Each record in `metadata.json` has the following fields:
 | `translated_ocr_text` | English translation of `ocr_text` (if source was non-English) |
 
 Images are resolved as `sample_data/images/<ad_id>.png`.
+
+> This file has **no ground-truth labels** (`violation_type` / `label`). The same 1,283 ads, with labels, are in
+> [`datasets/golden_main_data/metadata.json`](../datasets/golden_main_data/metadata.json); use
+> `python detection/adlens_pipeline.py --eval` to run the pipeline against them and
+> `python scripts/eval_pipeline_results.py` to score it (reproduces Table 2(a)/(b)). The set holds 1,271 distinct
+> `ad_id`s — a few ads are labeled for more than one violation type.

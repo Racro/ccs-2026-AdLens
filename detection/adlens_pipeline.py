@@ -2,8 +2,8 @@
 """
 adlens_pipeline.py — Classification + judging pipeline for labeled AdLens images.
 
-Reads:  sample_data/metadata.json
-        sample_data/<violation>/<label>/<ad_id>.png
+Reads:  sample_data/metadata.json  (or --metadata / --eval, see below)
+        sample_data/images/<ad_id>.png
 
 Imports prompts from stage-specific scripts:
   • PROMPT_SCAREWARE, PROMPT_MISLEADING  → ensemble.py
@@ -27,6 +27,13 @@ Usage:
   python adlens_pipeline.py --skip-classify   # judge only (needs cache)
   python adlens_pipeline.py --skip-judge
   python adlens_pipeline.py --limit 50        # cap per violation
+
+Evaluation mode (reproduces Table 2(a)/(b)):
+  python adlens_pipeline.py --eval            # labeled golden set, per-violation subsets
+  python ../scripts/eval_pipeline_results.py  # score the output
+`--eval` reads datasets/golden_main_data/metadata.json, whose records carry
+`violation_type` and `label` (tp/tn). Each violation is run only on the records
+labeled for it (449 / 400 / 434 ads), images still come from sample_data/images/.
 """
 
 from __future__ import annotations
@@ -81,6 +88,8 @@ _call_log: list[CallRecord] = []
 SCRIPT_DIR       = Path(__file__).parent
 SAMPLE_DATA_DIR  = SCRIPT_DIR.parent / "sample_data"
 METADATA_FILE    = SAMPLE_DATA_DIR / "metadata.json"
+IMAGES_DIR       = SAMPLE_DATA_DIR / "images"   # override with --images-dir
+GOLDEN_METADATA_FILE = SCRIPT_DIR.parent / "datasets" / "golden_main_data" / "metadata.json"
 RESULTS_DIR      = SCRIPT_DIR / "results"
 DEFAULT_OUT_DIR  = RESULTS_DIR / "pipeline_results"
 OLLAMA_URL       = "http://localhost:11434"
@@ -120,6 +129,24 @@ VALID_LABELS = {
     "misleading_design": {"Undisclosed Advertiser", "SAFE"},
 }
 
+# `violation_type` values in the labeled metadata → pipeline violation names.
+VIOLATION_ALIASES = {
+    "scareware":         "scareware",
+    "deceptive_claim":   "deceptive_claim",
+    "misleading":        "deceptive_claim",
+    "misleading_design": "misleading_design",
+    "ad_design":         "misleading_design",
+}
+
+
+def records_for_violation(records: list[dict], violation: str) -> list[dict]:
+    """Records labeled for `violation`; all records if the metadata is unlabeled."""
+    if not any("violation_type" in r for r in records):
+        return records
+    return [r for r in records
+            if VIOLATION_ALIASES.get(r.get("violation_type", "")) == violation]
+
+
 # JUDGE_PROMPTS imported from llm_judge as SYSTEM_PROMPTS
 
 
@@ -148,9 +175,14 @@ def image_to_b64(path: Path) -> Optional[str]:
 
 
 def resolve_image(record: dict) -> Optional[Path]:
-    """Return Path to the labeled image from sample_data/images/<ad_id>.png"""
-    path = SAMPLE_DATA_DIR / "images" / f"{record['ad_id']}.png"
-    return path if path.exists() else None
+    """Locate the ad image: <images-dir>/<violation_type>/<label>/<ad_id>.png
+    (golden_main_data / golden_test_data layout) or flat <images-dir>/<ad_id>.png
+    (sample_data/images)."""
+    candidates = []
+    if record.get("violation_type") and record.get("label"):
+        candidates.append(IMAGES_DIR / record["violation_type"] / record["label"] / f"{record['ad_id']}.png")
+    candidates.append(IMAGES_DIR / f"{record['ad_id']}.png")
+    return next((p for p in candidates if p.exists()), None)
 
 
 def _needs_think_disabled(model: str) -> bool:
@@ -593,10 +625,19 @@ def print_summary(records: list[dict], violation: str) -> None:
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    global IMAGES_DIR
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--violations",     nargs="+", default=ALL_VIOLATIONS,
                         choices=ALL_VIOLATIONS, help="Which violations to process")
+    parser.add_argument("--metadata",       type=Path, default=None,
+                        help=f"Metadata JSON (default: {METADATA_FILE}). If its records carry "
+                             "`violation_type`, each violation runs only on its own records.")
+    parser.add_argument("--images-dir",     type=Path, default=None,
+                        help=f"Directory of <ad_id>.png images (default: {IMAGES_DIR})")
+    parser.add_argument("--eval",           action="store_true",
+                        help="Evaluation mode: use the labeled golden set "
+                             "(datasets/golden_main_data/metadata.json)")
     parser.add_argument("--classifier-models", nargs="+",
                         default=[QWEN_MODEL, GEMMA_MODEL],
                         help="Ollama model tags for classification")
@@ -634,17 +675,25 @@ def main() -> None:
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     # ── Load metadata ──────────────────────────────────────────────────────────
-    if not METADATA_FILE.exists():
-        log.error("Metadata not found: %s", METADATA_FILE)
-        log.error("Expected: sample_data/metadata.json at project root")
+    if args.images_dir:
+        IMAGES_DIR = args.images_dir
+    metadata_file = args.metadata or (GOLDEN_METADATA_FILE if args.eval else METADATA_FILE)
+    if not metadata_file.exists():
+        log.error("Metadata not found: %s", metadata_file)
         sys.exit(1)
-    records: list[dict] = load_json(METADATA_FILE)
-    log.info("Loaded %d records from %s", len(records), METADATA_FILE)
+    records: list[dict] = load_json(metadata_file)
+    log.info("Loaded %d records from %s", len(records), metadata_file)
+    if args.eval and not any("label" in r for r in records):
+        log.error("--eval needs labeled records (`violation_type`, `label`): %s", metadata_file)
+        sys.exit(1)
 
-    # ── Total record cap ───────────────────────────────────────────────────────
+    # Per-violation record sets (cap applies per violation).
+    records_by_violation = {v: records_for_violation(records, v) for v in args.violations}
     if args.limit:
-        records = records[: args.limit]
-        log.info("--limit %d applied: %d records", args.limit, len(records))
+        records_by_violation = {v: r[: args.limit] for v, r in records_by_violation.items()}
+        log.info("--limit %d applied per violation", args.limit)
+    for v, r in records_by_violation.items():
+        log.info("  %-18s %d records", v, len(r))
 
     # ── Load classify cache ────────────────────────────────────────────────────
     cache_path = args.out_dir / "classify_cache.json"
@@ -658,12 +707,13 @@ def main() -> None:
             (m, re.sub(r"[^a-zA-Z0-9]", "_", m.split("/")[-1].lower()))
             for m in args.classifier_models
         ]
-        run_classify_phase(
-            records, args.violations, args.ollama_url,
-            cache, cache_path,
-            classifier_models=classifier_models,
-            text_only=args.no_images,
-        )
+        for violation in args.violations:
+            run_classify_phase(
+                records_by_violation[violation], [violation], args.ollama_url,
+                cache, cache_path,
+                classifier_models=classifier_models,
+                text_only=args.no_images,
+            )
     else:
         log.info("Skipping Phase 1 (--skip-classify)")
 
@@ -675,7 +725,7 @@ def main() -> None:
     for violation in args.violations:
         log.info("=== Phase 2: %s ===", violation)
 
-        ensemble_records = build_ensemble_records(records, violation, cache,
+        ensemble_records = build_ensemble_records(records_by_violation[violation], violation, cache,
                                                    classifier_models=classifier_models)
         if not ensemble_records:
             log.warning("No records for violation=%s", violation)

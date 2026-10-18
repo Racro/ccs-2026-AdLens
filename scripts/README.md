@@ -2,6 +2,17 @@
 
 Utility and analysis scripts for the AdLens paper.
 
+## eval_pipeline_results.py
+
+Recomputes Table 2 from the output of `detection/adlens_pipeline.py` (classifier caches, ensemble labels, judge labels) against the ground-truth `label` in the metadata. Reports (a) each classifier and the majority-vote ensemble, (b) the judge on disagreement cases only, (c) the full pipeline. Standard library only.
+
+```bash
+python detection/adlens_pipeline.py --eval        # run the models on the labeled golden set
+python scripts/eval_pipeline_results.py           # Table 2(a)/(b) (+ full-pipeline numbers)
+```
+
+Table 2(c) (test set): see [`../datasets/README.md`](../datasets/README.md#golden_test_data). Options: `--metadata`, `--results-dir`, `--classifier-models`, `--judge-name`, `--json-out`.
+
 ## f1_score_table2.py
 
 Self-contained script that reproduces Table 2 — Precision, Recall, and F1 for every model across all three violation types, plus macro-averaged Precision, Recall, and F1. All data is defined inline as confusion-matrix counts; no external files are required.

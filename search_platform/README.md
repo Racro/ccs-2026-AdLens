@@ -26,6 +26,8 @@ python search_platform/sim_search_webui.py --build
 python search_platform/sim_search_webui.py --model baai --build
 ```
 
+> **Gated model:** the default `google/embeddinggemma-300m` is gated on HuggingFace. Accept its licence at <https://huggingface.co/google/embeddinggemma-300m>, then pass `--hf-token <TOKEN>` or export `HF_TOKEN`. The `minilm` and `baai` models are ungated and need no token (`--model minilm`).
+
 Open `http://localhost:7860` in your browser after launch.
 
 ## Available Models

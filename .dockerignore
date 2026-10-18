@@ -1,0 +1,33 @@
+.git
+.gitignore
+
+# Dependencies (installed fresh in the image)
+node_modules/
+crawler/node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Local runtime/browser state
+crawler/browser_profile/
+
+# Generated pipeline outputs
+crawler/results/
+detection/results/
+ocr/logs/
+ocr/cache/
+ocr/shared_downloads/
+search_platform/embeddings_cache/
+search_platform/.gradio/
+run_all_output/
+*.log
+
+# Large media not needed to run the pipeline
+search_platform/search_platform.mp4
+malvertising.drawio.png
+
+# Secrets — never bake into the image
+*.json.key
+service_account*.json
+credentials*.json
+.env

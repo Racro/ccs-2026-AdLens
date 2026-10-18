@@ -18,6 +18,7 @@ Available models:
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -77,7 +78,15 @@ def get_model(model_name: str) -> SentenceTransformer:
     if model_name not in _models:
         model_id = MODELS[model_name]
         print(f"📥 Loading model '{model_name}' ({model_id})...")
-        _models[model_name] = SentenceTransformer(model_id, token=_hf_token)
+        try:
+            _models[model_name] = SentenceTransformer(model_id, token=_hf_token)
+        except OSError as exc:
+            sys.exit(
+                f"Could not load '{model_id}': {exc}\n"
+                "Some models (e.g. google/embeddinggemma-300m) are gated on HuggingFace. "
+                "Accept the licence on the model page and pass --hf-token or set HF_TOKEN, "
+                "or use an ungated model: --model minilm | baai."
+            )
     return _models[model_name]
 
 
@@ -327,14 +336,14 @@ def parse_args() -> argparse.Namespace:
         "--hf-token",
         metavar="TOKEN",
         default=None,
-        help="HuggingFace API token for gated/private models",
+        help="HuggingFace API token for gated models such as embeddinggemma (default: $HF_TOKEN)",
     )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
-    _hf_token = args.hf_token
+    _hf_token = args.hf_token or os.environ.get("HF_TOKEN")
 
     if args.build:
         print(f"⚙️  Building embeddings cache for '{args.model}'...")

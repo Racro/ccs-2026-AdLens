@@ -34,9 +34,10 @@ Supplementary figures, tables, and analyses referenced from the paper's appendix
 - **CUDA-capable GPU** (OCR and VLM inference)
 - **Google Cloud credentials** (BigQuery queries)
 
-Install Python dependencies:
+Install Python dependencies. Install `torch` first from the wheel index that matches your NVIDIA driver (pip's default wheel can target a newer CUDA than your driver supports):
 
 ```bash
+pip install "torch>=2.4,<2.6" --index-url https://download.pytorch.org/whl/cu121   # CUDA 12.x driver; use .../cpu for CPU only
 pip install -r requirements.txt
 ```
 
@@ -92,7 +93,7 @@ python detection/translate_ocr.py \
 
 Classify ads with a two-model ensemble (qwen3.5:9b + gemma3:12b) and resolve disagreements with a judge (gemma4:26b).
 
-**Input:** `sample_data/metadata.json` — labeled records with fields `ad_id`, `violation_type`, `label`, `ocr_text` (and `translated_ocr_text` if Step 3 was run). Images are resolved as `sample_data/images/<ad_id>.png`.
+**Input:** `sample_data/metadata.json` — unlabeled ad records with `ad_id`, `ocr_text` (and `translated_ocr_text` if Step 3 was run); every violation type is run on every record. Images are resolved as `sample_data/images/<ad_id>.png`. For the *labeled* golden set used in the paper's evaluation, add `--eval` (see [Reproducing Table 2](#reproducing-table-2)).
 
 ```bash
 ollama pull qwen3.5:9b
@@ -113,6 +114,21 @@ Run specific violations or cap records for a quick test:
 ```bash
 python detection/adlens_pipeline.py --violations scareware --limit 50
 ```
+
+### Reproducing Table 2
+
+Table 2 can be recomputed from pipeline output (not just from the hard-coded counts in `scripts/f1_score_table2.py`).
+
+**Table 2(a)/(b) — golden set (1,283 labeled ads).** `--eval` reads `datasets/golden_main_data/metadata.json` (records carry `violation_type` and `label` = `tp`/`tn`) and runs each violation only on the ads labeled for it (449 deceptive-claim / 400 scareware / 434 misleading-design). Images come from `sample_data/images/`.
+
+```bash
+python detection/adlens_pipeline.py --eval
+python scripts/eval_pipeline_results.py          # prints Tables 2(a), 2(b) and the full-pipeline numbers
+```
+
+Full run needs the three Ollama models above (≈1,283 × 2 classifier calls + judge calls on the disagreements; a few hours on a 24 GB GPU). Use `--limit 50` for a smoke test. Classifications are cached, so an interrupted run resumes.
+
+**Table 2(c) — held-out look-forward test set (301 ads).** Images and labels ship in `datasets/golden_test_data/`; see [`datasets/README.md`](datasets/README.md#golden_test_data) for the commands.
 
 ## End-to-End Run (single script)
 
@@ -155,7 +171,8 @@ The final JSON contains one record per ad with all fields merged: crawler metada
 ├── ocr/              # PaddleOCR text extraction pipeline
 ├── sample_data/      # Labeled ad dataset (images + metadata)
 ├── scripts/          # Utility and analysis scripts
-│   ├── f1_score_table2.py    # Table 2 reproduction (P/R/F1 per model × violation)
+│   ├── eval_pipeline_results.py # Table 2 recomputed from adlens_pipeline.py output
+│   ├── f1_score_table2.py    # Table 2 from the paper's confusion-matrix counts (no models needed)
 │   ├── pdns/                 # Passive DNS lookups for ad landing domains
 │   └── plots/                # Paper figure scripts (bar chart, precision bins, dedup)
 ├── search_platform/  # Gradio semantic search UI

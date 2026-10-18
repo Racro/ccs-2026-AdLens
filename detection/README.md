@@ -30,7 +30,7 @@ ollama pull qwen3.5:27b
 ollama pull mistral-small3.2:24b
 ```
 
-- `sample_data/metadata.json` and images in `sample_data/images/<ad_id>.png`
+- `sample_data/metadata.json` and images in `sample_data/images/<ad_id>.png` (for evaluation: `datasets/golden_main_data/metadata.json`, which adds `violation_type` and `label`)
 
 ## Usage
 
@@ -53,6 +53,13 @@ python adlens_pipeline.py --limit 50
 
 # Text-only mode (no images passed to models)
 python adlens_pipeline.py --no-images
+
+# Evaluation: labeled golden set, each violation on its own records; then score
+python adlens_pipeline.py --eval
+python ../scripts/eval_pipeline_results.py
+
+# Other metadata / image locations (images may be flat or <violation_type>/<label>/<ad_id>.png)
+python adlens_pipeline.py --metadata path/to/metadata.json --images-dir path/to/images
 
 # Custom Ollama URL or judge model
 python adlens_pipeline.py --ollama-url http://localhost:11434 --judge-model qwen3.5:27b

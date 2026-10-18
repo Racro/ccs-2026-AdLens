@@ -1,15 +1,24 @@
-requests>=2.31.0
-pandas>=2.0.0
-google-cloud-bigquery>=3.0.0
-db-dtypes>=1.0.0
-google-auth>=2.0.0
-google-auth-oauthlib>=1.0.0
-gradio>=4.0.0
-sentence-transformers>=3.0.0
-torch>=2.0.0
-Pillow>=10.0.0
-beautifulsoup4>=4.12.0
-tqdm>=4.0.0
-urlextract>=1.8.0
-matplotlib>=3.7.0
-numpy>=1.24.0
+# Bounded ranges tested with Python 3.12. For a bit-for-bit environment, use
+# requirements.lock (pip freeze from the evaluated environment).
+#
+# torch is NOT pinned to a CUDA build here: pip's default wheel may target a
+# newer CUDA than your driver supports. Install it first from the index that
+# matches your driver, e.g.
+#   pip install "torch>=2.4,<2.6" --index-url https://download.pytorch.org/whl/cu121   # CUDA 12.x driver
+#   pip install "torch>=2.4,<2.6" --index-url https://download.pytorch.org/whl/cpu     # CPU only
+requests>=2.31,<3
+pandas>=2.0,<4
+google-cloud-bigquery>=3.0,<4
+db-dtypes>=1.0,<2
+google-auth>=2.0,<3
+google-auth-oauthlib>=1.0,<2
+gradio>=4.0,<6
+sentence-transformers>=5.0,<6   # >=5 required for google/embeddinggemma-300m
+torch>=2.4,<2.6
+Pillow>=10.0,<12
+beautifulsoup4>=4.12,<5
+tqdm>=4.0,<5
+urlextract>=1.8,<2
+matplotlib>=3.7,<4
+numpy>=1.24,<3
+ollama>=0.4,<1                  # detection/translate_ocr.py
