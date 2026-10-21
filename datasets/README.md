@@ -17,16 +17,16 @@ datasets/
 │   │   ├── tp/             # True positives (239)
 │   │   └── tn/             # True negatives (195)
 │   └── metadata.json       # Per-ad records with OCR text, crawl metadata, and ground-truth labels
-├── golden_test_data/        # Held-out look-forward test set (301 images + metadata.json)
+├── golden_test_data/        # Held-out look-forward test set (253 images + metadata.json)
 │   ├── scareware/
 │   │   ├── tp/             # True positives (48)
-│   │   └── tn/             # True negatives (67)
+│   │   └── tn/             # True negatives (50)
 │   ├── misleading/
 │   │   ├── tp/             # True positives (52)
-│   │   └── tn/             # True negatives (64)
+│   │   └── tn/             # True negatives (50)
 │   └── ad_design/
 │       ├── tp/             # True positives (3)
-│       └── tn/             # True negatives (67)
+│       └── tn/             # True negatives (50)
 │   └── metadata.json       # Same schema as golden_main_data/metadata.json
 └── violations/              # Sample confirmed-violation ad images used as paper examples (600 total)
     ├── deceptive_claims/    # 200 images
@@ -36,7 +36,7 @@ datasets/
 
 ## golden_test_data
 
-Held-out set for Table 2(c): 301 ad images (299 distinct creatives; two appear under two violation types) in `<violation>/<tp|tn>/<ad_id>.png`, with the same folder layout as `golden_main_data/`, and a `metadata.json` carrying `ad_id`, `violation_type`, `label`, `ocr_text` (PaddleOCR PP-OCRv5, regenerated with `ocr/process.py`) and `translated_ocr_text` (`translategemma:4b`), plus crawl fields where available.
+Held-out set for Table 2(c): **253 ads**, a balanced sample of the look-forward crawl: up to 50 true negatives per violation type, 50 true positives for scareware and deceptive claims where available (48 scareware and 52 deceptive-claim positives exist, all kept), and all 3 misleading-design positives. Images are in `<violation>/<tp|tn>/<ad_id>.png`, with the same folder layout as `golden_main_data/`, and `metadata.json` carries `ad_id`, `violation_type`, `label`, `ocr_text` (PaddleOCR PP-OCRv5, regenerated with `ocr/process.py`) and `translated_ocr_text` (`translategemma:4b`), plus crawl fields where available. Different versions of the same creative (`-v0`, `-v1`, ...) are distinct images and count as separate ads.
 
 Reproduce Table 2(c) (classifiers + judge on this set):
 
@@ -50,7 +50,7 @@ python scripts/eval_pipeline_results.py \
     --results-dir detection/results/test_set_results
 ```
 
-The paper's Table 2(c) evaluates the classifiers on a seed-42 sample (at most 50 ads per folder) and the judge on the full set, as described in `scripts/f1_score_table2.py`; the command above scores every ad.
+The shipped set is already the balanced sample (seed 42, at most 50 per violation type and label, all misleading-design positives), so the command above runs and scores all 253 ads.
 
 ## metadata.json Schema
 

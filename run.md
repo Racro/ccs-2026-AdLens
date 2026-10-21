@@ -16,14 +16,12 @@ Branch `artifact-eval-fixes`. Everything below was produced by the pipeline in t
 - Models: `qwen3.5:9b`, `gemma3:12b` (classifiers), `gemma4:26b` (judge), all default Q4 builds pulled 2026-09-29.
 - Thinking: the golden-set run and the first test-set run had **Gemma4 thinking on** (Ollama default; the pipeline only disabled it for `qwen3`). The pipeline now disables it for `gemma4` too; see the thinking-off rerun below.
 - Judge latency: 30–60 s per call (reasoning trace), ~220 golden-set cases ≈ 3 h. The paper reports ~1–2 s. Not changed, to keep the run faithful.
-- Runtime: golden set (1,283 ads) ≈ 5.5 h end to end; test set (301 images) ≈ 1 h. 0 `judge=ERROR` in either run.
+- Runtime: golden set (1,283 ads) ≈ 5.5 h end to end; test set (301 images, scored on the 253-ad sample) ≈ 1 h. 0 `judge=ERROR` in either run.
 - `scripts/eval_pipeline_results.py` fixes made during this run (uncommitted):
   1. **Result-file names:** it looked for `misleading_results.json` / `ad_design_results.json`, but the pipeline writes
      `deceptive_claim_results.json` / `misleading_design_results.json`, so tables (b) and (c) silently showed Scareware only.
      It now accepts both names.
-  2. **Test-set dedup:** when `--metadata` is in `datasets/golden_test_data/`, it keeps the first record per
-     (`crid`, violation type) — 301 records → **253 ads**, as in the paper. The golden main set is *not* deduped
-     (1,283 records but only 1,140 unique `crid`s; the paper's 1,283 and its per-class splits count by `ad_id`).
+  2. (An earlier creative-ID dedupe of the test set was dropped: versions of a creative are different images, so it removed ads that are not duplicates.)
 - `requirements.lock`: **not generated.** `pip freeze` of this env (`/tmp/claude-3639252/requirements.lock.candidate`, 259 lines) has
   torch 2.11+cu128 and both `nvidia-nccl-cu12` and `-cu13`, which contradicts `requirements.txt` (`torch>=2.4,<2.6`, cu121). A lock
   should come from an environment built from `requirements.txt` as the Docker image will build it.
@@ -52,62 +50,49 @@ classes (largest: Gemma3 scareware recall .894 vs .803), consistent with model/p
 Full pipeline on the golden set (ensemble + judge): DC .970/.871/.918, SW .990/.985/.987, MD .927/.962/.945, macro F1 **.950**.
 Paper disagreement counts were 50 / 34 / 124 (scareware lower, DC lower in the live run).
 
-## Table 2(c) — look-forward test set
+## Table 2(c) — look-forward test set (253 ads)
 
-Ground truth in `datasets/golden_test_data/metadata.json` (301 records, 253 unique creatives):
+The test set is the balanced sample of the 301-file look-forward crawl: up to 50 negatives per violation type, 50 positives for
+scareware / deceptive claims where available, all misleading-design positives. Available positives: scareware 48, deceptive claims 52,
+misleading design 3, so the 253 ads are:
 
-| | raw 301 (tp/tn) | deduped 253 (tp/tn) |
+| | positives | negatives |
 |---|---|---|
-| Deceptive Claims (`misleading`) | 52 / 64 | 50 / 63 |
-| Scareware | 48 / 67 | 27 / 66 |
-| Misleading Design (`ad_design`) | 3 / 67 | 2 / 45 |
+| Deceptive Claims (`misleading`) | 52 | 50 |
+| Scareware | 48 | 50 |
+| Misleading Design (`ad_design`) | 3 | 50 |
 
-Live full pipeline (P / R / F1; counts tp/fp/fn/tn):
+(Drawn with `random.Random(42)` over `ad_id`-sorted groups; the authors' original sampling code is not in the repo, so individual ads may differ
+from the paper's draw. Classification and judging were run on all 301 files; scoring uses the 253.)
 
-| | Deceptive Claims | Scareware | Misleading Design | Macro P / R / F1 |
+Live full pipeline (ensemble + judge on disagreements), P / R / F1 and counts tp/fp/fn/tn:
+
+| Gemma4 judge | Deceptive Claims | Scareware | Misleading Design | Macro P / R / F1 |
 |---|---|---|---|---|
-| deduped 253 | .978 / .900 / .938 (45/1/5/62) | 1.000 / .889 / .941 (24/0/3/66) | .400 / 1.000 / .571 (2/3/0/42) | .793 / .930 / **.817** |
-| raw 301 | .979 / .904 / .940 (47/1/5/63) | 1.000 / .917 / .957 (44/0/4/67) | .500 / 1.000 / .667 (3/3/0/64) | .826 / .940 / **.854** |
-| paper (macro F1) | | | | **.997** |
-
-Live classifiers on the deduped set: Qwen DC 1.000/.800/.889, SW 1.000/.815/.898, MD .333/1.000/.500; Gemma3 DC .917/.880/.898,
-SW 1.000/.852/.920, MD 0/0/0. Judge-only: DC 7/1/1/3 (12 cases), SW 3/0/0/0 (3), MD 2/3/0/1 (6).
-
-**With thinking on, the live run does not reproduce Table 2(c)** (macro F1 .817 deduped / .854 raw vs .997). The gaps: recall of ~.90 on DC and SW
-(paper ~1.00) and, mainly, Misleading Design precision (3 false positives against 2–3 positives). Caveats: the paper sampled
-(seed 42, ≤ 50 per folder) while this scores everything; test-set OCR was regenerated; Gemma4 thinking left on.
-
-### Table 2(c) rerun with Gemma4 thinking OFF (test set, 253 deduped ads)
-
-`detection/adlens_pipeline.py` now disables thinking for `gemma4` as well as `qwen3` (`_needs_think_disabled`). Classifier outputs are the
-same cached ones; only the judge stage was rerun (`detection/results/test_set_results_nothink/`, repeated in `..._nothink2/`).
-
-| Full pipeline (ensemble + judge on disagreements) | Deceptive Claims | Scareware | Misleading Design | Macro P / R / F1 |
-|---|---|---|---|---|
-| thinking on (above) | .978 / .900 / .938 | 1.000 / .889 / .941 | .400 / 1.000 / .571 | .793 / .930 / .817 |
-| **thinking off** | 1.000 / .900 / .947 (45/0/5/63) | 1.000 / .889 / .941 (24/0/3/66) | 1.000 / 1.000 / 1.000 (2/0/0/45) | 1.000 / .930 / **.963** |
+| thinking on | .979 / .904 / .940 (47/1/5/49) | 1.000 / .917 / .957 (44/0/4/50) | .600 / 1.000 / .750 (3/2/0/48) | .860 / .940 / **.882** |
+| **thinking off** | 1.000 / .904 / .949 (47/0/5/50) | 1.000 / .917 / .957 (44/0/4/50) | 1.000 / 1.000 / 1.000 (3/0/0/50) | 1.000 / .940 / **.969** |
 | erratum / script | 1.000 / 1.000 / 1.000 | .980 / 1.000 / .990 | 1.000 / 1.000 / 1.000 | .993 / 1.000 / **.997** |
 
-Judge only (thinking off): DC 1.000/.875/.933 (n=12), SW 1.000/1.000/1.000 (n=3), MD 1.000/1.000/1.000 (n=6). 0 `judge=ERROR`.
-The second thinking-off run produced **identical** judge labels and metrics (temperature 0, deterministic).
-The remaining gap is 5 DC and 3 SW positives where *both* classifiers said SAFE; the judge never sees them. The golden-set
-2(a)/(b) numbers above were produced with thinking **on** and were not rerun.
+Classifiers (identical in both runs): Qwen3.5:9b DC 1.000/.808/.894 (42/0/10/50), SW 1.000/.875/.933 (42/0/6/50), MD .500/1.000/.667 (3/3/0/47);
+Gemma3:12b DC .938/.865/.900 (45/3/7/47), SW 1.000/.875/.933 (42/0/6/50), MD 0/0/0 (0/0/3/50); majority-vote ensemble DC 1.000/.750/.857,
+SW 1.000/.833/.909, MD 0/0/0. Judge only, thinking off: DC 1.000/.889/.941 (n=12), SW 1.000/1.000/1.000 (n=4), MD 1.000/1.000/1.000 (n=6).
+
+Thinking: `detection/adlens_pipeline.py` now disables thinking for `gemma4` as well as `qwen3` (`_needs_think_disabled`). The thinking-off run reran only
+the judge stage (`detection/results/test_set_results_nothink/`; a second run in `..._nothink2/` gave identical judge labels, temperature 0, 0 `judge=ERROR`).
+With thinking on the judge produced 2 false positives on Misleading Design; with it off the macro F1 rises from .882 to **.969**.
+The remaining gap to .997 is 5 DC and 4 SW positives where *both* classifiers said SAFE, which the judge never sees.
+The golden-set 2(a)/(b) numbers above were produced with thinking **on** and were not rerun.
 
 ## Table 2(c) column order (DC vs Scareware)
 
-- Script counts (`scripts/f1_score_table2.py`, DC tp+fn = 50, SW tp+fn = 48) agree with the data: the `misleading` folder
-  (Deceptive Claims) has 52 positives (→ 50 sampled) and `scareware` has 48. The live run also finds 50 DC positives.
-- The paper PDF's Table 2(c) has recall steps of 1/48 in the **Deceptive Claims** column and 1/50 in the **Scareware** column,
-  i.e. the opposite sizes; its Qwen and Gemma3 rows also correspond to the script's rows exchanged. So the PDF's DC/SW columns
-  (and the two classifier rows) are transposed relative to the data; the script's order is the one that matches the folders.
-  This matches the erratum in commit `11da0cb`.
-- Not resolvable from the data: the paper's 48 / 50 positives never occur after dedup (scareware has 27); the exact sampling that
-  produced the paper's counts is unknown. The script's judge row (51 pos / 62 neg for DC) also differs from the folders (52 / 64) and
-  from the deduped set (50 / 63) by one.
+- The script's class sizes match the data: Deceptive Claims has 52 positives (50 in the script's seed-42 version) and Scareware 48.
+- The paper PDF's Table 2(c) has recall steps of 1/48 in the **Deceptive Claims** column and 1/50 in the **Scareware** column, i.e. the
+  opposite sizes, and its Qwen and Gemma3 rows correspond to the script's rows exchanged. This matches the erratum in commit `11da0cb`
+  (columns transposed); the erratum numbers in `scripts/f1_score_table2.py` are used as the reference.
+- The erratum numbers could not be reproduced from the shipped data; see the table above.
 
 ## Open
 
-- Thinking off brings live 2(c) to macro F1 .963 (erratum .997); the rest is classifier recall (both-SAFE misses). A seed-42 ≤50-per-folder
-  subsample has not been tried, and the golden set has not been rerun with thinking off.
+- Thinking off brings live 2(c) to macro F1 .969 (erratum .997); the rest is classifier recall (both-SAFE misses). The golden set has not been rerun with thinking off.
 - `requirements.lock`, Docker build (nccl fix, push `racro/adlens:gpu_v1`), merge to `master`, Zenodo — see `resume.md` steps 4–5.
 - Uncommitted changes: `scripts/eval_pipeline_results.py` (this run), plus pre-existing `crawler/creative.js`, `run_all.py`. READMEs untouched.

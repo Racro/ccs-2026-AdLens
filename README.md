@@ -130,7 +130,7 @@ python scripts/eval_pipeline_results.py          # prints Tables 2(a), 2(b) and 
 
 Full run needs the three Ollama models above (≈1,283 × 2 classifier calls + judge calls on the disagreements; a few hours on a 24 GB GPU). Use `--limit 50` for a smoke test. Classifications are cached, so an interrupted run resumes.
 
-**Table 2(c) — held-out look-forward test set (301 ads).** Images and labels ship in `datasets/golden_test_data/`; see [`datasets/README.md`](datasets/README.md#golden_test_data) for the commands.
+**Table 2(c) — held-out look-forward test set (253 ads).** Images and labels ship in `datasets/golden_test_data/`; see [`datasets/README.md`](datasets/README.md#golden_test_data) for the commands.
 
 ## End-to-End Run (single script)
 
