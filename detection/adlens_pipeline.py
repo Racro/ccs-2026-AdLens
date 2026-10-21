@@ -33,7 +33,7 @@ Evaluation mode (reproduces Table 2(a)/(b)):
   python ../scripts/eval_pipeline_results.py  # score the output
 `--eval` reads datasets/golden_main_data/metadata.json, whose records carry
 `violation_type` and `label` (tp/tn). Each violation is run only on the records
-labeled for it (449 / 400 / 434 ads), images still come from sample_data/images/.
+labeled for it (449 / 400 / 434 ads), images come from datasets/golden_main_data/images/.
 """
 
 from __future__ import annotations
@@ -175,9 +175,8 @@ def image_to_b64(path: Path) -> Optional[str]:
 
 
 def resolve_image(record: dict) -> Optional[Path]:
-    """Locate the ad image: <images-dir>/<violation_type>/<label>/<ad_id>.png
-    (golden_main_data / golden_test_data layout) or flat <images-dir>/<ad_id>.png
-    (sample_data/images)."""
+    """Locate the ad image: flat <images-dir>/<ad_id>.png (sample_data/images,
+    datasets/golden_*/images) or <images-dir>/<violation_type>/<label>/<ad_id>.png."""
     candidates = []
     if record.get("violation_type") and record.get("label"):
         candidates.append(IMAGES_DIR / record["violation_type"] / record["label"] / f"{record['ad_id']}.png")
@@ -677,6 +676,8 @@ def main() -> None:
     # ── Load metadata ──────────────────────────────────────────────────────────
     if args.images_dir:
         IMAGES_DIR = args.images_dir
+    elif args.eval:
+        IMAGES_DIR = GOLDEN_METADATA_FILE.parent / "images"
     metadata_file = args.metadata or (GOLDEN_METADATA_FILE if args.eval else METADATA_FILE)
     if not metadata_file.exists():
         log.error("Metadata not found: %s", metadata_file)

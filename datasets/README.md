@@ -6,27 +6,11 @@ Labeled ad datasets used for evaluation and as confirmed-violation examples in t
 
 ```
 datasets/
-├── golden_main_data/       # Main golden evaluation set (1,283 images)
-│   ├── scareware/
-│   │   ├── tp/             # True positives (198)
-│   │   └── tn/             # True negatives (202)
-│   ├── misleading/
-│   │   ├── tp/             # True positives (225)
-│   │   └── tn/             # True negatives (224)
-│   ├── ad_design/
-│   │   ├── tp/             # True positives (239)
-│   │   └── tn/             # True negatives (195)
+├── golden_main_data/       # Main golden evaluation set (1,283 labeled ads)
+│   ├── images/             # 1,271 PNGs, <ad_id>.png (12 ads carry two labels and share one image)
 │   └── metadata.json       # Per-ad records with OCR text, crawl metadata, and ground-truth labels
-├── golden_test_data/        # Held-out look-forward test set (253 images + metadata.json)
-│   ├── scareware/
-│   │   ├── tp/             # True positives (48)
-│   │   └── tn/             # True negatives (50)
-│   ├── misleading/
-│   │   ├── tp/             # True positives (52)
-│   │   └── tn/             # True negatives (50)
-│   └── ad_design/
-│       ├── tp/             # True positives (3)
-│       └── tn/             # True negatives (50)
+├── golden_test_data/        # Held-out look-forward test set (253 labeled ads)
+│   ├── images/             # 251 PNGs, <ad_id>.png (2 ads carry two labels and share one image)
 │   └── metadata.json       # Same schema as golden_main_data/metadata.json
 └── violations/              # Sample confirmed-violation ad images used as paper examples (600 total)
     ├── deceptive_claims/    # 200 images
@@ -36,14 +20,14 @@ datasets/
 
 ## golden_test_data
 
-Held-out set for Table 2(c): **253 ads**, a balanced sample of the look-forward crawl: up to 50 true negatives per violation type, 50 true positives for scareware and deceptive claims where available (48 scareware and 52 deceptive-claim positives exist, all kept), and all 3 misleading-design positives. Images are in `<violation>/<tp|tn>/<ad_id>.png`, with the same folder layout as `golden_main_data/`, and `metadata.json` carries `ad_id`, `violation_type`, `label`, `ocr_text` (PaddleOCR PP-OCRv5, regenerated with `ocr/process.py`) and `translated_ocr_text` (`translategemma:4b`), plus crawl fields where available. Different versions of the same creative (`-v0`, `-v1`, ...) are distinct images and count as separate ads.
+Held-out set for Table 2(c): **253 ads**, a balanced sample of the look-forward crawl: up to 50 true negatives per violation type, 50 true positives for scareware and deceptive claims where available (48 scareware and 52 deceptive-claim positives exist, all kept), and all 3 misleading-design positives. Images are in `images/<ad_id>.png` and `metadata.json` carries `ad_id`, `violation_type`, `label`, `ocr_text` (PaddleOCR PP-OCRv5, regenerated with `ocr/process.py`) and `translated_ocr_text` (`translategemma:4b`), plus crawl fields where available. Different versions of the same creative (`-v0`, `-v1`, ...) are distinct images and count as separate ads.
 
 Reproduce Table 2(c) (classifiers + judge on this set):
 
 ```bash
 python detection/adlens_pipeline.py \
     --metadata datasets/golden_test_data/metadata.json \
-    --images-dir datasets/golden_test_data \
+    --images-dir datasets/golden_test_data/images \
     --out-dir detection/results/test_set_results
 python scripts/eval_pipeline_results.py \
     --metadata datasets/golden_test_data/metadata.json \
