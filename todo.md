@@ -1,0 +1,66 @@
+# TODO — what is left on `artifact-eval-fixes` (do not merge yet)
+
+Status: code, data and docs fixes for the AEC review are on this branch. Evaluation numbers and the Docker work are in
+[`run.md`](run.md). Everything below needs a machine with docker and/or a few GPU hours. Delete `todo.md` and (optionally) `run.md`
+before the final release.
+
+## 1. Docker (needs docker, GPU host for the gpu image)
+
+The Dockerfile itself is unchanged. Its Python layers were replayed without docker (apptainer sandbox of `python:3.12`, L40S): the
+`ncclCommResume` error did not reproduce, and the import check only failed because a fresh install pulled `transformers` 5.x
+(needs torch>=2.6); `requirements.txt` now has `transformers>=4.57,<5`. The apt/Chrome/Node/Ollama layers and the CPU image are untested.
+
+```bash
+docker build --build-arg DEVICE=cpu -t adlens:cpu .
+docker build --build-arg DEVICE=gpu -t adlens:gpu .       # build fails if `import torch, ollama, sentence_transformers, paddle, paddleocr` breaks
+docker run --rm --gpus all adlens:gpu --help
+docker run --rm --gpus all --entrypoint python adlens:gpu -c "import torch; print(torch.cuda.is_available())"   # expect True
+```
+
+- If `undefined symbol: ncclCommResume` still appears: pin `nvidia-nccl-cu12` to the version torch declares (2.21.5 for torch 2.5.1), or run Ollama in
+  its own GPU container and use the CPU image for the rest.
+- The container needs an Ollama server >= 0.40 (0.21.0 cannot load gemma4): `OLLAMA_URL` defaults to `http://host.docker.internal:11434`.
+- When both images work: push `racro/adlens:gpu_v1` (and `:cpu_v1` / `:latest` if rebuilt), then check the Docker section of the README still matches.
+- `requirements.lock` is the pip freeze of the Docker GPU environment (`pip install --no-deps -r requirements.lock`); regenerate it from the
+  real image if the build differs: `docker run --rm --entrypoint pip adlens:gpu freeze`.
+
+## 2. Reproduce from a clean checkout on the other system
+
+```bash
+git fetch && git checkout artifact-eval-fixes
+ollama pull qwen3.5:9b && ollama pull gemma3:12b && ollama pull gemma4:26b      # + translategemma:4b only to re-run translation
+pip install "torch>=2.4,<2.6" --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+python detection/adlens_pipeline.py --eval --judge-model gemma4:26b                # Table 2(a)/(b), 1,283 ads, a few hours
+python scripts/eval_pipeline_results.py
+python detection/adlens_pipeline.py --metadata datasets/golden_test_data/metadata.json \
+    --images-dir datasets/golden_test_data/images --out-dir detection/results/test_set_results     # Table 2(c), 253 ads
+python scripts/eval_pipeline_results.py --metadata datasets/golden_test_data/metadata.json --results-dir detection/results/test_set_results
+```
+
+Expected (see `run.md` for the full tables): 2(a)/(b) within a few points of the paper (judge macro F1 .923 vs .922); 2(c) full pipeline macro F1 **.969**
+with Gemma4 thinking off (erratum/paper .997; .882 with thinking on).
+
+## 3. Open evaluation items
+
+- **Golden set with thinking off:** `adlens_pipeline.py` now disables thinking for `gemma4` (it only did for `qwen3`). The 2(a)/(b) numbers in `run.md`
+  were produced with thinking **on**. Rerun the judge stage of `--eval` (classifications are cached; ~3 h with thinking on, much less off) and update `run.md`.
+- **2(c) gap to .997:** the remainder is classifier recall (5 Deceptive Claims and 4 Scareware positives missed or mis-judged, 8 of them never reach the judge
+  because both classifiers said SAFE). The paper's exact 2(c) sampling code is not in the repo; the shipped 253-ad set is a seed-42 recreation (`run.md`).
+- **Table 2(c) erratum:** the paper PDF's DC/Scareware columns (and the Qwen/Gemma3 rows) are transposed relative to `scripts/f1_score_table2.py`; the
+  README/`scripts/README.md` erratum is restored. Fix the camera-ready table. Note the erratum's numbers could not be reproduced exactly from the shipped data.
+- `scripts/f1_score_table2.py` (c) still carries the erratum's hard-coded counts; they do not equal the shipped 253-ad set's class sizes
+  (DC 52/50, SW 48/50, MD 3/50). Decide whether to regenerate it from `scripts/eval_pipeline_results.py` output.
+
+## 4. Merge and release (after 1 and 2 pass)
+
+- Merge `artifact-eval-fixes` into `master` (fast-forward; `master` has nothing the branch lacks as of the last push).
+- Publish a new Zenodo version (new flat `datasets/*/images`, 253-ad test set, `requirements.lock`) and tell the reviewer.
+- Delete `todo.md` (and `run.md` if you do not want it released).
+
+## 5. Local files deliberately NOT committed (not part of the review fixes)
+
+- `crawler/creative.js`: opt-in `SCREENSHOT_FULL_PAGE=1` extra screenshot for a live-run UI.
+- `run_all.py`: refactor that batches classifier and judge calls per model (fewer Ollama model swaps).
+- `.ipynb_checkpoints/`, `Untitled*.ipynb`: scratch notebooks.
+- Decide whether to commit or discard each (the old notes also asked about a `--force-auth` change in `crawler/run.py`; it is not in the working tree now).

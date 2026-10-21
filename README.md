@@ -32,7 +32,7 @@ Supplementary figures, tables, and analyses referenced from the paper's appendix
 
 - **Python 3.12** (most stable tested version)
 - **Node.js 18+** (crawler only)
-- **Ollama** with models pulled locally (detection pipeline)
+- **Ollama** with models pulled locally (detection pipeline). Use a recent release: results here were produced with 0.40.6, and 0.21.0 cannot load `gemma4`
 - **CUDA-capable GPU** (OCR and VLM inference)
 - **Google Cloud credentials** (BigQuery queries)
 
