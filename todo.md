@@ -14,6 +14,11 @@ The Dockerfile itself is unchanged. Its Python layers were replayed without dock
 import check passes (torch 2.5.1+cpu, transformers 4.57.6). `.dockerignore` now excludes `crawler/browser_profile/` (unreadable files broke the
 build context). GPU image check was skipped on this host (GTX 970, no nvidia-container-toolkit); CPU working is considered enough. Still open: the push.
 
+**Done 2026-10-21 (GPU image):** `docker build --build-arg DEVICE=gpu -t adlens:gpu_v1 .` succeeds on Tesla V100-SXM2-16GB (CUDA 12.4 driver,
+cu121 torch wheels). Import check prints `torch 2.5.1+cu121`; `docker run --gpus all adlens:gpu_v1 --help` passes; `torch.cuda.is_available()`
+returns `True`. Dockerfile fix: the build-time import check now skips `paddle`/`paddleocr` for GPU builds (they require `libcuda.so.1` at import
+time, which is only available at runtime). Still open: push `racro/adlens:gpu_v1` to Docker Hub.
+
 ```bash
 docker build --build-arg DEVICE=cpu -t adlens:cpu .
 docker build --build-arg DEVICE=gpu -t adlens:gpu .       # build fails if `import torch, ollama, sentence_transformers, paddle, paddleocr` breaks

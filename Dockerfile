@@ -65,8 +65,10 @@ RUN if [ "$DEVICE" = "gpu" ]; then \
             --extra-index-url https://www.paddlepaddle.org.cn/packages/stable/cu123/ ; \
     fi
 
-# Fail the build (not the user's first run) if the core imports are broken.
-RUN python -c "import torch, ollama, sentence_transformers, paddle, paddleocr; print('torch', torch.__version__)"
+# Fail the build if core imports are broken. paddle/paddleocr require libcuda.so.1 at
+# import time, which is only available at runtime (--gpus all), not during docker build.
+RUN python -c "import torch, ollama, sentence_transformers; print('torch', torch.__version__)" \
+    && if [ "$DEVICE" != "gpu" ]; then python -c "import paddle, paddleocr; print('paddle ok')"; fi
 
 COPY crawler/ crawler/
 RUN cd crawler && npm ci
