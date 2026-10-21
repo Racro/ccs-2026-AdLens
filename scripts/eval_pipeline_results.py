@@ -36,6 +36,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+TEST_SET_DIR = "golden_test_data"
 DEFAULT_METADATA = ROOT / "datasets" / "golden_main_data" / "metadata.json"
 DEFAULT_RESULTS = ROOT / "detection" / "results" / "pipeline_results"
 
@@ -46,10 +47,11 @@ VIOLATIONS = {
     "misleading_design": ("Misleading Design",  "Undisclosed Advertiser"),
 }
 ALIASES = {"misleading": "deceptive_claim", "ad_design": "misleading_design"}
+# per-violation result files: the names adlens_pipeline.py writes, then the older names of stored runs
 RESULT_FILES = {
-    "deceptive_claim":   "misleading_results.json",
-    "scareware":         "scareware_results.json",
-    "misleading_design": "ad_design_results.json",
+    "deceptive_claim":   ("deceptive_claim_results.json", "misleading_results.json"),
+    "scareware":         ("scareware_results.json",),
+    "misleading_design": ("misleading_design_results.json", "ad_design_results.json"),
 }
 
 
@@ -124,8 +126,16 @@ def main() -> None:
     if not any("label" in r and "violation_type" in r for r in meta):
         sys.exit("metadata has no `violation_type`/`label` fields — use datasets/golden_main_data/metadata.json")
     truth: dict[str, dict[str, bool]] = {}      # violation -> ad_id -> is_positive
+    seen: set[tuple[str, str]] = set()
     for r in meta:
-        truth.setdefault(norm(r["violation_type"]), {})[r["ad_id"]] = (r["label"] == "tp")
+        v = norm(r["violation_type"])
+        # The look-forward test set holds several versions (-v0/-v1/...) of the same creative;
+        # Table 2(c) counts each creative once (253 ads), so keep the first version only.
+        if args.metadata.parent.name == TEST_SET_DIR:
+            if (r["crid"], v) in seen:
+                continue
+            seen.add((r["crid"], v))
+        truth.setdefault(v, {})[r["ad_id"]] = (r["label"] == "tp")
 
     cache_path = args.results_dir / "classify_cache.json"
     if not cache_path.exists():
@@ -149,8 +159,8 @@ def main() -> None:
     pipe_rows: dict[str, dict] = {}
     ens_rows: dict[str, dict] = {}
     for v, (_, pos) in VIOLATIONS.items():
-        path = args.results_dir / RESULT_FILES[v]
-        if not path.exists():
+        path = next((args.results_dir / f for f in RESULT_FILES[v] if (args.results_dir / f).exists()), None)
+        if path is None:
             continue
         jp, pp, ep = [], [], []
         for r in load(path):

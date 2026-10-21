@@ -186,7 +186,7 @@ def resolve_image(record: dict) -> Optional[Path]:
 
 
 def _needs_think_disabled(model: str) -> bool:
-    return "qwen3" in model.lower()
+    return any(m in model.lower() for m in ("qwen3", "gemma4"))
 
 
 def ollama_chat(

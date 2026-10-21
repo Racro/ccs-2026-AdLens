@@ -11,6 +11,8 @@
 ## 📄 Paper
  [AdLens: Efficient Detection of Deceptive Software Ads](https://racro.github.io/papers/adlens.pdf)
 
+> **Erratum — Table 2, section (c):** The Deceptive Claims and Scareware columns were inadvertently transposed in the submission manuscript. The corrected table with full explanation is in [`scripts/README.md`](scripts/README.md#f1_score_table2py).
+
 **Look-forward test-set performance** (full pipeline, macro-averaged over the three violation types; Table 2(c)): **precision 0.993 · recall 1.000 · F1 0.997**. Per-model, per-class breakdown: [`scripts/README.md`](scripts/README.md#f1_score_table2py).
 
 ## ⚙️ Paper Artifacts
