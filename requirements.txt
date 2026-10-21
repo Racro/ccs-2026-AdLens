@@ -1,6 +1,4 @@
-# Bounded ranges tested with Python 3.12. For a bit-for-bit environment, use
-# requirements.lock (pip freeze from the evaluated environment; install with `pip install --no-deps -r requirements.lock`).
-#
+# Bounded ranges tested with Python 3.12.
 # torch is NOT pinned to a CUDA build here: pip's default wheel may target a
 # newer CUDA than your driver supports. Install it first from the index that
 # matches your driver, e.g.

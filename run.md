@@ -22,7 +22,6 @@ Branch `artifact-eval-fixes`. Everything below was produced by the pipeline in t
      `deceptive_claim_results.json` / `misleading_design_results.json`, so tables (b) and (c) silently showed Scareware only.
      It now accepts both names.
   2. (An earlier creative-ID dedupe of the test set was dropped: versions of a creative are different images, so it removed ads that are not duplicates.)
-- `requirements.lock`: generated from the Docker GPU environment (below), not from this overlay (which has torch 2.11+cu128, outside `requirements.txt`'s `torch<2.6`). Install with `pip install --no-deps -r requirements.lock`.
 - Docker (GPU) fix, tested without docker: no docker on this node, so the Dockerfile's Python layers (`DEVICE=gpu`: torch cu121, `requirements.txt`, `ocr/requirements.txt`,
   `paddlepaddle-gpu==3.1.0` cu123, import check) were replayed in an apptainer sandbox of `python:3.12` on the L40S. Findings: (1) the `ncclCommResume` error did not
   reproduce, torch 2.5.1+cu121 sees the GPU and reports NCCL 2.21.5, Paddle passes `run_check` on the GPU, pip only warns about nvidia-* version mismatches;
@@ -47,9 +46,10 @@ classes (largest: Gemma3 scareware recall .894 vs .803), consistent with model/p
 | | Deceptive Claims | Scareware | Misleading Design | Macro F1 |
 |---|---|---|---|---|
 | live (n = 44 / 24 / 128) | .846 / 1.000 / .917 | .955 / .955 / .955 | .880 / .917 / .898 | **.923** |
+| live, thinking off (n = 44 / 24 / 128) | .750 / .955 / .840 | .955 / .955 / .955 | .870 / .906 / .888 | **.894** |
 | paper | .897 / .929 / .912 | .967 / .935 / .951 | .861 / .946 / .902 | .922 |
 
-Full pipeline on the golden set (ensemble + judge): DC .970/.871/.918, SW .990/.985/.987, MD .927/.962/.945, macro F1 **.950**.
+The first live row is Gemma4 thinking **on**, the second thinking **off** (the pipeline default now). Full pipeline on the golden set (ensemble + judge): DC .970/.871/.918, SW .990/.985/.987, MD .927/.962/.945, macro F1 **.950** (thinking off: DC .956/.867/.909, SW .990/.985/.987, MD .923/.958/.940, macro F1 **.946**).
 Paper disagreement counts were 50 / 34 / 124 (scareware lower, DC lower in the live run).
 
 ## Table 2(c) — look-forward test set (253 ads)
@@ -83,7 +83,7 @@ Thinking: `detection/adlens_pipeline.py` now disables thinking for `gemma4` as w
 the judge stage (`detection/results/test_set_results_nothink/`; a second run in `..._nothink2/` gave identical judge labels, temperature 0, 0 `judge=ERROR`).
 With thinking on the judge produced 2 false positives on Misleading Design; with it off the macro F1 rises from .882 to **.969**.
 The remaining gap to .997 is 5 DC and 4 SW positives where *both* classifiers said SAFE, which the judge never sees.
-The golden-set 2(a)/(b) numbers above were produced with thinking **on** and were not rerun.
+The golden-set 2(a)/(b) numbers above were produced with thinking **on**. The judge stage was rerun with thinking off (2026-10-21, ~20 min, same classifier cache, 0 judge errors); 2(a) is unaffected and 2(b) is in the extra row. Results: `detection/results/pipeline_results_nothink`. Thinking off lowers DC judge precision (more false positives), so the 2(b) macro F1 is .894 vs the paper's .922.
 
 ## Table 2(c) column order (DC vs Scareware)
 
@@ -137,6 +137,6 @@ image). `adlens_pipeline.py --eval` now reads its images from there. Ad IDs per 
 
 ## Open
 
-- Thinking off brings live 2(c) to macro F1 .969 (erratum .997); the rest is classifier recall (both-SAFE misses). The golden set has not been rerun with thinking off.
+- Thinking off brings live 2(c) to macro F1 .969 (erratum .997); the rest is classifier recall (both-SAFE misses).
 - Rebuild and push `racro/adlens:gpu_v1` (needs docker), merge to `master`, Zenodo.
 - Uncommitted changes: `scripts/eval_pipeline_results.py` (this run), plus pre-existing `crawler/creative.js`, `run_all.py`. READMEs untouched.

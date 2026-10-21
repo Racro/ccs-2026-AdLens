@@ -30,8 +30,6 @@ docker run --rm --gpus all --entrypoint python adlens:gpu -c "import torch; prin
   its own GPU container and use the CPU image for the rest.
 - The container needs an Ollama server >= 0.40 (0.21.0 cannot load gemma4): `OLLAMA_URL` defaults to `http://host.docker.internal:11434`.
 - When the images are verified: push `racro/adlens:gpu_v1` (and `:cpu_v1` / `:latest` if rebuilt), then check the Docker section of the README still matches.
-- `requirements.lock` is the pip freeze of the Docker GPU environment (`pip install --no-deps -r requirements.lock`); regenerate it from the
-  real image if the build differs: `docker run --rm --entrypoint pip adlens:gpu freeze`.
 
 ## 2. Reproduce from a clean checkout on the other system
 
@@ -47,13 +45,12 @@ python detection/adlens_pipeline.py --metadata datasets/golden_test_data/metadat
 python scripts/eval_pipeline_results.py --metadata datasets/golden_test_data/metadata.json --results-dir detection/results/test_set_results
 ```
 
-Expected (see `run.md` for the full tables): 2(a)/(b) within a few points of the paper (judge macro F1 .923 vs .922); 2(c) full pipeline macro F1 **.969**
+Expected (see `run.md` for the full tables): 2(a)/(b) within a few points of the paper (judge macro F1 .894 with thinking off, .923 with it on, vs .922); 2(c) full pipeline macro F1 **.969**
 with Gemma4 thinking off (erratum/paper .997; .882 with thinking on).
 
 ## 3. Open evaluation items
 
-- **Golden set with thinking off:** `adlens_pipeline.py` now disables thinking for `gemma4` (it only did for `qwen3`). The 2(a)/(b) numbers in `run.md`
-  were produced with thinking **on**. Rerun the judge stage of `--eval` (classifications are cached; ~3 h with thinking on, much less off) and update `run.md`.
+- **Golden set with thinking off:** done 2026-10-21 (`run.md`): judge macro F1 .894 (paper .922; .923 with thinking on), full pipeline .946.
 - **2(c) gap to .997:** the remainder is classifier recall (5 Deceptive Claims and 4 Scareware positives missed or mis-judged, 8 of them never reach the judge
   because both classifiers said SAFE). The paper's exact 2(c) sampling code is not in the repo; the shipped 253-ad set is a seed-42 recreation (`run.md`).
 - **Table 2(c) erratum:** the paper PDF's DC/Scareware columns (and the Qwen/Gemma3 rows) are transposed relative to `scripts/f1_score_table2.py`; the
@@ -64,7 +61,7 @@ with Gemma4 thinking off (erratum/paper .997; .882 with thinking on).
 ## 4. Merge and release (after 1 and 2 pass)
 
 - Merge `artifact-eval-fixes` into `master` (fast-forward; `master` has nothing the branch lacks as of the last push).
-- Publish a new Zenodo version (new flat `datasets/*/images`, 253-ad test set, `requirements.lock`) and tell the reviewer.
+- Publish a new Zenodo version (new flat `datasets/*/images`, 253-ad test set) and tell the reviewer.
 - Delete `todo.md` (and `run.md` if you do not want it released).
 
 ## 5. Local files deliberately NOT committed (not part of the review fixes)
