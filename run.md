@@ -22,10 +22,12 @@ Branch `artifact-eval-fixes`. Everything below was produced by the pipeline in t
      `deceptive_claim_results.json` / `misleading_design_results.json`, so tables (b) and (c) silently showed Scareware only.
      It now accepts both names.
   2. (An earlier creative-ID dedupe of the test set was dropped: versions of a creative are different images, so it removed ads that are not duplicates.)
-- `requirements.lock`: **not generated.** `pip freeze` of this env (`/tmp/claude-3639252/requirements.lock.candidate`, 259 lines) has
-  torch 2.11+cu128 and both `nvidia-nccl-cu12` and `-cu13`, which contradicts `requirements.txt` (`torch>=2.4,<2.6`, cu121). A lock
-  should come from an environment built from `requirements.txt` as the Docker image will build it.
-- Docker (resume.md step 4): **not tested** — no docker on this node (apptainer only). Needs another machine.
+- `requirements.lock`: generated from the Docker GPU environment (below), not from this overlay (which has torch 2.11+cu128, outside `requirements.txt`'s `torch<2.6`). Install with `pip install --no-deps -r requirements.lock`.
+- Docker (GPU) fix, tested without docker: no docker on this node, so the Dockerfile's Python layers (`DEVICE=gpu`: torch cu121, `requirements.txt`, `ocr/requirements.txt`,
+  `paddlepaddle-gpu==3.1.0` cu123, import check) were replayed in an apptainer sandbox of `python:3.12` on the L40S. Findings: (1) the `ncclCommResume` error did not
+  reproduce, torch 2.5.1+cu121 sees the GPU and reports NCCL 2.21.5, Paddle passes `run_check` on the GPU, pip only warns about nvidia-* version mismatches;
+  (2) the build **still failed the import check** because a fresh install pulls `transformers` 5.x, which refuses torch<2.6 — fixed by `transformers>=4.57,<5` in `requirements.txt`;
+  with it, `import torch, ollama, sentence_transformers, paddle, paddleocr` passes. Not covered: the apt/Chrome/Node/Ollama layers and the CPU image; `racro/adlens:gpu_v1` has not been rebuilt or pushed.
 
 ## Table 2(a) — ensemble classifiers, golden set (1,283 ads)
 
@@ -136,5 +138,5 @@ image). `adlens_pipeline.py --eval` now reads its images from there. Ad IDs per 
 ## Open
 
 - Thinking off brings live 2(c) to macro F1 .969 (erratum .997); the rest is classifier recall (both-SAFE misses). The golden set has not been rerun with thinking off.
-- `requirements.lock`, Docker build (nccl fix, push `racro/adlens:gpu_v1`), merge to `master`, Zenodo — see `resume.md` steps 4–5.
+- Rebuild and push `racro/adlens:gpu_v1` (needs docker), merge to `master`, Zenodo.
 - Uncommitted changes: `scripts/eval_pipeline_results.py` (this run), plus pre-existing `crawler/creative.js`, `run_all.py`. READMEs untouched.
