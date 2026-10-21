@@ -13,3 +13,4 @@ search_platform/.gradio/
 run_all_output/
 *.log
 .DS_Store
+crawler/browser_profile/

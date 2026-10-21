@@ -10,6 +10,10 @@ The Dockerfile itself is unchanged. Its Python layers were replayed without dock
 `ncclCommResume` error did not reproduce, and the import check only failed because a fresh install pulled `transformers` 5.x
 (needs torch>=2.6); `requirements.txt` now has `transformers>=4.57,<5`. The apt/Chrome/Node/Ollama layers and the CPU image are untested.
 
+**Done 2026-10-21 (CPU image):** `docker build --build-arg DEVICE=cpu -t adlens:cpu .` succeeds from the current tree; `--help` runs and the
+import check passes (torch 2.5.1+cpu, transformers 4.57.6). `.dockerignore` now excludes `crawler/browser_profile/` (unreadable files broke the
+build context). GPU image check was skipped on this host (GTX 970, no nvidia-container-toolkit); CPU working is considered enough. Still open: the push.
+
 ```bash
 docker build --build-arg DEVICE=cpu -t adlens:cpu .
 docker build --build-arg DEVICE=gpu -t adlens:gpu .       # build fails if `import torch, ollama, sentence_transformers, paddle, paddleocr` breaks
@@ -20,7 +24,7 @@ docker run --rm --gpus all --entrypoint python adlens:gpu -c "import torch; prin
 - If `undefined symbol: ncclCommResume` still appears: pin `nvidia-nccl-cu12` to the version torch declares (2.21.5 for torch 2.5.1), or run Ollama in
   its own GPU container and use the CPU image for the rest.
 - The container needs an Ollama server >= 0.40 (0.21.0 cannot load gemma4): `OLLAMA_URL` defaults to `http://host.docker.internal:11434`.
-- When both images work: push `racro/adlens:gpu_v1` (and `:cpu_v1` / `:latest` if rebuilt), then check the Docker section of the README still matches.
+- When the images are verified: push `racro/adlens:gpu_v1` (and `:cpu_v1` / `:latest` if rebuilt), then check the Docker section of the README still matches.
 - `requirements.lock` is the pip freeze of the Docker GPU environment (`pip install --no-deps -r requirements.lock`); regenerate it from the
   real image if the build differs: `docker run --rm --entrypoint pip adlens:gpu freeze`.
 
