@@ -51,6 +51,19 @@ with Gemma4 thinking off (erratum/paper .997; .882 with thinking on).
 ## 3. Open evaluation items
 
 - **Golden set with thinking off:** done 2026-10-21 (`run.md`): judge macro F1 .894 (paper .922; .923 with thinking on), full pipeline .946.
+### Results vs erratum (P / R / F1; Gemma4 judge)
+
+| Table | Run | Deceptive Claims | Scareware | Misleading Design | Macro |
+|---|---|---|---|---|---|
+| 2(b) judge, golden set | erratum | .897 / .929 / .912 | .967 / .935 / .951 | .861 / .946 / .902 | F1 .922 |
+| | thinking on | .846 / 1.000 / .917 | .955 / .955 / .955 | .880 / .917 / .898 | F1 .923 |
+| | thinking off | .750 / .955 / .840 | .955 / .955 / .955 | .870 / .906 / .888 | F1 .894 |
+| 2(c) full pipeline, test set | erratum | 1.000 / 1.000 / 1.000 | .980 / 1.000 / .990 | 1.000 / 1.000 / 1.000 | P .993 / R 1.000 / F1 .997 |
+| | thinking on | .979 / .904 / .940 | 1.000 / .917 / .957 | .600 / 1.000 / .750 | P .860 / R .940 / F1 .882 |
+| | thinking off | 1.000 / .904 / .949 | 1.000 / .917 / .957 | 1.000 / 1.000 / 1.000 | P 1.000 / R .940 / F1 .969 |
+
+2(a) (classifiers, no judge) macro F1, mine vs erratum: Qwen3.5:9b .929 vs .917, Gemma3:12b .847 vs .821 (unaffected by thinking).
+
 - **2(c) gap to .997:** the remainder is classifier recall (5 Deceptive Claims and 4 Scareware positives missed or mis-judged, 8 of them never reach the judge
   because both classifiers said SAFE). The paper's exact 2(c) sampling code is not in the repo; the shipped 253-ad set is a seed-42 recreation (`run.md`).
 - **Table 2(c) erratum:** the paper PDF's DC/Scareware columns (and the Qwen/Gemma3 rows) are transposed relative to `scripts/f1_score_table2.py`; the
