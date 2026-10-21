@@ -1,5 +1,5 @@
 # Bounded ranges tested with Python 3.12. For a bit-for-bit environment, use
-# requirements.lock (pip freeze from the evaluated environment).
+# requirements.lock (pip freeze from the evaluated environment; install with `pip install --no-deps -r requirements.lock`).
 #
 # torch is NOT pinned to a CUDA build here: pip's default wheel may target a
 # newer CUDA than your driver supports. Install it first from the index that
@@ -14,6 +14,7 @@ google-auth>=2.0,<3
 google-auth-oauthlib>=1.0,<2
 gradio>=4.0,<6
 sentence-transformers>=5.0,<6   # >=5 required for google/embeddinggemma-300m
+transformers>=4.57,<5           # transformers 5.x needs torch>=2.6, which paddlepaddle-gpu 3.1.0 / the cu121 build below do not allow
 torch>=2.4,<2.6
 Pillow>=10.0,<12
 beautifulsoup4>=4.12,<5
