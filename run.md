@@ -72,6 +72,7 @@ Live full pipeline (ensemble + judge on disagreements), P / R / F1 and counts tp
 | Gemma4 judge | Deceptive Claims | Scareware | Misleading Design | Macro P / R / F1 |
 |---|---|---|---|---|
 | thinking on | .979 / .904 / .940 (47/1/5/49) | 1.000 / .917 / .957 (44/0/4/50) | .600 / 1.000 / .750 (3/2/0/48) | .860 / .940 / **.882** |
+| thinking on, fresh rerun (2026-10-21, classifiers rerun, no cache) | 1.000 / .885 / .939 | 1.000 / .917 / .957 | 1.000 / 1.000 / 1.000 | 1.000 / .934 / **.965** |
 | **thinking off** | 1.000 / .904 / .949 (47/0/5/50) | 1.000 / .917 / .957 (44/0/4/50) | 1.000 / 1.000 / 1.000 (3/0/0/50) | 1.000 / .940 / **.969** |
 | erratum / script | 1.000 / 1.000 / 1.000 | .980 / 1.000 / .990 | 1.000 / 1.000 / 1.000 | .993 / 1.000 / **.997** |
 
@@ -81,7 +82,7 @@ SW 1.000/.833/.909, MD 0/0/0. Judge only, thinking off: DC 1.000/.889/.941 (n=12
 
 Thinking: `detection/adlens_pipeline.py` now disables thinking for `gemma4` as well as `qwen3` (`_needs_think_disabled`). The thinking-off run reran only
 the judge stage (`detection/results/test_set_results_nothink/`; a second run in `..._nothink2/` gave identical judge labels, temperature 0, 0 `judge=ERROR`).
-With thinking on the judge produced 2 false positives on Misleading Design; with it off the macro F1 rises from .882 to **.969**.
+With thinking on the judge produced 2 false positives on Misleading Design in the first run, but not in a fresh rerun with all classifiers rerun (macro F1 .965, `detection/results/test_set_results_think2`), so the thinking-on/off difference on this set is within run-to-run variation; with it off the macro F1 rises from .882 to **.969**.
 The remaining gap to .997 is 5 DC and 4 SW positives where *both* classifiers said SAFE, which the judge never sees.
 The golden-set 2(a)/(b) numbers above were produced with thinking **on**. The judge stage was rerun with thinking off (2026-10-21, ~20 min, same classifier cache, 0 judge errors); 2(a) is unaffected and 2(b) is in the extra row. Results: `detection/results/pipeline_results_nothink`. Thinking off lowers DC judge precision (more false positives), so the 2(b) macro F1 is .894 vs the paper's .922.
 
