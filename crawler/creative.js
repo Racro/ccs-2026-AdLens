@@ -73,6 +73,20 @@ async function getBrowserPage(browser) {
 
 // TODO: This function is doing a lot. We should break it down into smaller functions.
 async function takeScreenshots(page, info) {
+    // Opt-in, used only by the Live Run web UI (pipeline-runner) for its live
+    // progress viewer -- an EXTRA whole-page shot alongside the normal
+    // per-element crops below, saved under a distinct name (`_live.png`) so
+    // it never gets mixed into the OCR/results pipeline. Off by default --
+    // CLI/paper runs don't pay for the extra screenshot at all.
+    if (process.env.SCREENSHOT_FULL_PAGE === '1') {
+        try {
+            const livePath = path.join(screenshotDir, `${info.creativeID}_live.png`);
+            await page.screenshot({ path: livePath, fullPage: false });
+        } catch (e) {
+            console.log(`   ⚠️ Could not capture live-view screenshot: ${e.message}`);
+        }
+    }
+
     try {
         // TODO: make this a function
         const containerEl = await page.$('.creative-container');
