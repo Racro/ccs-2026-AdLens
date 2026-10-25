@@ -27,7 +27,7 @@ Outputs three sections:
 |---|---|
 | (a) Ensemble Classifiers | Golden set (1283 items), per-model results |
 | (b) Judge Models | Golden set, disagreement cases only |
-| (c) Golden Test Dataset | Held-out test set (seed-42, max 50/folder) |
+| (c) Golden Test Dataset | Held-out test set (253 ads, ≈50 per class) |
 
 > **Erratum — Table 2, section (c):** In the submission manuscript, the per-class scores for **Deceptive Claims** and **Scareware** in section (c) (Golden Test Dataset) were inadvertently transposed when copying results from the script output into the paper. The values in `f1_score_table2.py` are correct. This will be corrected in the final version. This error affects only the column-level P/R/F1 breakdown for those two classes in the temporal-robustness evaluation; the **Macro F1 scores are unaffected** because they are the unweighted average of all three F1 values, which remains the same regardless of column order. Importantly, the transposition does not alter the core finding: performance does not degrade on the held-out test set but in fact improves relative to the golden set evaluation, confirming the temporal robustness of the pipeline.
 

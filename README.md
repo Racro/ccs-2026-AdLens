@@ -132,6 +132,37 @@ Full run needs the three Ollama models above (≈1,283 × 2 classifier calls + j
 
 **Table 2(c) — held-out look-forward test set (253 ads).** Images and labels ship in `datasets/golden_test_data/`; see [`datasets/README.md`](datasets/README.md#golden_test_data) for the commands.
 
+#### Tested setup
+
+Ollama 0.40.6 (0.21.0 cannot load `gemma4`), default Q4_K_M builds, temperature 0, thinking disabled for `qwen3` and `gemma4` (pipeline default). Digests from `ollama show`:
+
+| Model | Role | Params / quant | Digest |
+|---|---|---|---|
+| `qwen3.5:9b` | classifier | 9.7B, Q4_K_M | `6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7` |
+| `gemma3:12b` | classifier | 12.2B, Q4_K_M | `f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a` |
+| `gemma4:26b` | judge | 25.2B, Q4_K_M | `08ae7ec1744bd7f451c4a530afb39d2673ad9d07a8369b8a33a3613b41212a68` |
+| `translategemma:4b` | translation | 4.3B, Q4_K_M | `c49d986b0764f5881c476eb21435bb62b7abc62347aab3d4a6071e811be510a1` |
+
+Runtime on one NVIDIA L40S: golden set ≈ 5.5 h end to end, test set ≈ 1 h.
+
+#### Expected results
+
+A fresh run with the commands above, against the paper's Table 2 (with the [Table 2(c) erratum](scripts/README.md#f1_score_table2py) applied). P / R / F1; DC = Deceptive Claims, SW = Scareware, MD = Misleading Design.
+
+| Table | Run | DC | SW | MD | Macro F1 |
+|---|---|---|---|---|---|
+| 2(a) Qwen3.5:9b, golden set | paper | .973 / .787 / .870 | .989 / .949 / .969 | .859 / .970 / .911 | .917 |
+| | rerun | .973 / .800 / .878 | .995 / .975 / .985 | .862 / .996 / .924 | .929 |
+| 2(a) Gemma3:12b, golden set | paper | .873 / .822 / .847 | .994 / .803 / .888 | .966 / .586 / .729 | .821 |
+| | rerun | .900 / .844 / .872 | .983 / .894 / .937 | .959 / .594 / .734 | .847 |
+| 2(b) Gemma4:26b judge, golden-set disagreements | paper | .897 / .929 / .912 | .967 / .935 / .951 | .861 / .946 / .902 | .922 |
+| | rerun | .750 / .955 / .840 | .955 / .955 / .955 | .870 / .906 / .888 | .894 |
+| Full pipeline, golden set | rerun | .956 / .867 / .909 | .990 / .985 / .987 | .923 / .958 / .940 | .946 |
+| 2(c) Full pipeline, test set | paper (erratum) | 1.000 / 1.000 / 1.000 | .980 / 1.000 / .990 | 1.000 / 1.000 / 1.000 | .997 (P .993, R 1.000) |
+| | rerun | 1.000 / .904 / .949 | 1.000 / .917 / .957 | 1.000 / 1.000 / 1.000 | .969 (P 1.000, R .940) |
+
+Expect small differences from these numbers: LLM outputs vary with the Ollama version, model build, quantization and GPU, even at temperature 0, and independent runs on identical data can differ by a few cases. The test set is small (MD has 3 positives), so a single case moves a per-class score noticeably. On 2(c) the remaining gap is recall: positives that both classifiers label SAFE never reach the judge.
+
 ## End-to-End Run (single script)
 
 `run_all.py` chains all four stages into a single command and produces a consolidated JSON. Works on a CSV of ads or a single image.
@@ -240,6 +271,7 @@ The image is amd64-only (Chrome has no arm64 build); on Apple Silicon / arm64 ho
 │   └── plots/                # Paper figure scripts (bar chart, precision bins, dedup)
 ├── search_platform/  # Gradio semantic search UI
 ├── sql_queries/      # BigQuery SQL queries and Python client
+├── tests/            # Regression tests (python -m unittest discover tests)
 ├── utils/            # Shared Python utilities
 └── datasets/         # Golden evaluation sets and confirmed-violation examples
 ```

@@ -34,7 +34,7 @@ python scripts/eval_pipeline_results.py \
     --results-dir detection/results/test_set_results
 ```
 
-The shipped set is already the balanced sample (seed 42, at most 50 per violation type and label, all misleading-design positives), so the command above runs and scores all 253 ads.
+The shipped set is the 253-ad test set behind Table 2(c), approximately 50 ads per violation type and label (deceptive claims 52 / 50, scareware 48 / 50, misleading design 3 / 50 positives / negatives), so the command above runs and scores all 253 ads.
 
 ## metadata.json Schema
 

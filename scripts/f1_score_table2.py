@@ -8,7 +8,7 @@ No file I/O or external dependencies beyond the standard library.
 Sections:
   (a) Ensemble Classifiers  — golden set, 1283 items (all items evaluated)
   (b) Judge Models          — golden set, disagreement cases only
-  (c) Golden Test Dataset   — held-out test set (seed-42 sample, max 50/folder)
+  (c) Golden Test Dataset   — held-out test set (253 ads, ~50 per class)
 """
 
 # ── Data builder ───────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ DISAGREEMENTS = {
 }
 
 # ══════════════════════════════════════════════════════════════════════════════
-# (c)  GOLDEN TEST SET — classifiers + standalone judge (seed=42, max 50/folder)
+# (c)  GOLDEN TEST SET — classifiers + standalone judge (253 ads, ~50 per class)
 #
 #      misleading : 50 tp sampled + 50 tn sampled = 100 items (classifiers)
 #                   51 tp + 62 tn = 113 items (judge, full test set)
