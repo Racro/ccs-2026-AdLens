@@ -14,6 +14,14 @@ Branch `artifact-eval-fixes`. Everything below was produced by the pipeline in t
   (`unknown model architecture: 'gemma4'`, HTTP 500 on every judge call, which the pipeline cached as `judge=ERROR`).
   README/requirements should say a recent Ollama is required.
 - Models: `qwen3.5:9b`, `gemma3:12b` (classifiers), `gemma4:26b` (judge), all default Q4 builds pulled 2026-09-29.
+- Models (`ollama show` / `ollama list` on 0.40.6; digest = full sha256 of the model manifest, same for every run in this file):
+
+  | Model | Role | Architecture / params / quant | Digest |
+  |---|---|---|---|
+  | `qwen3.5:9b` | classifier | qwen35, 9.7B, Q4_K_M | `6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7` |
+  | `gemma3:12b` | classifier | gemma3, 12.2B, Q4_K_M | `f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a` |
+  | `gemma4:26b` | judge | gemma4, 25.2B, Q4_K_M | `08ae7ec1744bd7f451c4a530afb39d2673ad9d07a8369b8a33a3613b41212a68` |
+  | `translategemma:4b` | translation | gemma3, 4.3B, Q4_K_M | `c49d986b0764f5881c476eb21435bb62b7abc62347aab3d4a6071e811be510a1` |
 - Thinking: the golden-set run and the first test-set run had **Gemma4 thinking on** (Ollama default; the pipeline only disabled it for `qwen3`). The pipeline now disables it for `gemma4` too; see the thinking-off rerun below.
 - Judge latency: 30–60 s per call (reasoning trace), ~220 golden-set cases ≈ 3 h. The paper reports ~1–2 s. Not changed, to keep the run faithful.
 - Runtime: golden set (1,283 ads) ≈ 5.5 h end to end; test set (301 images, scored on the 253-ad sample) ≈ 1 h. 0 `judge=ERROR` in either run.
