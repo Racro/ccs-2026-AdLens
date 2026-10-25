@@ -393,6 +393,14 @@ VALID_LABELS = {
     "deceptive_claim": {"MISLEADING", "SAFE"},
 }
 
+# Positive label each classifier prompt emits per violation. The CLI name
+# `deceptive_claim` differs from the prompt's MISLEADING label, so do not
+# derive it from violation.upper().
+POSITIVE_LABELS = {
+    "scareware":       "SCAREWARE",
+    "deceptive_claim": "MISLEADING",
+}
+
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
@@ -1618,7 +1626,7 @@ def classify_and_report_bins(
 
     Precision for each bin = (ads labelled as the violation) / (ads classified).
     """
-    positive_label = violation.upper()   # "SCAREWARE" or "MISLEADING"
+    positive_label = POSITIVE_LABELS[violation]
     top = ranked[start_rank - 1:total]
 
     log.info(f"\n{'='*70}")
@@ -1698,7 +1706,7 @@ def classify_top_n_ensemble(
       ensemble_votes   : {"SCAREWARE": N, "SAFE": N, ...} vote counts
       per_model        : {model_tag: {"label": ..., "reason": ...}}
     """
-    positive_label = violation.upper()
+    positive_label = POSITIVE_LABELS[violation]
     candidates = ranked[:n]
 
     # per_ad[ad_id] → {model_tag: result_dict}
@@ -1773,7 +1781,7 @@ def classify_and_report_bins_ensemble(
     Ensemble version of classify_and_report_bins.
     Processes in chunks of bin_size; saves per-bin ensemble JSON + precision summary.
     """
-    positive_label = violation.upper()
+    positive_label = POSITIVE_LABELS[violation]
     top = ranked[start_rank - 1:total]
 
     log.info(f"\n{'='*70}")

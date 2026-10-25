@@ -113,7 +113,7 @@ def _pick_model_files(input_dir: Path, violation: str, model_key: str) -> list[P
 
 def build_ensemble_collated(input_dir: Path, violation: str) -> Path:
     """Build ensemble collated file from individual qwen + gemma classified files."""
-    viol_label = violation.upper()
+    viol_label = POSITIVE_LABELS[violation]
 
     qwen_files  = _pick_model_files(input_dir, violation, "qwen35_9b")
     gemma_files = _pick_model_files(input_dir, violation, "gemma_3_12b_it")
@@ -317,12 +317,20 @@ SYSTEM_PROMPTS = {
     "misleading_design": SYSTEM_PROMPT_AD_DESIGN,
 }
 
+# Positive label the classifiers emit per violation (not violation.upper():
+# `deceptive_claim` classifiers answer MISLEADING).
+POSITIVE_LABELS = {
+    "scareware":         "SCAREWARE",
+    "deceptive_claim":   "MISLEADING",
+    "misleading_design": "Undisclosed Advertiser",
+}
+
 
 def build_user_prompt(record: dict, violation: str) -> str:
     per_model = record.get("per_model", {})
     qwen  = per_model.get(QWEN_KEY, {})
     gemma = per_model.get(GEMMA_KEY, {})
-    violation_label = violation.upper()
+    violation_label = POSITIVE_LABELS[violation]
 
     return (
         f"### Ad Text\n"

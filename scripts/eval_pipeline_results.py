@@ -8,7 +8,7 @@ Run the pipeline in evaluation mode first, then score it:
     python detection/adlens_pipeline.py --eval
     python scripts/eval_pipeline_results.py
 
-    # Table 2(c): held-out look-forward test set (see datasets/golden_test_data/README.md)
+    # Table 2(c): held-out look-forward test set (see datasets/README.md)
     python detection/adlens_pipeline.py \\
         --metadata datasets/golden_test_data/metadata.json \\
         --images-dir datasets/golden_test_data/images \\

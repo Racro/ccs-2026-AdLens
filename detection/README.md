@@ -61,6 +61,9 @@ python ../scripts/eval_pipeline_results.py
 # Other metadata / image locations (images may be flat or <violation_type>/<label>/<ad_id>.png)
 python adlens_pipeline.py --metadata path/to/metadata.json --images-dir path/to/images
 
+# Regression test for the label mapping (no models needed; run from the repo root)
+# python -m unittest discover tests
+
 # Custom Ollama URL or judge model
 python adlens_pipeline.py --ollama-url http://localhost:11434 --judge-model qwen3.5:27b
 ```

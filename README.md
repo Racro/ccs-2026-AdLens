@@ -121,7 +121,7 @@ python detection/adlens_pipeline.py --violations scareware --limit 50
 
 Table 2 can be recomputed from pipeline output (not just from the hard-coded counts in `scripts/f1_score_table2.py`).
 
-**Table 2(a)/(b) — golden set (1,283 labeled ads).** `--eval` reads `datasets/golden_main_data/metadata.json` (records carry `violation_type` and `label` = `tp`/`tn`) and runs each violation only on the ads labeled for it (449 deceptive-claim / 400 scareware / 434 misleading-design). Images come from `sample_data/images/`.
+**Table 2(a)/(b) — golden set (1,283 labeled ads).** `--eval` reads `datasets/golden_main_data/metadata.json` (records carry `violation_type` and `label` = `tp`/`tn`) and runs each violation only on the ads labeled for it (449 deceptive-claim / 400 scareware / 434 misleading-design). Images come from `datasets/golden_main_data/images/`.
 
 ```bash
 python detection/adlens_pipeline.py --eval
