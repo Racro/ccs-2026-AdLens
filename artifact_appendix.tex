@@ -1,0 +1,117 @@
+\documentclass[sigconf,nonacm]{acmart}
+\settopmatter{printfolios=true}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}
+
+\begin{document}
+\title{Artifact Appendix: AdLens: Efficient Detection of Deceptive Software Ads}
+\author{Ritik Roongta, Marwan Adnan Darwish, Masoud Poorghaffar Aghdam, Rachel Greenstadt, Gunes Acar}
+\maketitle
+
+\section{Artifact Appendix}
+
+\subsection{Abstract}
+AdLens detects deceptive software ads (scareware, deceptive claims, misleading ad design) with a pipeline of
+OCR (PaddleOCR), translation (\texttt{translategemma:4b}), semantic-similarity ranking, a two-model VLM/LLM
+classifier ensemble (\texttt{qwen3.5:9b}, \texttt{gemma3:12b}), and a judge (\texttt{gemma4:26b}) for
+classifier disagreements. The artifact contains the crawler, OCR, translation, ranking and detection code,
+the SQL used for the measurements, the labeled golden datasets, a sample dataset, the semantic search tool,
+Docker images, and scripts that recompute Table~2 from freshly produced pipeline output.
+
+\subsection{Artifact check-list (meta-information)}
+{\small
+\begin{itemize}
+  \item \textbf{Algorithm:} OCR $\rightarrow$ translation $\rightarrow$ embedding-based ranking $\rightarrow$ two-model classification $\rightarrow$ judge on disagreement.
+  \item \textbf{Data set:} Labeled golden set (1{,}283 annotations, 1{,}271 images) and held-out test set (253 annotations, 251 images), both in \texttt{datasets/}; unlabeled sample in \texttt{sample\_data/}.
+  \item \textbf{Run-time environment:} Linux, Python 3.12, Docker (CPU and GPU images) or a local virtualenv; Ollama \textbf{0.40.6}.
+  \item \textbf{Hardware:} GPU with $\geq$24\,GB VRAM recommended for \texttt{gemma4:26b} (we used an NVIDIA L40S).
+  \item \textbf{Metrics:} Per-class precision, recall, F1 and macro F1.
+  \item \textbf{Output:} JSON results under \texttt{detection/results/}; Table~2 printed by \texttt{scripts/eval\_pipeline\_results.py}.
+  \item \textbf{Experiments:} Table~2(a), 2(b), 2(c).
+  \item \textbf{How much disk space is required?:} $\sim$40\,GB for the four model builds plus images.
+  \item \textbf{How much time is needed to prepare the workflow?:} $\sim$1 hour (mostly model downloads).
+  \item \textbf{How much time is needed to complete experiments?:} Held-out set $\sim$1\,h; full golden set $\sim$5.5\,h on one L40S.
+  \item \textbf{Publicly available?:} Yes. Zenodo: \todo{DOI}; GitHub: \url{https://github.com/Racro/ccs-2026-AdLens}.
+  \item \textbf{Code licenses:} \todo{see LICENSE in repository}.
+\end{itemize}}
+
+\subsection{Description}
+
+\subsubsection{How to access}
+Zenodo archive \todo{DOI} (permanent) and \url{https://github.com/Racro/ccs-2026-AdLens} (branch \texttt{artifact-eval-fixes} corresponds to the archived version). Docker images: \texttt{racro/adlens} (CPU and GPU tags, see \texttt{README.md}).
+
+\subsubsection{Hardware dependencies}
+CPU-only execution works for OCR and tiny samples but is impractically slow for the 26B judge. A single
+24--48\,GB GPU is sufficient for all experiments; models are run sequentially through Ollama.
+
+\subsubsection{Software dependencies}
+Python 3.12, \texttt{requirements.txt} and \texttt{ocr/requirements.txt}, PaddlePaddle/PaddleOCR 3.x, and
+\textbf{Ollama 0.40.6}. Older Ollama builds (e.g.\ 0.21) cannot load \texttt{gemma4}.
+
+\subsubsection{Data sets}
+\texttt{datasets/golden\_main\_data} (Table~2(a)/(b)) and \texttt{datasets/golden\_test\_data} (Table~2(c)),
+each with \texttt{metadata.json} (violation type, \texttt{tp}/\texttt{tn} label, OCR text) and the ad images.
+Twelve (resp.\ two) ads carry two labels and share one image file. Four held-out images also appear in the
+main set; excluding them changes held-out macro F1 by $<$0.001 (0.9687 vs.\ 0.9683).
+The 188{,}834-creative crawl itself is not redistributed in the public archive (Section~\ref{sec:limits}).
+
+\subsubsection{Models}
+Model tags on the Ollama registry are mutable and results depend on the exact build \emph{and} runtime.
+The recorded builds are listed with manifest SHA-256 digests in \texttt{run.md}. They can be restored with a
+single command (Section~\ref{sec:setup}).
+
+\subsection{Installation}\label{sec:setup}
+\begin{enumerate}
+  \item Clone the repository (or unpack the Zenodo archive) and either pull the Docker image or create a virtualenv
+        (\texttt{pip install -r requirements.txt -r ocr/requirements.txt}).
+  \item Install Ollama \textbf{0.40.6}, start \texttt{ollama serve} with \texttt{OLLAMA\_MODELS} pointing to an empty directory.
+  \item Restore the recorded model builds (downloads the layer blobs by SHA-256, verifies them and installs the recorded manifests):
+\begin{verbatim}
+export OLLAMA_MODELS=$HOME/ollama_models
+python scripts/restore_ollama_models.py
+ollama list
+\end{verbatim}
+        Do \emph{not} use \texttt{ollama pull} for reproduction: it fetches the current tag, which has changed since our runs.
+\end{enumerate}
+
+\subsection{Experiment workflow}
+The held-out and golden evaluations run the full pipeline with \texttt{--eval}, which restricts each
+violation type to the ads labeled for it, and then score the output.
+See the ``Reproducing Table~2'' section of \texttt{README.md} for the exact commands and flags.
+
+\subsection{Evaluation and expected results}
+\begin{itemize}
+  \item \textbf{E1 -- Table~2(a), classifiers (golden set).} Macro F1: Qwen3.5:9b 0.929, Gemma3:12b 0.847.
+  \item \textbf{E2 -- Table~2(b), judge and full cascade (golden set).} Judge macro F1 0.894 and full-cascade macro F1 0.946 (DC 0.909, SW 0.987, MD 0.940).
+  \item \textbf{E3 -- Table~2(c), held-out set (253 ads).} Full-cascade macro F1 0.969 (DC 0.949, SW 0.957, MD 1.000; precision 1.000 in every class).
+\end{itemize}
+Run-to-run variation from sampling is visible: repeated held-out runs gave macro F1 between 0.965 and 0.969,
+and judge outputs vary slightly between runs (e.g.\ 127 vs.\ 128 judged cases).
+Remaining error is dominated by classifier recall: positives that both classifiers label safe never reach the judge.
+Disabling the thinking trace for \texttt{gemma4} (the default in the released code) and enabling it changed the golden
+full-cascade macro F1 only from 0.950 to 0.946.
+
+\paragraph{Erratum.}
+The submitted Table~2(c) had the Deceptive-Claims and Scareware columns transposed and was computed from
+hard-coded counts; the corrected values are in the repository (\texttt{README.md}, \texttt{scripts/README.md}) and will
+be fixed in the camera-ready version. All numbers above come from fresh end-to-end runs.
+
+\subsection{Notes and limitations}\label{sec:limits}
+\begin{itemize}
+  \item \textbf{Large-scale measurements (Figures~3--5, Section~5).} These are computed over the full 188{,}834-creative crawl
+        and the ranked corpus derived from it. The public archive includes the code, the SQL queries and their
+        ID-list cardinalities, but not all ad images. \todo{Describe the separate frozen-input archive (ranking IDs/scores, per-model and final labels with exclusion flags, deduplication selections, date/join metadata, command mapping) and how to obtain it.}
+  \item \textbf{Latency.} On our hardware the judge takes 30--60\,s per call with the Ollama default (thinking on); the paper's latency figures (Appendix~B) were measured separately and are not recomputed by the Table~2 workflow.
+  \item \textbf{Configuration sensitivity.} Pulling current tags or using a newer Ollama can materially change held-out results; use the restore script.
+  \item \textbf{Dataset overlap.} Four held-out images are pixel-identical to main-set images (see above); they were left in the released set and the effect is reported.
+\end{itemize}
+
+\subsection{Methodology}
+Submission, reviewing and badging methodology:
+\begin{itemize}
+  \item \url{https://www.acm.org/publications/policies/artifact-review-and-badging-current}
+  \item \url{https://sysartifacts.github.io/evaluator-guide.html}
+\end{itemize}
+
+\end{document}
