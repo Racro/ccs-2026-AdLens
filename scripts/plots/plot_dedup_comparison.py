@@ -6,7 +6,7 @@ import matplotlib.ticker as mticker
 FONT_SIZE = 12
 plt.rcParams.update({"font.size": FONT_SIZE})
 
-BASE = "./results/gemma_judge"  # path to directory containing violation JSON files
+BASE = "./result_adlens/gemma_judge"  # path to directory containing violation JSON files
 
 # pool sizes: (original pool, dedup pool)
 POOLS = {
