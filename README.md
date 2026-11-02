@@ -97,11 +97,17 @@ Classify ads with a two-model ensemble (qwen3.5:9b + gemma3:12b) and resolve dis
 
 **Input:** `sample_data/metadata.json` — unlabeled ad records with `ad_id`, `ocr_text` (and `translated_ocr_text` if Step 3 was run); every violation type is run on every record. Images are resolved as `sample_data/images/<ad_id>.png`. For the *labeled* golden set used in the paper's evaluation, add `--eval` (see [Reproducing Table 2](#reproducing-table-2)).
 
-```bash
-ollama pull qwen3.5:9b
-ollama pull gemma3:12b
-ollama pull gemma4:26b
+**Model builds matter.** Ollama tags are mutable: `ollama pull qwen3.5:9b` today can fetch a different build than the one behind the paper numbers, and a newer Ollama runtime can also change results (a reviewer saw materially different held-out scores this way). Use **Ollama 0.40.6** and restore the recorded builds (manifest sha256 in [`run.md`](run.md)) instead of pulling tags:
 
+```bash
+export OLLAMA_MODELS=$HOME/ollama_models        # any empty directory; start `ollama serve` with the same value
+python scripts/restore_ollama_models.py         # qwen3.5:9b, gemma3:12b, gemma4:26b, translategemma:4b
+ollama list                                     # models appear under their usual tags
+```
+
+It downloads the exact layer blobs by sha256 from registry.ollama.ai, verifies them, and installs the manifests in [`model_manifests/`](model_manifests/). (`ollama pull` is fine for a quick demo, but not for reproducing the tables.)
+
+```bash
 python detection/adlens_pipeline.py
 # Output: detection/results/pipeline_results/
 #   scareware_results.json
